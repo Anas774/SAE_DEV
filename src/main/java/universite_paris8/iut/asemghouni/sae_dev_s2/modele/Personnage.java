@@ -17,6 +17,7 @@ public class Personnage {
 //    private ArrayList<Item> inventaire;
     private IntegerProperty x;
     private IntegerProperty y;
+    private int vitesse;
 
 //    public static int compteur = 0;
     private int id;
@@ -34,6 +35,7 @@ public class Personnage {
 //        this.dx = dx;
 //        this.dy = dy;
         this.id = 0;
+        this.vitesse = 10;
 //        compteur++;
 //        this.envi = envi;
     }
@@ -90,8 +92,11 @@ public class Personnage {
         return id;
     }
 
+    public int getVitesse() {
+        return vitesse;
+    }
 
-//    public void ajouterItem(Item item) {
+    //    public void ajouterItem(Item item) {
 //        this.inventaire.add(item);
 //    }
 

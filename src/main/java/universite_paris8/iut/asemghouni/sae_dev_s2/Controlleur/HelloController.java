@@ -31,7 +31,7 @@ public class HelloController implements Initializable {
         this.personnage = new Personnage();
         this.vueMap = new VueMap(affichageTilePane, map);
         this.vueJoueur = new VueJoueur(affichagePane, personnage);
-        Clavier x = new Clavier(personnage);
+        Clavier x = new Clavier(personnage, affichagePane);
 //        affichagePane.requestFocus();
         affichagePane.addEventHandler(KeyEvent.KEY_PRESSED, x);
     }

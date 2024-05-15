@@ -9,7 +9,6 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage;
 
 public class VueJoueur {
 
-
     public VueJoueur(Pane pane, Personnage personnage) {
         creeSprite(pane, personnage);
     }
@@ -18,7 +17,7 @@ public class VueJoueur {
         Circle circle = new Circle(10);
         circle.setFill(Color.BLACK);
         circle.setId("#" + personnage.getId());
-        Clavier x = new Clavier(personnage);
+        Clavier x = new Clavier(personnage, pane);
         pane.addEventFilter(KeyEvent.KEY_PRESSED, x);
         circle.translateXProperty().bind(personnage.getXProperty());
         circle.translateYProperty().bind(personnage.getYProperty());
