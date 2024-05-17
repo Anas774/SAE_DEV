@@ -30,8 +30,8 @@ public class Personnage {
 //        this.PointDefense = PointDefense;
 //        this.arme = arme;
 //        this.inventaire = new ArrayList<>();
-        this.x = new SimpleIntegerProperty(440);
-        this.y = new SimpleIntegerProperty(180);
+        this.x = new SimpleIntegerProperty(20);
+        this.y = new SimpleIntegerProperty(20);
 //        this.dx = dx;
 //        this.dy = dy;
         this.id = 0;
