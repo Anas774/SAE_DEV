@@ -51,12 +51,12 @@ public class Clavier implements EventHandler<KeyEvent> {
 
         if (!map.estMur(coordX,coordY)) {
 
-            if (newX >= 20 && newX < 370) {
+            if (newX >= 0 && newX < 360) {                     // Valeur d'avant (avec Circle) : newX = 20   newY = 370
                 personnage.setX(newX);
             } else {
                 System.out.println("Vous avez atteint la limite du terrain");
             }
-            if (newY >= 20 && newY < 370) {
+            if (newY >= 0 && newY < 360) {
                 personnage.setY(newY);
             } else {
                 System.out.println("Vous avez atteint la limite du terrain");

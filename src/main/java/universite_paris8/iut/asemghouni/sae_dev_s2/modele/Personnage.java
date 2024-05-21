@@ -21,7 +21,7 @@ public class Personnage {
 
 //    public static int compteur = 0;
     private int id;
-//    protected Environnement envi;
+    private Environnement envi;
 
     public Personnage() {
 //        this.nom = nom;
@@ -35,7 +35,7 @@ public class Personnage {
 //        this.dx = dx;
 //        this.dy = dy;
         this.id = 0;
-        this.vitesse = 10;
+        this.vitesse = 5;
 //        compteur++;
 //        this.envi = envi;
     }
@@ -94,6 +94,10 @@ public class Personnage {
 
     public int getVitesse() {
         return vitesse;
+    }
+
+    public Environnement getEnvi() {
+        return this.envi;
     }
 
     //    public void ajouterItem(Item item) {
