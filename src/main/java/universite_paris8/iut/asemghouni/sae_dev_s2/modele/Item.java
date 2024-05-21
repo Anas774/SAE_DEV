@@ -7,9 +7,13 @@ public class Item {
         this.nom = nom;
     }
 
-//    public void utiliser() {
-//        TODO
-//    }
+    public void utiliser(Item item){
+        System.out.println("Utilisation de l'item " + this.nom);
+        //faire un for pour que l'item choisie se retire de liventaire
+    }
 
-
+    @Override
+    public String toString() {
+        return "";
+    }
 }

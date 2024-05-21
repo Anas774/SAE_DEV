@@ -2,7 +2,13 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.modele;
 
 public class ArcDemoniaque extends Arme {
 
-    public ArcDemoniaque(String nom, int PointAttaque) {
-        super("ArcDemoniaque", 5);
+    public ArcDemoniaque() {
+        super("ArcDemoniaque", 10);
+    }//+5 de dégâts qu'un arc classique
+
+    @Override
+    public String toString() {
+        return "Arme" +super.toString() + "point d'attaque : " + getPointsAttaqueArme();
     }
+
 }

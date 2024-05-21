@@ -5,4 +5,9 @@ public class Arc extends Arme {
     public Arc() {
         super("Arc", 5);
     }
+
+    @Override
+    public String toString() {
+        return "Arme" +super.toString() + "point d'attaque : " + getPointsAttaqueArme();
+    }
 }
