@@ -1,30 +1,38 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.Vue;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
 
 public class VueMap {
+    private static final int TAILLE_TUILE = 38; // Taille en pixels de chaque tuile
+
     public VueMap(TilePane tilePane, Map mapJeu) {
         creerMap(tilePane, mapJeu);
     }
 
-    private void creerMap(TilePane tilePane, Map mapJeu) {
-        double tileHauteur = tilePane.getPrefTileHeight();
-        double tileLargeur = tilePane.getPrefTileWidth();
+    public void creerMap(TilePane tilePane, Map mapJeu) {
+
+        Image herbe = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/image/herbe.png").toString());
+        Image terre = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/image/terre.png").toString());
+        Image eau = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/image/eau.png").toString());
 
         for (int i = 0; i < mapJeu.getMapJeu().length; i++) {
-            Rectangle rectangle = new Rectangle(tileLargeur, tileHauteur);
+
+            ImageView vue = new ImageView();
+            vue.setFitWidth(TAILLE_TUILE);
+            vue.setFitHeight(TAILLE_TUILE);
+
             if (mapJeu.getMapJeu()[i] == 1) {
-                rectangle.setFill(Color.GREEN);
+                vue.setImage(herbe);
             } else if (mapJeu.getMapJeu()[i] == 5) {
-                rectangle.setFill(Color.BLUE);
+                vue.setImage(eau);
+            } else {
+                vue.setImage(terre);
             }
-            else {
-                rectangle.setFill(Color.RED);
-            }
-            tilePane.getChildren().add(rectangle);
+
+            tilePane.getChildren().add(vue);
         }
     }
 }
