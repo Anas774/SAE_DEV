@@ -32,15 +32,4 @@ public class Environnement {
         this.personnage.add(personnage);
     }
 
-
-//    public void afficherMap() {
-//        for (int i = 0; i < mapJeu.length; i++) {
-//            for (int j = 0; j < mapJeu.length; j++) {
-//                System.out.println(mapJeu[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
-//    }
-
-
 }

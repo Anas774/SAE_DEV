@@ -1,5 +1,8 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.modele;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Map {
 
     private int[] mapJeu;
@@ -23,10 +26,6 @@ public class Map {
 
     }
 
-    public int[] getMapJeu() {
-        return this.mapJeu;
-    }
-
     public int getHauteur() {
         return hauteur;
     }
@@ -41,4 +40,11 @@ public class Map {
         }
         return mapJeu[y * largeur + x] == 5;
     }
+
+    public int[] getMapJeu() {
+        return mapJeu;
+    }
 }
+
+
+
