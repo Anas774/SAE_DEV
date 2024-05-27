@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Personnage {
 
@@ -22,7 +23,6 @@ public class Personnage {
     private int largeur;
     private int hauteur;
     private Hitbox hitbox;
-    private StringProperty Direction;
 
 //    public static int compteur = 0;
     private int id;
@@ -44,7 +44,9 @@ public class Personnage {
         this.largeur = 25;
         this.hauteur = 25;
 //        compteur++;
-//        this.envi = envi;
+        this.envi = new Environnement();
+        this.hitbox = new Hitbox(x.get(), y.get(), largeur, hauteur);
+
     }
 
 //    public Personnage(String nom, int PointVie, int x, int y, int dx, int dy, Environnement envi) {                 //Personnage sans arme donc pour la princesse
@@ -101,30 +103,27 @@ public class Personnage {
     public int getVitesse() {
         return vitesse;
     }
-
     public int getHauteur() {
         return hauteur;
     }
-
     public int getLargeur() {
         return largeur;
-    }
-
-    public Hitbox getHitbox() {
-        return hitbox;
     }
 
     public Environnement getEnvi() {
         return this.envi;
     }
 
-    public StringProperty getDirection() {
-        return Direction;
+    public List<int[]> getCoins(int newX, int newY) {
+        List<int[]> coins = new ArrayList<>();
+        coins.add(new int[]{newX, newY}); // Haut gauche
+        coins.add(new int[]{newX + largeur, newY}); // Haut droit
+        coins.add(new int[]{newX, newY + hauteur}); // Bas gauche
+        coins.add(new int[]{newX + largeur, newY + hauteur}); // Bas droit
+        return coins;
+
     }
 
-    public void setDirection(String direction) {
-        this.Direction.set(direction);
-    }
 
     //    public void ajouterItem(Item item) {
 //        this.inventaire.add(item);

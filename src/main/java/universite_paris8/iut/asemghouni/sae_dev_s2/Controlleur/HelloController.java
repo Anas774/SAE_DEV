@@ -26,6 +26,7 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         affichageTilePane.setPrefTileHeight(38);
         affichageTilePane.setPrefTileWidth(38);
         this.map = new Map();

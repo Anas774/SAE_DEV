@@ -15,9 +15,9 @@ public class Environnement {
     private Map map;
     private ObservableList<Personnage> personnage;
 
-    public Environnement(Map map, ObservableList<Personnage> personnage) {
-        this.map = map;
-        this.personnage = FXCollections.observableArrayList();
+    public Environnement() {
+        this.map = new Map();
+//        this.personnage = FXCollections.observableArrayList();
     }
 
     public Map getMap() {

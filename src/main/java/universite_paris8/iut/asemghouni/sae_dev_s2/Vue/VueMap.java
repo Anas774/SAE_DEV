@@ -6,7 +6,7 @@ import javafx.scene.layout.TilePane;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
 
 public class VueMap {
-    private static final int TAILLE_TUILE = 38; // Taille en pixels de chaque tuile
+    private static final int TAILLE_TUILE = 38;
 
     public VueMap(TilePane tilePane, Map mapJeu) {
         creerMap(tilePane, mapJeu);
@@ -16,10 +16,9 @@ public class VueMap {
 
         Image herbe = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/image/herbe.png").toString());
         Image terre = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/image/terre.png").toString());
-        Image eau = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/image/eau.png").toString());
+        Image mur = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/image/mur.jpeg").toString());
 
         for (int i = 0; i < mapJeu.getMapJeu().length; i++) {
-
             ImageView vue = new ImageView();
             vue.setFitWidth(TAILLE_TUILE);
             vue.setFitHeight(TAILLE_TUILE);
@@ -27,7 +26,7 @@ public class VueMap {
             if (mapJeu.getMapJeu()[i] == 1) {
                 vue.setImage(herbe);
             } else if (mapJeu.getMapJeu()[i] == 5) {
-                vue.setImage(eau);
+                vue.setImage(mur);
             } else {
                 vue.setImage(terre);
             }
