@@ -22,7 +22,6 @@ public class Personnage {
     private int vitesse;
     private int largeur;
     private int hauteur;
-    private Hitbox hitbox;
 
 //    public static int compteur = 0;
     private int id;
@@ -45,7 +44,6 @@ public class Personnage {
         this.hauteur = 25;
 //        compteur++;
         this.envi = new Environnement();
-        this.hitbox = new Hitbox(x.get(), y.get(), largeur, hauteur);
 
     }
 
