@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
+import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueEnnemi;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueJoueur;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueMap;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.*;
@@ -23,7 +24,9 @@ public class HelloController implements Initializable {
     private Timeline gameLoop;
     private int temps;
     private Map map;
-
+    private VueEnnemi vueEnnemi;
+    private SoldatEnnemie soldatEnnemie;
+    private Environnement envi;
     @FXML
     private Pane affichagePane;
     @FXML
@@ -33,14 +36,24 @@ public class HelloController implements Initializable {
         affichageTilePane.setPrefTileHeight(38);
         affichageTilePane.setPrefTileWidth(38);
         this.map = new Map();
-        this.personnage = new Personnage();
+        this.envi = new Environnement();
+
+        // Initialiser le personnage principal
+        this.personnage = new Personnage("Lokmen", 100,10,10,new Hache(), envi, 25,25);
+
+        // Initialiser le soldat ennemi
+        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, 100, 100, personnage);
+
+        // Initialiser les vues
         this.vueMap = new VueMap(affichageTilePane, map);
         this.vueJoueur = new VueJoueur(affichagePane, personnage, affichageTilePane);
+        this.vueEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemie);
 
-        Clavier x = new Clavier(personnage, affichagePane, affichageTilePane,map);
-        affichagePane.requestFocus();
-        affichagePane.addEventHandler(KeyEvent.KEY_PRESSED, x);
+        // Configurer les contrôles clavier
+        Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map);
+        affichagePane.addEventHandler(KeyEvent.KEY_PRESSED, clavier);
 
+        // Démarrer l'animation
         animation();
         gameLoop.play();
     }
@@ -61,8 +74,7 @@ public class HelloController implements Initializable {
                         gameLoop.stop();
                     } else if (temps % 5 == 0) {
                         System.out.println("un tour");
-                        vueJoueur.getEnnemi().setX(vueJoueur.getEnnemi().getX() + 5);
-                        vueJoueur.getEnnemi().setY(vueJoueur.getEnnemi().getY() + 5);
+                        soldatEnnemie.suivreJoueur();
                     }
                     temps++;
                 })

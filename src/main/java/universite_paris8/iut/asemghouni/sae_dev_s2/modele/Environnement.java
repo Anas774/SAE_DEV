@@ -12,22 +12,16 @@ import java.util.ArrayList;
 
 public class Environnement {
 
-    private int width;
-    private int height;
+    private Map map;
     private ObservableList<Personnage> personnage;
 
-    public Environnement(int width, int height) {
-        this.width = width;
-        this.height = height;
-        this.personnage = FXCollections.observableArrayList();
+    public Environnement() {
+        this.map = new Map();
+//        this.personnage = FXCollections.observableArrayList();
     }
 
-    public int getWidth() {
-        return this.width;
-    }
-
-    public int getHeight() {
-        return this.height;
+    public Map getMap() {
+        return this.map;
     }
 
     public ObservableList<Personnage> getPersonnages() {
@@ -37,16 +31,5 @@ public class Environnement {
     public void ajouter(Personnage personnage) {
         this.personnage.add(personnage);
     }
-
-
-//    public void afficherMap() {
-//        for (int i = 0; i < mapJeu.length; i++) {
-//            for (int j = 0; j < mapJeu.length; j++) {
-//                System.out.println(mapJeu[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
-//    }
-
 
 }

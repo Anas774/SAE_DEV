@@ -6,14 +6,15 @@ import javafx.fxml.FXML;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Personnage {
 
-    //    private String nom;
-//    private int PointVie;
-//    private int PointAttaque;
-//    private int PointDefense;
-//    private Arme arme;
+    private String nom;
+    private int PointVie;
+    private int PointAttaque;
+    private int PointDefense;
+    private Arme arme;
 //    private ArrayList<Item> inventaire;
     private IntegerProperty x;
     private IntegerProperty y;
@@ -21,23 +22,25 @@ public class Personnage {
 
     //    public static int compteur = 0;
     private int id;
-//    protected Environnement envi;
+    private Environnement envi;
+    private int largeur;
+    private int hauteur;
 
-    public Personnage() {
-//        this.nom = nom;
-//        this.PointVie = PointVie;
-//        this.PointAttaque = PointAttaque;
-//        this.PointDefense = PointDefense;
-//        this.arme = arme;
+    public Personnage(String nom, int PointVie, int PointAttaque, int PointDefense, Arme arme, Environnement envi, int largeur, int hauteur) {
+        this.nom = nom;
+        this.PointVie = PointVie;
+        this.PointAttaque = PointAttaque;
+        this.PointDefense = PointDefense;
+        this.arme = arme;
 //        this.inventaire = new ArrayList<>();
         this.x = new SimpleIntegerProperty(20);
         this.y = new SimpleIntegerProperty(20);
-//        this.dx = dx;
-//        this.dy = dy;
         this.id = 0;
         this.vitesse = 10;
 //        compteur++;
-//        this.envi = envi;
+        this.envi = envi;
+        this.largeur = 25;
+        this.hauteur = 25;
     }
 
 //    public Personnage(String nom, int PointVie, int x, int y, int dx, int dy, Environnement envi) {                 //Personnage sans arme donc pour la princesse
@@ -52,21 +55,25 @@ public class Personnage {
 //        this.envi = envi;
 //    }
 
-//    public String getNom() {
-//        return this.nom;
-//    }
-//
-//    public int getPointVie() {
-//        return this.PointVie;
-//    }
-//
-//    public int getPointDefense() {
-//        return this.PointDefense;
-//    }
-//
-//    public int getPointAttaque() {
-//        return this.PointAttaque;
-//    }
+    public String getNom() {
+        return this.nom;
+    }
+
+    public int getPointVie() {
+        return this.PointVie;
+    }
+
+    public int getPointDefense() {
+        return this.PointDefense;
+    }
+
+    public int getPointAttaque() {
+        return this.PointAttaque;
+    }
+
+    public Arme getArme() {
+        return arme;
+    }
 
     public int getX() {
         return x.getValue();
@@ -92,8 +99,29 @@ public class Personnage {
         return id;
     }
 
+    public Environnement getEnvi() {
+        return envi;
+    }
     public int getVitesse() {
         return vitesse;
+    }
+
+    public List<int[]> getCoins(int newX, int newY) {
+        List<int[]> coins = new ArrayList<>();
+        coins.add(new int[]{newX, newY}); // Haut gauche
+        coins.add(new int[]{newX + largeur, newY}); // Haut droit
+        coins.add(new int[]{newX, newY + hauteur}); // Bas gauche
+        coins.add(new int[]{newX + largeur, newY + hauteur}); // Bas droit
+        return coins;
+
+    }
+
+    public int getLargeur() {
+        return largeur;
+    }
+
+    public int getHauteur() {
+        return hauteur;
     }
 
     //    public void ajouterItem(Item item) {
@@ -132,24 +160,20 @@ public class Personnage {
 //    }
 
 //    public String toString() {
-//        TODO
-//    }
-
-
-//    public boolean detectionObstacle(int obstacleX, int obstacleY, int largeurObstacle, int hauteurObstacle, int dx, int dy, int largeurEnvi, int hauteurEnvi) {
-//
-//        int futurePosX = x.getValue() + dx;
-//        int futurePosY = y.getValue()+ dy;
-//
-//        if (futurePosX >= obstacleX && futurePosX <= obstacleX + largeurObstacle && futurePosY >= obstacleY && futurePosY <= obstacleY + hauteurObstacle) {
-//            return true;
-//        }
-//
-//        if (futurePosX < 0 || futurePosY < 0 || futurePosX > largeurEnvi || futurePosY > hauteurEnvi) {
-//            return true;
-//        }
-//
-//        return false;
+//        return "Personnage{" +
+//                "nom='" + nom + '\'' +
+//                ", pointVie=" + pointVie +
+//                ", pointAttaque=" + pointAttaque +
+//                ", pointDefense=" + pointDefense +
+//                ", arme=" + arme +
+//                ", x=" + x.get() +
+//                ", y=" + y.get() +
+//                ", vitesse=" + vitesse +
+//                ", id=" + id +
+//                ", envi=" + envi +
+//                ", largeur=" + largeur +
+//                ", hauteur=" + hauteur +
+//                '}';
 //    }
 
 }
