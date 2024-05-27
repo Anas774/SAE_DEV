@@ -74,5 +74,7 @@ public class VueLink {
         direction.set(newDirection);
         alterner = !alterner;
         modifImage();
+
+
     }
 }
