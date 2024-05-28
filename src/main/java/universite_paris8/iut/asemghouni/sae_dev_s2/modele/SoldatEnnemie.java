@@ -19,20 +19,41 @@ public class SoldatEnnemie extends Personnage {
         double ennemiX = this.getX();
         double ennemiY = this.getY();
 
+        double vitesse = 4;
+
         double deltaX = joueurX - ennemiX;
         double deltaY = joueurY - ennemiY;
 
-        // Normaliser le vecteur de déplacement pour que l'ennemi se déplace à une vitesse constante
+/*  Methode à faire voir par la prof
+
         double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        double vitesse = 4; // Ajustez la vitesse de l'ennemi ici
 
         if (longueur != 0) {
-            deltaX = (deltaX / longueur) * vitesse;
-            deltaY = (deltaY / longueur) * vitesse;
+            deltaX = deltaX * vitesse;
+            deltaY = deltaY * vitesse;
         }
 
-        this.setX((int) (ennemiX + deltaX));
-        this.setY((int) (ennemiY + deltaY));
+        this.setX((int)(ennemiX + vitesse));
+        this.setY((int)(ennemiY + vitesse));
+*/
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+
+            if (deltaX > 0) {
+                this.setX((int) (ennemiX + vitesse));
+            } else {
+                this.setX((int) (ennemiX - vitesse));
+            }
+
+        } else {
+
+            if (deltaY > 0) {
+                this.setY((int) (ennemiY + vitesse));
+            } else {
+                this.setY((int)(ennemiY - vitesse));
+            }
+
+        }
+
     }
 
 //    private boolean detectCollision(int newX, int newY) {
