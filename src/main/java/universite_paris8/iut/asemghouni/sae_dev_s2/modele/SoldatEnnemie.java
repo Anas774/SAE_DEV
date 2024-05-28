@@ -12,6 +12,29 @@ public class SoldatEnnemie extends Personnage {
         this.cible = cible;
     }
 
+//    public void suivreJoueur2() {        A revoir avec la prof
+//
+//        double joueurX = cible.getX();
+//        double joueurY = cible.getY();
+//        double ennemiX = this.getX();
+//        double ennemiY = this.getY();
+//
+//        double deltaX = joueurX - ennemiX;
+//        double deltaY = joueurY - ennemiY;
+//
+//        double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+//        double vitesse = 4;
+//
+//        if (longueur != 0) {
+//            deltaX = (deltaX / longueur) * vitesse;
+//            deltaY = (deltaY / longueur) * vitesse;
+//        }
+//
+//        this.setX((int) (ennemiX + deltaX));
+//        this.setY((int) (ennemiY + deltaY));
+//
+//    }
+
     public void suivreJoueur() {
 
         double joueurX = cible.getX();
@@ -19,23 +42,11 @@ public class SoldatEnnemie extends Personnage {
         double ennemiX = this.getX();
         double ennemiY = this.getY();
 
-        double vitesse = 4;
-
         double deltaX = joueurX - ennemiX;
         double deltaY = joueurY - ennemiY;
 
-/*  Methode à faire voir par la prof
+        double vitesse = 3;
 
-        double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-        if (longueur != 0) {
-            deltaX = deltaX * vitesse;
-            deltaY = deltaY * vitesse;
-        }
-
-        this.setX((int)(ennemiX + vitesse));
-        this.setY((int)(ennemiY + vitesse));
-*/
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
 
             if (deltaX > 0) {
@@ -49,12 +60,11 @@ public class SoldatEnnemie extends Personnage {
             if (deltaY > 0) {
                 this.setY((int) (ennemiY + vitesse));
             } else {
-                this.setY((int)(ennemiY - vitesse));
+                this.setY((int) (ennemiY - vitesse));
             }
 
         }
 
-    }
 
 //    private boolean detectCollision(int newX, int newY) {
 //        List<int[]> coins = this.getCoins(newX, newY);
@@ -65,4 +75,5 @@ public class SoldatEnnemie extends Personnage {
 //        }
 //        return false;
 //    }
+    }
 }
