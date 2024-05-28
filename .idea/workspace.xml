@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="47f063ed-894f-4ba4-899a-990e87620d43" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-    <list default="true" id="cc05b938-4aaf-464f-acc5-8ddebcf9b962" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueJoueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueJoueur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arme.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arme.class" afterDir="false" />
->>>>>>> 55b8775e64eb4ec19dfac6cba4106df1ee8d71bc
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +28,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -58,13 +51,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/etudiants/info/asemghouni/IdeaProjects/SAE_DEV/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/etudiants/info/asemghouni/IdeaProjects/SAE_DEV/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image" />
