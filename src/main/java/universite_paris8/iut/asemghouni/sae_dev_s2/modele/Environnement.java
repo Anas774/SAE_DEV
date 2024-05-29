@@ -14,6 +14,7 @@ public class Environnement {
 
     private Map map;
     private ObservableList<Personnage> personnage;
+    private ObservableList<Item> item;
 
     public Environnement() {
         this.map = new Map();
@@ -31,6 +32,15 @@ public class Environnement {
     public void ajouter(Personnage personnage) {
         this.personnage.add(personnage);
     }
+
+    public ObservableList<Item> getItem(){
+        return this.item;
+    }
+
+    public void ajouter(Item item){
+        this.item .add(item);
+    }
+
 
 }
 

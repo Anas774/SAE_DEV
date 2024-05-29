@@ -23,6 +23,7 @@ public class VueJoueur {
 
     public VueJoueur(Pane affichagePane, Personnage personnage, TilePane tilePane) {
         creeSprite(affichagePane, personnage, tilePane);
+
     }
 
     private void creeSprite(Pane affichagePane, Personnage personnage, TilePane tilePane) {

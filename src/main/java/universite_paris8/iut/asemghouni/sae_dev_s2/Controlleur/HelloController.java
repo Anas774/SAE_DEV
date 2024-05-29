@@ -8,11 +8,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
-import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueLink;
+import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.*;
 import javafx.util.Duration;
-import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueEnnemi;
-import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueJoueur;
-import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueMap;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,10 +25,15 @@ public class HelloController implements Initializable {
     private VueEnnemi vueEnnemi;
     private SoldatEnnemie soldatEnnemie;
     private Environnement envi;
+
     @FXML
     private Pane affichagePane;
     @FXML
     private TilePane affichageTilePane;
+
+    private VueItem potion;
+
+    private Item item;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -46,6 +48,8 @@ public class HelloController implements Initializable {
         // Initialiser le soldat ennemi
         this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage);
 
+        this.item = new Item("estusFlask",envi);
+
         //Initialiser le clavier
         Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map);
 
@@ -53,6 +57,7 @@ public class HelloController implements Initializable {
         this.vueMap = new VueMap(affichageTilePane, map);
         this.vueLink = new VueLink(affichagePane, personnage, affichageTilePane, clavier);
         this.vueEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemie);
+        this.potion = new VueItem(affichagePane,item, affichageTilePane);
 
         clavier.setVueLink(vueLink);
 
