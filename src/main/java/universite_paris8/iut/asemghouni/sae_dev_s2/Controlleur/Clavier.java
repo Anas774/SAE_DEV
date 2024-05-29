@@ -7,7 +7,6 @@ import javafx.scene.layout.TilePane;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueLink;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage;
-
 import java.util.List;
 
 public class Clavier implements EventHandler<KeyEvent> {
@@ -31,6 +30,7 @@ public class Clavier implements EventHandler<KeyEvent> {
 
     @Override
     public void handle(KeyEvent event) {
+
         System.out.println("Touche pressée : " + event.getCode());
 
         int PosTuileX = personnage.getX() / 38;
@@ -78,5 +78,8 @@ public class Clavier implements EventHandler<KeyEvent> {
         }
         return false;
     }
+
+
+
 
 }

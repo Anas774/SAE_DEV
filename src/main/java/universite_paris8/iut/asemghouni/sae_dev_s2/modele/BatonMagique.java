@@ -4,4 +4,9 @@ public class BatonMagique extends Arme {
     public BatonMagique() {
         super("BatonMagique", 20);
     }
+
+    @Override
+    public String toString() {
+        return "Arme" +super.toString() + "point d'attaque : " + getPointsAttaqueArme();
+    }
 }

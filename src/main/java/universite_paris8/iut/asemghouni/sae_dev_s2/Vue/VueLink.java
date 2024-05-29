@@ -34,7 +34,6 @@ public class VueLink {
         this.linkLeft = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/link_base_AG.png").toString());
         this.linkLeft1 = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/link_baseG.png").toString());
 
-
         this.linkRight = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/link_base_AD.png").toString());
         this.linkRight1 = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/link_baseD.png").toString());
 

@@ -3,6 +3,7 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.modele;
 import java.util.ArrayList;
 import java.util.List;
 
+
     public class Map {
 
         private int[] mapJeu;
@@ -51,8 +52,8 @@ import java.util.List;
         public boolean estLimite(int x, int y) {
             return x < 0 || x >= largeur * 38 || y < 0 || y >= hauteur * 38;
         }
-    }
 
+    }
 
 
 

@@ -4,4 +4,8 @@ public class Hache extends Arme {
     public Hache() {
         super("Hache", 10);
     }
+    @Override
+    public String toString() {
+        return "Arme" +super.toString() + "point d'attaque : " + getPointsAttaqueArme();
+    }
 }

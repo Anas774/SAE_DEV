@@ -5,8 +5,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47f063ed-894f-4ba4-899a-990e87620d43" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueEnnemi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/Link/ennemi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/envrionnement/eau.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/envrionnement/environnement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/envrionnement/herbe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/envrionnement/terre.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/link/Link_baseH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/link/bas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/link/droite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/link/gauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/link/haut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/link/link_baseD.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueEnnemi.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/SoldatEnnemie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueJoueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueJoueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/ArcDemoniaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/ArcDemoniaque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/BatonMagique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/BatonMagique.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Environnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Environnement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/EpeeDuDieuBestial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/EpeeDuDieuBestial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Epée.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Epée.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Fleche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Fleche.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Hache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Hache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/MasterSword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/MasterSword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/SoldatEnnemie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/SoldatEnnemie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueJoueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueJoueur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arc.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/ArcDemoniaque.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/ArcDemoniaque.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/BatonMagique.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/BatonMagique.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/EpeeDuDieuBestial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/EpeeDuDieuBestial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Epée.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Epée.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Fleche.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Fleche.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Hache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Hache.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/MasterSword.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/MasterSword.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +104,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/etudiants/info/asemghouni/IdeaProjects/SAE_DEV/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/etudiants/info/asemghouni/IdeaProjects/SAE_DEV/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/Link"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image" />
