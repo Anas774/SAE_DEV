@@ -8,9 +8,8 @@ public class Potion extends Item {
         this.effet = effet;
 
     }
-//    public void apparitionPotion() {
-//        if ()
-//
-//    }
+    public void apparitionPotion() {
+
+    }
 
 }
