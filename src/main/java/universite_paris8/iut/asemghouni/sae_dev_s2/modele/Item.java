@@ -17,7 +17,7 @@ private int id;
 private Environnement envi;
 
     public Item(String nom, Environnement envi) {
-        int random = (int) ((200 * Math.random()));
+        int random = (int) ((570 * Math.random()));
         this.nom = nom;
         this.x = new SimpleIntegerProperty(random);
         this.y = new SimpleIntegerProperty(random);

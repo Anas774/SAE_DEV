@@ -12,30 +12,7 @@ public class SoldatEnnemie extends Personnage {
         this.cible = cible;
     }
 
-//    public void suivreJoueur2() {        A revoir avec la prof
-//
-//        double joueurX = cible.getX();
-//        double joueurY = cible.getY();
-//        double ennemiX = this.getX();
-//        double ennemiY = this.getY();
-//
-//        double deltaX = joueurX - ennemiX;
-//        double deltaY = joueurY - ennemiY;
-//
-//        double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-//        double vitesse = 4;
-//
-//        if (longueur != 0) {
-//            deltaX = (deltaX / longueur) * vitesse;
-//            deltaY = (deltaY / longueur) * vitesse;
-//        }
-//
-//        this.setX((int) (ennemiX + deltaX));
-//        this.setY((int) (ennemiY + deltaY));
-//
-//    }
-
-    public void suivreJoueur() {
+    public void suivreJoueur2() {
 
         double joueurX = cible.getX();
         double joueurY = cible.getY();
@@ -45,35 +22,52 @@ public class SoldatEnnemie extends Personnage {
         double deltaX = joueurX - ennemiX;
         double deltaY = joueurY - ennemiY;
 
-        double vitesse = 3;
+        double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        double vitesse = 8;
 
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-
-            if (deltaX > 0) {
-                this.setX((int) (ennemiX + vitesse));
-            } else {
-                this.setX((int) (ennemiX - vitesse));
-            }
-
-        } else {
-
-            if (deltaY > 0) {
-                this.setY((int) (ennemiY + vitesse));
-            } else {
-                this.setY((int) (ennemiY - vitesse));
-            }
-
+        if (longueur != 0) {
+            deltaX = (deltaX / longueur) * vitesse;
+            deltaY = (deltaY / longueur) * vitesse;
         }
 
-
-//    private boolean detectCollision(int newX, int newY) {
-//        List<int[]> coins = this.getCoins(newX, newY);
-//        for (int[] coin : coins) {
-//            if (this.getEnvi().getMap().estMur(coin[0], coin[1]) || this.getEnvi().getMap().estLimite(coin[0], coin[1])) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+        if (!cible.detectCollision((int) ennemiX, (int) ennemiY)) {
+            this.setX((int) (ennemiX + deltaX));
+            this.setY((int) (ennemiY + deltaY));
+        }
+        else {
+            int[] deplacement = {};
+        }
     }
+
+//    public void suivreJoueur() {
+//
+//        double joueurX = cible.getX();
+//        double joueurY = cible.getY();
+//        double ennemiX = this.getX();
+//        double ennemiY = this.getY();
+//
+//        double deltaX = joueurX - ennemiX;
+//        double deltaY = joueurY - ennemiY;
+//
+//        double vitesse = 3;
+//
+//        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+//
+//            if (deltaX > 0) {
+//                this.setX((int) (ennemiX + vitesse));
+//            } else {
+//                this.setX((int) (ennemiX - vitesse));
+//            }
+//
+//        } else {
+//
+//            if (deltaY > 0) {
+//                this.setY((int) (ennemiY + vitesse));
+//            } else {
+//                this.setY((int) (ennemiY - vitesse));
+//            }
+//
+//        }
+//
+//    }
 }

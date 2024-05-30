@@ -25,14 +25,11 @@ public class HelloController implements Initializable {
     private VueEnnemi vueEnnemi;
     private SoldatEnnemie soldatEnnemie;
     private Environnement envi;
-
     @FXML
     private Pane affichagePane;
     @FXML
     private TilePane affichageTilePane;
-
     private VueItem potion;
-
     private Item item;
 
     @Override
@@ -47,7 +44,6 @@ public class HelloController implements Initializable {
 
         // Initialiser le soldat ennemi
         this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage);
-
         this.item = new Item("estusFlask",envi);
 
         //Initialiser le clavier
@@ -86,7 +82,7 @@ public class HelloController implements Initializable {
                         gameLoop.stop();
                     } else if (temps % 5 == 0) {
                         System.out.println("un tour");
-                        soldatEnnemie.suivreJoueur();
+                        soldatEnnemie.suivreJoueur2();
                     }
                     temps++;
                 })

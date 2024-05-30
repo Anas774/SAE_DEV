@@ -37,7 +37,7 @@ public class Personnage {
 //        this.dx = dx;
 //        this.dy = dy;
         this.id = 0;
-        this.vitesse = 5;
+        this.vitesse = 15;
         this.largeur = 25;
         this.hauteur = 25;
 //        compteur++;
@@ -123,6 +123,16 @@ public class Personnage {
             return coins;
 
         }
+        public boolean detectCollision(int newX, int newY) {
+            List<int[]> coins = this.getCoins(newX, newY);
+            for (int[] coin : coins) {
+                if (envi.getMap().estMur(coin[0], coin[1]) || envi.getMap().estLimite(coin[0], coin[1])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
 //    public void ajouterItem(Item item) {

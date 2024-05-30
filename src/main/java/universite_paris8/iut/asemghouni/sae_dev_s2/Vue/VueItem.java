@@ -36,4 +36,6 @@ public class VueItem {
         affichagePane.getChildren().add(itemImageview);
     }
 
+
+
 }

@@ -1,12 +1,11 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.modele;
 
 public class Potion extends Item {
-    private String effet;
+    private int valeur;
 
-    public Potion(String nom, Environnement envi) {
+    public Potion(String nom, Environnement envi, int valeur) {
         super("nom", envi);
-        this.effet = effet;
-
+        this.valeur = valeur;
     }
     public void apparitionPotion() {
 
