@@ -37,12 +37,16 @@ public class Map {
             return largeur;
         }
 
+        public boolean estLimite(int x, int y) {
+            return x < 0 || x >= largeur * 38 || y < 0 || y >= hauteur * 38;
+        }
+
         public boolean estMur(int x, int y) {
 
             int PosTuileX = x / 38;
             int PosTuileY = y / 38;
 
-            if (PosTuileX < 0 || PosTuileX >= largeur || PosTuileY < 0 || PosTuileY >= hauteur) {
+            if (estLimite(x,y)) {
                 return false;
             }
             return mapJeu[PosTuileY * largeur + PosTuileX] == 5;
@@ -50,10 +54,6 @@ public class Map {
 
         public int[] getMapJeu() {
             return mapJeu;
-        }
-
-        public boolean estLimite(int x, int y) {
-            return x < 0 || x >= largeur * 38 || y < 0 || y >= hauteur * 38;
         }
 }
 

@@ -14,6 +14,10 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueEnnemi;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueJoueur;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueMap;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.*;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Hache;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemie;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -81,7 +85,7 @@ public class HelloController implements Initializable {
                         gameLoop.stop();
                     } else if (temps % 5 == 0) {
                         System.out.println("un tour");
-                        soldatEnnemie.suivreJoueur2();
+                        soldatEnnemie.suivreJoueur();
                     }
                     temps++;
                 })

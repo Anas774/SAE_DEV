@@ -6,7 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueLink;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 import java.util.List;
 
 public class Clavier implements EventHandler<KeyEvent> {
@@ -58,7 +58,7 @@ public class Clavier implements EventHandler<KeyEvent> {
             }
         }
 
-        if (!detectCollision(newX, newY)) {
+        if (!personnage.detectCollision(newX, newY)) {
             personnage.setX(newX);
             personnage.setY(newY);
         }
@@ -69,15 +69,7 @@ public class Clavier implements EventHandler<KeyEvent> {
         System.out.println(PosTuileX + ", " + PosTuileY);
     }
 
-    public boolean detectCollision(int newX, int newY) {
-        List<int[]> coins = personnage.getCoins(newX, newY);
-        for (int[] coin : coins) {
-            if (map.estMur(coin[0], coin[1]) || map.estLimite(coin[0], coin[1])) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
 
 

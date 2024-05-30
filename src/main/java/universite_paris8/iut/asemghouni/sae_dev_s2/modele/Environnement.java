@@ -1,14 +1,7 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.modele;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.layout.TilePane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
-
-
-import java.util.ArrayList;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 
 public class Environnement {
 
