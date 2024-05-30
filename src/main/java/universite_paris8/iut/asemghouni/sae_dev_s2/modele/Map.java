@@ -1,11 +1,13 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.modele;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-    public class Map {
-
+public class Map {
         private int[] mapJeu;
         private int hauteur;
         private int largeur;
@@ -36,6 +38,7 @@ import java.util.List;
         }
 
         public boolean estMur(int x, int y) {
+
             int PosTuileX = x / 38;
             int PosTuileY = y / 38;
 
@@ -52,8 +55,7 @@ import java.util.List;
         public boolean estLimite(int x, int y) {
             return x < 0 || x >= largeur * 38 || y < 0 || y >= hauteur * 38;
         }
-
-    }
+}
 
 
 

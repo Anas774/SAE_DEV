@@ -43,11 +43,11 @@ public class HelloController implements Initializable {
         // Initialiser le personnage principal
         this.personnage = new Personnage("Lokmen", 100,10,10,new Hache(), envi);
 
-        // Initialiser le soldat ennemi
-        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage);
-
         //Initialiser le clavier
         Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map);
+
+        // Initialiser le soldat ennemi
+        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage,clavier);
 
         // Initialiser les vues
         this.vueMap = new VueMap(affichageTilePane, map);
@@ -81,7 +81,7 @@ public class HelloController implements Initializable {
                         gameLoop.stop();
                     } else if (temps % 5 == 0) {
                         System.out.println("un tour");
-                        soldatEnnemie.suivreJoueur();
+                        soldatEnnemie.suivreJoueur2();
                     }
                     temps++;
                 })

@@ -56,73 +56,73 @@ public class Personnage {
 //        this.envi = envi;
 //    }
 
-        public String getNom() {
-            return this.nom;
-        }
+    public String getNom() {
+        return this.nom;
+    }
 
-        public int getPointVie() {
-            return this.PointVie;
-        }
+    public int getPointVie() {
+        return this.PointVie;
+    }
 
-        public int getPointDefense () {
-            return this.PointDefense;
-        }
+    public int getPointDefense () {
+        return this.PointDefense;
+    }
 
-        public int getPointAttaque() {
-            return this.PointAttaque;
-        }
+    public int getPointAttaque() {
+        return this.PointAttaque;
+    }
 
-        public Arme getArme () {
-            return arme;
-        }
+    public Arme getArme () {
+        return arme;
+    }
 
-        public int getX() {
-            return x.get();
-        }
+    public int getX() {
+        return x.get();
+    }
 
-        public void setX(int n){
-            x.set(n);
-        }
+    public void setX(int n){
+        x.set(n);
+    }
 
-        public int getY () {
-            return y.get();
-        }
-        public void setY(int n){
-            y.set(n);
-        }
-        public final IntegerProperty getXProperty() {
-            return x;
-        }
-        public final IntegerProperty getYProperty() {
-            return y;
-        }
-        public int getId() {
-            return id;
-        }
-        public int getVitesse() {
-            return vitesse;
-        }
-        public int getHauteur() {
-            return hauteur;
-        }
+    public int getY () {
+        return y.get();
+    }
+    public void setY(int n){
+        y.set(n);
+    }
+    public final IntegerProperty getXProperty() {
+        return x;
+    }
+    public final IntegerProperty getYProperty() {
+        return y;
+    }
+    public int getId() {
+        return id;
+    }
+    public int getVitesse() {
+        return vitesse;
+    }
+    public int getHauteur() {
+        return hauteur;
+    }
 
-        public int getLargeur() {
-            return largeur;
-        }
+    public int getLargeur() {
+        return largeur;
+    }
 
-        public Environnement getEnvi() {
-            return this.envi;
-        }
+    public Environnement getEnvi() {
+        return this.envi;
+    }
 
-        public List<int[]> getCoins (int newX, int newY){
-            List<int[]> coins = new ArrayList<>();
-            coins.add(new int[]{newX, newY}); // Haut gauche
-            coins.add(new int[]{newX + largeur, newY}); // Haut droit
-            coins.add(new int[]{newX, newY + hauteur}); // Bas gauche
-            coins.add(new int[]{newX + largeur, newY + hauteur}); // Bas droit
-            return coins;
+    public List<int[]> getCoins (int newX, int newY){
+        List<int[]> coins = new ArrayList<>();
+        coins.add(new int[]{newX, newY}); // Haut gauche
+        coins.add(new int[]{newX + largeur, newY}); // Haut droit
+        coins.add(new int[]{newX, newY + hauteur}); // Bas gauche
+        coins.add(new int[]{newX + largeur, newY + hauteur}); // Bas droit
+        return coins;
 
-        }
+    }
 
 
 //    public void ajouterItem(Item item) {
@@ -176,7 +176,4 @@ public class Personnage {
 //                '}';
 //    }
 
-    }
-
-
-
+}

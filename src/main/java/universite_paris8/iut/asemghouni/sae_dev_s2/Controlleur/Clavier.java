@@ -69,7 +69,7 @@ public class Clavier implements EventHandler<KeyEvent> {
         System.out.println(PosTuileX + ", " + PosTuileY);
     }
 
-    private boolean detectCollision(int newX, int newY) {
+    public boolean detectCollision(int newX, int newY) {
         List<int[]> coins = personnage.getCoins(newX, newY);
         for (int[] coin : coins) {
             if (map.estMur(coin[0], coin[1]) || map.estLimite(coin[0], coin[1])) {
