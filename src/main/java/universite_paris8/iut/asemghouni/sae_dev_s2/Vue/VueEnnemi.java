@@ -1,25 +1,18 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.Vue;
 
-import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.Clavier;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.SoldatEnnemie;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemie;
 
 public class VueEnnemi {
     private Personnage ennemi;
     private ImageView ennemiImageView;
     private Image linkUp;
     private Clavier clavier;
-
 
     public VueEnnemi(Pane affichagePane, TilePane tilePane, SoldatEnnemie soldatEnnemie) {
         creerEnnemi(affichagePane, tilePane, soldatEnnemie);

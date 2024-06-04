@@ -7,6 +7,9 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.HelloController">
+   <top>
+      <HBox fx:id="vieBox" alignment="CENTER" spacing="10" padding="10.0" BorderPane.alignment="CENTER"> </HBox>
+   </top>
    <center>
       <Pane fx:id="affichagePane" onMouseClicked="#mouseClicked" prefHeight="570.0" prefWidth="570.0">
          <TilePane fx:id="affichageTilePane" alignment="CENTER" prefColumns="15" prefHeight="570.0" prefRows="15" prefTileHeight="38.0" prefTileWidth="38.0" prefWidth="570.0" />
