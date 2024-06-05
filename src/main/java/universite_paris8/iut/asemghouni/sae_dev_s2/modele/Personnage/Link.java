@@ -1,7 +1,15 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage;
 
-//public class Link extends Personnage {
-//    public Link(String nom, int PointVie, int PointAttaque, int PointDefense, Arme arme, int x, int y, int dx, int dy, Environnement envi) {
-//        super("Link", 100, 20, 20, new MasterSword(),x,y,dx,dy, envi);
-//    }
-//}
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.MasterSword;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
+
+public class Link extends Personnage {
+    private Personnage cible;
+
+    public Link(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
+        super("Link", 100, new MasterSword(), envi);
+        this.cible = cible;
+    }
+
+}

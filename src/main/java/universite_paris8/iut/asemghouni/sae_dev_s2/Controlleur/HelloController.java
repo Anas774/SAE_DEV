@@ -14,6 +14,7 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.Observateur.Obser
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.*;
 import javafx.util.Duration;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.*;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Hache;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
@@ -56,6 +57,10 @@ public class HelloController implements Initializable {
     @FXML
     private HBox vieBox;
 
+    private VueArme vueArme;
+    private Arme epee;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         affichageTilePane.setPrefTileHeight(38);
@@ -72,11 +77,10 @@ public class HelloController implements Initializable {
         this.envi.ajouter(item1);
 
         // Initialiser le personnage principal
-        this.personnage = new Personnage("Lokmen", 100,10,10,new Hache(), envi);
-
+        this.personnage = new Personnage("Lokmen", 100, new Hache(), envi);
 
         // Initialiser le soldat ennemi
-        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage);
+        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, new Hache(), envi, personnage);
 
         // Initialiser le clavier
         Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map, item);

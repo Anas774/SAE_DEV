@@ -1,7 +1,14 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage;
 
-//public class Boss extends Personnage {
-//    public Boss(String nom, int PointVie, int PointAttaque, int PointDefense, Arme arme, int x, int y, int dx, int dy, Environnement envi) {
-//        super("Bogo", 115, 25, 25, new Epée(),x,y,dx,dy,envi);
-//    }
-//}
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Epée;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
+
+public class Boss extends Personnage {
+
+    private Personnage cible;
+    public Boss(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
+        super("Bogo", 115, new Epée(),envi);
+        this.cible = cible;
+    }
+}

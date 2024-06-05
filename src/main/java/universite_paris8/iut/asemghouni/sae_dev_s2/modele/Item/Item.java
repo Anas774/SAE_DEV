@@ -19,7 +19,6 @@ public class Item {
     protected Environnement envi;
     private int largeur;
     private int hauteur;
-
     public static int compteur = 0;
     private String id;
     private boolean ramasser;

@@ -14,8 +14,6 @@ public class Personnage {
 
     private String nom;
     private IntegerProperty pointVie;
-    private int PointAttaque;
-    private int PointDefense;
     private Arme arme;
     private List<Item> itemPossederParPerso;
     private IntegerProperty x;
@@ -23,16 +21,13 @@ public class Personnage {
     private int vitesse;
     private int largeur;
     private int hauteur;
-
     public static int compteur = 0;
     private String id;
     private Environnement envi;
 
-    public Personnage(String nom, int PointVie, int PointAttaque, int PointDefense, Arme arme, Environnement envi) {
+    public Personnage(String nom, int PointVie, Arme arme, Environnement envi) {
         this.nom = nom;
         this.pointVie = new SimpleIntegerProperty(PointVie);
-        this.PointAttaque = PointAttaque;
-        this.PointDefense = PointDefense;
         this.arme = arme;
         this.itemPossederParPerso = new ArrayList<>();
         this.x = new SimpleIntegerProperty(0);
@@ -59,14 +54,6 @@ public class Personnage {
 
     public IntegerProperty pointVieProperty() {
         return this.pointVie;
-    }
-
-    public int getPointDefense() {
-        return this.PointDefense;
-    }
-
-    public int getPointAttaque() {
-        return this.PointAttaque;
     }
 
     public Arme getArme() {
@@ -161,52 +148,55 @@ public class Personnage {
         return itemPossederParPerso;
     }
 
-    //    public void recevoirDegats(int degats) {
-//
-//        this.PointVie = this.PointVie - degats;
-//
-//        if (this.PointVie < 0) {
-//            this.PointVie = 0;
-//        }
-//    }
+    public void recevoirDegats(int degats) {
 
-//    public int attaquer(Personnage victime) {
-//
-//        int degatInflige;
-//
-//        if (this.arme != null) {
-//            degatInflige = this.getPointAttaque() + this.arme.getPointsAttaqueArme();
-//        }
-//        else {
-//            degatInflige = this.PointAttaque;
-//        }
-//
-//        int degatReelInflige = degatInflige - victime.getPointDefense();
-//
-//        if (degatReelInflige > 0) {
-//
-//            victime.recevoirDegats(degatReelInflige);
-//        }
-//
-//        return degatReelInflige;
-//
-//    }
+        int pointVieActuels = this.pointVie.get();
 
-//        return "Personnage{" +
-//                "nom='" + nom + '\'' +
-//                ", pointVie=" + pointVie +
-//                ", pointAttaque=" + pointAttaque +
-//                ", pointDefense=" + pointDefense +
-//                ", arme=" + arme +
-//                ", x=" + x.get() +
-//                ", y=" + y.get() +
-//                ", vitesse=" + vitesse +
-//                ", id=" + id +
-//                ", envi=" + envi +
-//                ", largeur=" + largeur +
-//                ", hauteur=" + hauteur +
-//                '}';
-//    }
+        pointVieActuels = pointVieActuels - degats;
+
+        if (pointVieActuels < 0) {
+            pointVieActuels = 0;
+        }
+    }
+
+    public int attaquer(Personnage victime) {
+
+        int degatInflige;
+        int pointVie = victime.getPointVie().get();
+
+        if (this.arme != null) {
+            degatInflige = this.arme.getPointsAttaqueArme();
+        }
+        else {
+            degatInflige = 0;
+        }
+
+        int degatReelInflige = degatInflige - pointVie;
+
+        if (degatReelInflige > 0) {
+
+            victime.recevoirDegats(degatReelInflige);
+        }
+
+        return degatReelInflige;
+
+    }
+
+    public String toString() {
+
+        return "Personnage {" +
+                "nom='" + nom + '\'' +
+                ", pointVie=" + pointVie +
+                ", arme=" + arme +
+                ", x=" + x.get() +
+                ", y=" + y.get() +
+                ", vitesse=" + vitesse +
+                ", id=" + id +
+                ", envi=" + envi +
+                ", largeur=" + largeur +
+                ", hauteur=" + hauteur +
+                " }";
+    }
 
 }
 
