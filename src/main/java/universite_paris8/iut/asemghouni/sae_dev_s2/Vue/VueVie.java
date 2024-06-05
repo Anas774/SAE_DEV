@@ -5,55 +5,51 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
-public class VueVie extends HBox {
+public class VueVie {
 
     private IntegerProperty pointVie;
     private Image coeurPlein;
-    private Image coeurMoitie;
     private Image coeurVide;
 
-    public VueVie(IntegerProperty pointVie) {
+    //    private Image coeurMoitie;
+    private HBox vieBox;
 
+    public VueVie(HBox vieBox, IntegerProperty pointVie) {
         this.pointVie = pointVie;
         this.coeurPlein = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_full.png"));
-        this.coeurMoitie = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_half.png"));
+//        this.coeurMoitie = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/saedev/Vie/heart_half.png"));
         this.coeurVide = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_blank.png"));
-
+        this.vieBox = vieBox;
+        vieBox.setSpacing(10);
         initialiserBarreVie();
+        ajouterListeners();
         mettreAJourBarreVie();
     }
 
-    private void creerCoeur(IntegerProperty pointVie) {
-        this.coeurPlein = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_full.png"));
-        this.coeurMoitie = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_half.png"));
-        this.coeurVide = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_blank.png"));
-
-    }
-
     private void initialiserBarreVie() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 10; i++) {
             ImageView imageViewVie = new ImageView(coeurVide);
-            this.getChildren().add(imageViewVie);
+            imageViewVie.setFitWidth(20);
+            imageViewVie.setFitHeight(20);
+            vieBox.getChildren().add(imageViewVie);
         }
     }
 
     private void ajouterListeners() {
-        this.pointVie.addListener((obs,old,nouv) -> mettreAJourBarreVie());
+        this.pointVie.addListener((obs, old, nouv) -> mettreAJourBarreVie());
     }
 
     private void mettreAJourBarreVie() {
 
         int vieActuelle = pointVie.get();
 
-        for (int i = 0; i < this.getChildren().size(); i++) {
-            ImageView coeur =  (ImageView) this.getChildren().get(i);
+        for (int i = 0; i < vieBox.getChildren().size(); i++) {
+            ImageView coeur = (ImageView) vieBox.getChildren().get(i);
             if (i < vieActuelle) {
                 coeur.setImage(coeurPlein);
-            }
-            else {
+            } else {
                 coeur.setImage(coeurVide);
             }
         }
     }
-
 }

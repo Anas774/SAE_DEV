@@ -78,7 +78,6 @@ public class SoldatEnnemie extends Personnage {
 //import model.gameMap.GameMap;
 //import model.gameMap.additional.MapReader;
 //
-//    public final class BFS1 {
 //
 //        private static boolean random;
 //        private final static Random ran = new Random();

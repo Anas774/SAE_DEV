@@ -53,6 +53,7 @@ public class HelloController implements Initializable {
     private Item item;
 
     private VueVie vueVie;
+    @FXML
     private HBox vieBox;
 
     @Override
@@ -85,21 +86,23 @@ public class HelloController implements Initializable {
         this.vueItem = new VueItem(affichagePane,item);
         this.vueLink = new VueLink(affichagePane, personnage, affichageTilePane, clavier);
         this.vueEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemie);
-        this.vueVie = new VueVie(personnage.pointVieProperty());
+        this.vueVie = new VueVie(vieBox,personnage.pointVieProperty());
 
         clavier.setVueLink(vueLink);
 
         affichagePane.requestFocus();
         affichagePane.addEventHandler(KeyEvent.KEY_PRESSED, clavier);
 
+        miseAJourVie();
+
         // Démarrer l'animation
         animation();
         gameLoop.play();
     }
 
-//    public void miseAJourVie() {
-//        personnage.setPointVie(7);
-//    }
+    public void miseAJourVie() {
+        personnage.setPointVie(10);
+    }
 
     @FXML
     public void mouseClicked(MouseEvent mouseEvent) {

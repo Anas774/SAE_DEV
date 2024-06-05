@@ -3,6 +3,7 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.Observateur;
 import javafx.collections.ListChangeListener;
 import javafx.scene.layout.Pane;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueItem;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Fleche;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
 
@@ -30,8 +31,10 @@ public class ObservateurItem implements ListChangeListener<Item> {
                     if (item instanceof Potion) {
                         vueItems.add(item);
                     }
-
-            }
+                    if (item instanceof Fleche) {
+                        vueItems.add(item);
+                    }
+                }
 
         } else if (change.wasRemoved()) {
                 for (Item item : change.getRemoved()) {
