@@ -13,6 +13,7 @@ import javafx.util.Duration;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item;
 
 public class HelloController implements Initializable {
     private Personnage personnage;
@@ -44,16 +45,23 @@ public class HelloController implements Initializable {
 
         // Initialiser le soldat ennemi
         this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage);
-        this.item = new Item("estusFlask",envi);
+
+        // Initialise les potions
+        Item item = new Potion("popo1",envi);
+        Item item1 = new Potion("popo2",envi);
+
+        // Ajoute l'item a l'envi
+        this.envi.ajouter(item);
+        this.envi.ajouter(item1);
 
         //Initialiser le clavier
-        Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map);
+        Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map, item);
 
         // Initialiser les vues
         this.vueMap = new VueMap(affichageTilePane, map);
         this.vueLink = new VueLink(affichagePane, personnage, affichageTilePane, clavier);
         this.vueEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemie);
-        this.potion = new VueItem(affichagePane,item, affichageTilePane);
+        this.potion = new VueItem(affichagePane,item);
 
         clavier.setVueLink(vueLink);
 

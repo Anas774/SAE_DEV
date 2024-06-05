@@ -10,127 +10,152 @@ import java.util.List;
 public class Personnage {
 
     private String nom;
-    private int PointVie;
+    private IntegerProperty pointVie;
     private int PointAttaque;
     private int PointDefense;
     private Arme arme;
-    //    private ArrayList<Item> inventaire;
+    private List<Item> itemPossederParPerso;
     private IntegerProperty x;
     private IntegerProperty y;
     private int vitesse;
     private int largeur;
     private int hauteur;
 
-    //    public static int compteur = 0;
-    private int id;
+    public static int compteur = 0;
+    private String id;
     private Environnement envi;
 
     public Personnage(String nom, int PointVie, int PointAttaque, int PointDefense, Arme arme, Environnement envi) {
         this.nom = nom;
-        this.PointVie = PointVie;
+        this.pointVie = new SimpleIntegerProperty(PointVie);
         this.PointAttaque = PointAttaque;
         this.PointDefense = PointDefense;
         this.arme = arme;
-//        this.inventaire = new ArrayList<>();
+        this.itemPossederParPerso = new ArrayList<>();
         this.x = new SimpleIntegerProperty(0);
         this.y = new SimpleIntegerProperty(0);
-//        this.dx = dx;
-//        this.dy = dy;
-        this.id = 0;
-        this.vitesse = 15;
+        this.id = "#" + compteur;
+        this.vitesse = 10;
         this.largeur = 25;
         this.hauteur = 25;
-//        compteur++;
+        compteur++;
         this.envi = new Environnement();
+    }
+
+    public String getNom() {
+        return this.nom;
+    }
+
+    public IntegerProperty getPointVie() {
+        return this.pointVie;
+    }
+
+    public void setPointVie(int pointVie) {
+        this.pointVie.set(pointVie);
+    }
+
+    public IntegerProperty pointVieProperty() {
+        return this.pointVie;
+    }
+
+    public int getPointDefense() {
+        return this.PointDefense;
+    }
+
+    public int getPointAttaque() {
+        return this.PointAttaque;
+    }
+
+    public Arme getArme() {
+        return arme;
+    }
+
+    public int getX() {
+        return x.get();
+    }
+
+    public void setX(int n) {
+        x.set(n);
+    }
+
+    public int getY() {
+        return y.get();
+    }
+
+    public void setY(int n) {
+        y.set(n);
+    }
+
+    public final IntegerProperty getXProperty() {
+        return x;
+    }
+
+    public final IntegerProperty getYProperty() {
+        return y;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public int getVitesse() {
+        return vitesse;
+    }
+
+    public int getHauteur() {
+        return hauteur;
+    }
+
+    public int getLargeur() {
+        return largeur;
+    }
+
+    public Environnement getEnvi() {
+        return this.envi;
+    }
+
+    public List<int[]> getCoins(int newX, int newY) {
+        List<int[]> coins = new ArrayList<>();
+        coins.add(new int[]{newX, newY}); // Haut gauche
+        coins.add(new int[]{newX + largeur, newY}); // Haut droit
+        coins.add(new int[]{newX, newY + hauteur}); // Bas gauche
+        coins.add(new int[]{newX + largeur, newY + hauteur}); // Bas droit
+        return coins;
 
     }
-//    public Personnage(String nom, int PointVie, int x, int y, int dx, int dy, Environnement envi) {                 //Personnage sans arme donc pour la princesse
-//        this.nom = nom;
-//        this.PointVie = PointVie;
-//        this.x = new SimpleIntegerProperty(x);
-//        this.y = new SimpleIntegerProperty(y);
-//        this.dx = dx;
-//        this.dy = dy;
-//        this.id = "A"+ compteur;
-//        compteur++;
-//        this.envi = envi;
-//    }
 
-        public String getNom() {
-            return this.nom;
-        }
-
-        public int getPointVie() {
-            return this.PointVie;
-        }
-
-        public int getPointDefense () {
-            return this.PointDefense;
-        }
-
-        public int getPointAttaque() {
-            return this.PointAttaque;
-        }
-
-        public Arme getArme () {
-            return arme;
-        }
-
-        public int getX() {
-            return x.get();
-        }
-
-        public void setX(int n){
-            x.set(n);
-        }
-
-        public int getY () {
-            return y.get();
-        }
-        public void setY(int n){
-            y.set(n);
-        }
-        public final IntegerProperty getXProperty() {
-            return x;
-        }
-        public final IntegerProperty getYProperty() {
-            return y;
-        }
-        public int getId() {
-            return id;
-        }
-        public int getVitesse() {
-            return vitesse;
-        }
-        public int getHauteur() {
-            return hauteur;
-        }
-
-        public int getLargeur() {
-            return largeur;
-        }
-
-        public Environnement getEnvi() {
-            return this.envi;
-        }
-
-        public List<int[]> getCoins (int newX, int newY){
-            List<int[]> coins = new ArrayList<>();
-            coins.add(new int[]{newX, newY}); // Haut gauche
-            coins.add(new int[]{newX + largeur, newY}); // Haut droit
-            coins.add(new int[]{newX, newY + hauteur}); // Bas gauche
-            coins.add(new int[]{newX + largeur, newY + hauteur}); // Bas droit
-            return coins;
-
-        }
-        public boolean detectCollision(int newX, int newY) {
-            List<int[]> coins = this.getCoins(newX, newY);
-            for (int[] coin : coins) {
-                if (envi.getMap().estMur(coin[0], coin[1]) || envi.getMap().estLimite(coin[0], coin[1])) {
+    public boolean detectCollision(int newX, int newY) {
+        List<int[]> coins = this.getCoins(newX, newY);
+        for (int[] coin : coins) {
+            if (envi.getMap().estMur(coin[0], coin[1]) || envi.getMap().estLimite(coin[0], coin[1])) {
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean estRamasable(Item item) {
+
+        if ((this.getY() - 5 <= item.getY() && item.getY() <= this.getY() + 5) && this.getX() - 5 <= item.getX() && item.getX() <= this.getX() + 5) {
+            return true;
+        }
+        return false;
+    }
+
+    public void ramasserItem() {
+        System.out.println("Dans ramasserItem : Liste des items dans l'environnement " + envi.getListeItemEnvi());
+        for (Item item : envi.getListeItemEnvi()) {
+            if (item.getPersonnage().estRamasable(item)) {
+                System.out.println("Item ramassé : " + item.getNom());
+                this.getEnvi().getListeItemEnvi().remove(item);
+                this.getItems().add(item);
+                System.out.println("Item ramassé : " + item.getNom());
+            }
+        }
+    }
+
+    public List<Item> getItems() {
+        return itemPossederParPerso;
     }
 
 
