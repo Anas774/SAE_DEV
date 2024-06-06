@@ -73,8 +73,8 @@ public class HelloController implements Initializable {
                         System.out.println("fin");
                         gameLoop.stop();
                     } else if (temps % 5 == 0) {
-                        System.out.println("un tour");
-                        soldatEnnemie.suivreJoueur();
+//                        System.out.println("un tour");
+                        soldatEnnemie.suivreJoueur2();
                     }
                     temps++;
                 })
