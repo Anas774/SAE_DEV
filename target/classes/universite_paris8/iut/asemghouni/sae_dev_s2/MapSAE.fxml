@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -13,6 +14,15 @@
       </Pane>
    </center>
    <top>
-      <HBox fx:id="vieBox" prefHeight="20.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <Label fx:id="messageLabel" text="VieLink : ">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font>
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin></Label>
+         <HBox fx:id="vieBox" alignment="TOP_CENTER" prefHeight="20.0" prefWidth="20.0" />
+      </HBox>
    </top>
 </BorderPane>
