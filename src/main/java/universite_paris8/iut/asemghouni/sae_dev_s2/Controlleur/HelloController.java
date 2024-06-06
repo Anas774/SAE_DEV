@@ -51,7 +51,7 @@ public class HelloController implements Initializable {
         Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map);
 
         // Initialiser le soldat ennemi
-        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage,clavier);
+        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage);
 
         // Initialiser les vues
         this.vueMap = new VueMap(affichageTilePane, map);
@@ -85,7 +85,7 @@ public class HelloController implements Initializable {
                         gameLoop.stop();
                     } else if (temps % 5 == 0) {
                         System.out.println("un tour");
-                        soldatEnnemie.suivreJoueur();
+                        soldatEnnemie.suivreJoueur2();
                     }
                     temps++;
                 })
