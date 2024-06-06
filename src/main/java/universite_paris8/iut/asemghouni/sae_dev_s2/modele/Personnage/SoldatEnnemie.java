@@ -15,26 +15,36 @@ public class SoldatEnnemie extends Personnage {
 
     public void suivreJoueur2() {
 
-        double joueurX = cible.getX();
-        double joueurY = cible.getY();
-        double ennemiX = this.getX();
-        double ennemiY = this.getY();
+        if (detecterEnnemi(cible)) {
 
-        double deltaX = joueurX - ennemiX;
-        double deltaY = joueurY - ennemiY;
+            double joueurX = cible.getX();
+            double joueurY = cible.getY();
+            double ennemiX = this.getX();
+            double ennemiY = this.getY();
 
-        double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        double vitesse = 8;
+            double deltaX = joueurX - ennemiX;
+            double deltaY = joueurY - ennemiY;
 
-        if (longueur != 0) {
-            deltaX = (deltaX / longueur) * vitesse;
-            deltaY = (deltaY / longueur) * vitesse;
+            double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            double vitesse = 8;
+
+            if (longueur != 0) {
+                deltaX = (deltaX / longueur) * vitesse;
+                deltaY = (deltaY / longueur) * vitesse;
+            }
+
+            if (!cible.detectCollision((int) ennemiX, (int) ennemiY)) {
+                this.setX((int) (ennemiX + deltaX));
+                this.setY((int) (ennemiY + deltaY));
+            }
         }
+    }
 
-        if (!cible.detectCollision((int) ennemiX, (int) ennemiY)) {
-            this.setX((int) (ennemiX + deltaX));
-            this.setY((int) (ennemiY + deltaY));
+    private boolean detecterEnnemi(Personnage personnage) {
+        if ((this.getY() - 200 <= personnage.getY() && personnage.getY() <= this.getY() + 200) && this.getX() - 200 <= personnage.getX() && personnage.getX() <= this.getX() + 200) {
+            return true;
         }
+        return false;
     }
 
 //    public void suivreJoueur() {

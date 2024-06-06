@@ -105,7 +105,7 @@ public class HelloController implements Initializable {
     }
 
     public void miseAJourVie() {
-        personnage.setPointVie(10);
+        personnage.setPointVie(5);
     }
 
     @FXML

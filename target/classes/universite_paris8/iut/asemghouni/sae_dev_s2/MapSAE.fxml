@@ -6,6 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Font?>
 <BorderPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.HelloController">
    <center>
       <Pane fx:id="affichagePane" onMouseClicked="#mouseClicked" prefHeight="570.0" prefWidth="570.0">
@@ -13,6 +14,15 @@
       </Pane>
    </center>
    <top>
-      <HBox fx:id="vieBox" prefHeight="20.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <Label fx:id="messageLabel" text="VieLink : ">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font>
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin></Label>
+         <HBox fx:id="vieBox" alignment="TOP_CENTER" prefHeight="20.0" prefWidth="20.0" />
+      </HBox>
    </top>
 </BorderPane>
