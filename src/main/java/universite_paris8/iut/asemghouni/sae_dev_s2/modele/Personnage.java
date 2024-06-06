@@ -11,8 +11,6 @@ public class Personnage {
 
     private String nom;
     private IntegerProperty pointVie;
-    private int PointAttaque;
-    private int PointDefense;
     private Arme arme;
     private List<Item> itemPossederParPerso;
     private IntegerProperty x;
@@ -25,11 +23,9 @@ public class Personnage {
     private String id;
     private Environnement envi;
 
-    public Personnage(String nom, int PointVie, int PointAttaque, int PointDefense, Arme arme, Environnement envi) {
+    public Personnage(String nom, int PointVie, Arme arme, Environnement envi) {
         this.nom = nom;
         this.pointVie = new SimpleIntegerProperty(PointVie);
-        this.PointAttaque = PointAttaque;
-        this.PointDefense = PointDefense;
         this.arme = arme;
         this.itemPossederParPerso = new ArrayList<>();
         this.x = new SimpleIntegerProperty(0);
@@ -56,14 +52,6 @@ public class Personnage {
 
     public IntegerProperty pointVieProperty() {
         return this.pointVie;
-    }
-
-    public int getPointDefense() {
-        return this.PointDefense;
-    }
-
-    public int getPointAttaque() {
-        return this.PointAttaque;
     }
 
     public Arme getArme() {
@@ -134,30 +122,19 @@ public class Personnage {
         return false;
     }
 
-    public boolean estRamasable(Item item) {
-
-        if ((this.getY() - 5 <= item.getY() && item.getY() <= this.getY() + 5) && this.getX() - 5 <= item.getX() && item.getX() <= this.getX() + 5) {
-            return true;
-        }
-        return false;
-    }
-
     public void ramasserItem() {
-        System.out.println("Dans ramasserItem : Liste des items dans l'environnement " + envi.getListeItemEnvi());
-        for (Item item : envi.getListeItemEnvi()) {
-            if (item.getPersonnage().estRamasable(item)) {
-                System.out.println("Item ramassé : " + item.getNom());
-                this.getEnvi().getListeItemEnvi().remove(item);
-                this.getItems().add(item);
-                System.out.println("Item ramassé : " + item.getNom());
-            }
+
+        Item item = envi.estRamasable(this);
+
+        if (item != null) {
+            envi.getListeItemEnvi().remove(item);
+            this.getItems().add(item);
         }
     }
 
     public List<Item> getItems() {
         return itemPossederParPerso;
     }
-
 
 
 //    public void ajouterItem(Item item) {

@@ -8,9 +8,6 @@ public class Fleche extends Item {
         this.nombre = nombre;
     }
 
-//    public void ramasser() {
-//
-//    }
     @Override
     public String toString() {
         return "Une flèche !";

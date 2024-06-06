@@ -44,8 +44,27 @@ public class Environnement {
         this.listeItemEnvi.add(item);
     }
 
-    public int taille() {
-        return listeItemEnvi.size();
+    public void unTour(Personnage personnage) {
+
+        Item itemRamasable = estRamasable(personnage);
+
+        if (itemRamasable != null) {
+
+            System.out.println("Item ramassé : " + itemRamasable.getNom());
+            listeItemEnvi.remove(itemRamasable);
+        }
     }
+
+    public Item estRamasable(Personnage personnage) {
+        for (Item item : listeItemEnvi) {
+            if ((personnage.getY() - 20 <= item.getY() && item.getY() <= personnage.getY() + 20) &&
+                    (personnage.getX() - 20 <= item.getX() && item.getX() <= personnage.getX() + 20)) {
+                return item;
+            }
+        }
+        System.out.println("Pas d'item à côté");
+        return null;
+    }
+
 }
 

@@ -4,7 +4,7 @@ public class Potion extends Item {
     private int valeur;
 
     public Potion(String nom, Environnement envi) {
-        super("nom", envi);
+        super("Potion de shield", envi);
         this.valeur = 10;
     }
     public void apparitionPotion() {

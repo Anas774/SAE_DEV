@@ -2,12 +2,14 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
+import universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.Observateur.ObservateurItem;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.*;
 import javafx.util.Duration;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.*;
@@ -30,7 +32,6 @@ public class HelloController implements Initializable {
     private Pane affichagePane;
     @FXML
     private TilePane affichageTilePane;
-    private VueItem potion;
     private Item item;
 
     @Override
@@ -41,18 +42,10 @@ public class HelloController implements Initializable {
         this.envi = new Environnement();
 
         // Initialiser le personnage principal
-        this.personnage = new Personnage("Lokmen", 100,10,10,new Hache(), envi);
+        this.personnage = new Personnage("Lokmen", 100, new Hache(), envi);
 
         // Initialiser le soldat ennemi
-        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage);
-
-        // Initialise les potions
-        Item item = new Potion("popo1",envi);
-        Item item1 = new Potion("popo2",envi);
-
-        // Ajoute l'item a l'envi
-        this.envi.ajouter(item);
-        this.envi.ajouter(item1);
+        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, new Hache(), envi, personnage);
 
         //Initialiser le clavier
         Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map, item);
@@ -61,7 +54,6 @@ public class HelloController implements Initializable {
         this.vueMap = new VueMap(affichageTilePane, map);
         this.vueLink = new VueLink(affichagePane, personnage, affichageTilePane, clavier);
         this.vueEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemie);
-        this.potion = new VueItem(affichagePane,item);
 
         clavier.setVueLink(vueLink);
 
@@ -71,6 +63,9 @@ public class HelloController implements Initializable {
         // Démarrer l'animation
         animation();
         gameLoop.play();
+
+        ListChangeListener<Item> listen = new ObservateurItem(affichagePane);
+        envi.getListeItemEnvi().addListener(listen);
     }
 
     @FXML
@@ -89,11 +84,20 @@ public class HelloController implements Initializable {
                         System.out.println("fin");
                         gameLoop.stop();
                     } else if (temps % 5 == 0) {
-                        System.out.println("un tour");
+//                        System.out.println("un tour");
                         soldatEnnemie.suivreJoueur2();
+
+                        if (temps % 200 == 0) {
+                            for (int i = 0; i < 1; i++) {
+                                envi.getListeItemEnvi().add(new Potion("popo", envi));
+                            }
+                        }
                     }
+                    envi.unTour(personnage);
                     temps++;
                 })
+
+
         );
 
         gameLoop.getKeyFrames().add(keyFrame);

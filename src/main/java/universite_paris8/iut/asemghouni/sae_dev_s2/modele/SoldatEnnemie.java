@@ -7,8 +7,8 @@ public class SoldatEnnemie extends Personnage {
     private Personnage cible;
     private SoldatEnnemie soldatEnnemie;
 
-    public SoldatEnnemie(String nom, int PointVie, int PointAttaque, int PointDefense, Arme arme, Environnement envi, Personnage cible) {
-        super(nom, 60, 30, 30, arme, envi);
+    public SoldatEnnemie(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
+        super(nom, 60, arme, envi);
         this.cible = cible;
     }
 
@@ -33,9 +33,6 @@ public class SoldatEnnemie extends Personnage {
         if (!cible.detectCollision((int) ennemiX, (int) ennemiY)) {
             this.setX((int) (ennemiX + deltaX));
             this.setY((int) (ennemiY + deltaY));
-        }
-        else {
-            int[] deplacement = {};
         }
     }
 

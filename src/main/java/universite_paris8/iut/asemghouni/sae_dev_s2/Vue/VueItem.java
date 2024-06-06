@@ -15,7 +15,6 @@ public class VueItem {
     public VueItem(Pane affichagePane, Item item) {
         this.item = item;
         creeItem(affichagePane,item);
-        faireApparaitreItemAléatoirement();
     }
 
     private void creeItem(Pane affichagePane, Item item) {
@@ -27,19 +26,6 @@ public class VueItem {
         itemImageview.translateXProperty().bind(item.getXProperty());
         itemImageview.translateYProperty().bind(item.getYProperty());
         affichagePane.getChildren().add(itemImageview);
-    }
-
-    private void faireApparaitreItemAléatoirement() {
-
-        int x,y;
-
-        do {
-            x = (int) (Math.random() * item.getEnvi().getMap().getHauteur() * 38);
-            y = (int) (Math.random() * item.getEnvi().getMap().getLargeur() * 38);
-
-        } while (item.getEnvi().getMap().estMur(x,y) || item.getEnvi().getMap().estLimite(x,y));
-
-        item.apparitionItem(x,y);
     }
 
 }
