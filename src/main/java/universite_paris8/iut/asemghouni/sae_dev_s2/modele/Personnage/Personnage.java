@@ -122,14 +122,6 @@ public class Personnage {
         return false;
     }
 
-    public boolean estRamasable(Item item) {
-
-        if ((this.getY() - 5 <= item.getY() && item.getY() <= this.getY() + 5) && this.getX() - 5 <= item.getX() && item.getX() <= this.getX() + 5) {
-            return true;
-        }
-        return false;
-    }
-
     public void recevoirDegats(int degats) {
 
         int pointVieActuels = this.pointVie.get();

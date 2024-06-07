@@ -15,7 +15,6 @@ public class Item {
     private String nom;
     private IntegerProperty x;
     private IntegerProperty y;
-
     protected Environnement envi;
     private int largeur;
     private int hauteur;

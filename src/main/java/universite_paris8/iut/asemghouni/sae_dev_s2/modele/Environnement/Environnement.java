@@ -60,7 +60,7 @@
                     return item;
                 }
             }
-//            System.out.println("Pas d'item à côté");
+            System.out.println("Pas d'item à côté");
             return null;
         }
     }
