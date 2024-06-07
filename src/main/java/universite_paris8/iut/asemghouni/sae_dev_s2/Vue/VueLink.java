@@ -19,6 +19,7 @@ public class VueLink {
     private Image linkDown, linkDown1;
     private Image linkLeft, linkLeft1;
     private Image linkRight, linkRight1;
+    private Image attaqueG, attaqueB;
     private Clavier clavier;
     private boolean alterner;
 
@@ -36,6 +37,9 @@ public class VueLink {
 
         this.linkRight = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/link_base_AD.png").toString());
         this.linkRight1 = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/link_baseD.png").toString());
+
+        this.attaqueG = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/attaqueGauche.png").toString());
+        this.attaqueB = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/attaqueBas.png").toString());
 
         afficherLink(affichagePane, personnage, tilePane);
     }
@@ -65,6 +69,9 @@ public class VueLink {
                 break;
             case "right":
                 linkImageView.setImage(alterner ? linkRight : linkRight1);
+                break;
+            case "attaque":
+                linkImageView.setImage(attaqueG);
                 break;
         }
     }

@@ -56,6 +56,10 @@ public class Clavier implements EventHandler<KeyEvent> {
                 newX += personnage.getVitesse();
                 vueLink.setdirection("right");
             }
+            case SPACE-> {
+                newX += personnage.getVitesse();
+                vueLink.setdirection("attaque");
+            }
         }
 
         if (!personnage.detectCollision(newX, newY)) {

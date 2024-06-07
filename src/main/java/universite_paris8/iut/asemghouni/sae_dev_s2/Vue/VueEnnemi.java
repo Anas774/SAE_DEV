@@ -26,7 +26,7 @@ public class VueEnnemi {
     }
 
     private void creerEnnemi(Pane affichagePane, TilePane tilePane, SoldatEnnemie soldatEnnemie) {
-        Image ennemi = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/ennemi.png").toString());
+        Image ennemi = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/zelda.png").toString());
         this.ennemiImageView = new ImageView(ennemi);
         ennemiImageView.setFitWidth(25);
         ennemiImageView.setFitHeight(25);

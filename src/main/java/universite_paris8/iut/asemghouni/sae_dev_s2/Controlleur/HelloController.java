@@ -26,11 +26,13 @@ public class HelloController implements Initializable {
     private SoldatEnnemie soldatEnnemie;
     private Environnement envi;
     @FXML
-    private Pane affichagePane;
+    private Pane affichagePane=new Pane();
     @FXML
     private TilePane affichageTilePane;
     private VueItem potion;
     private Item item;
+   // private Vie vie;
+    private VueVie vueVie;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,20 +42,22 @@ public class HelloController implements Initializable {
         this.envi = new Environnement();
 
         // Initialiser le personnage principal
-        this.personnage = new Personnage("Lokmen", 100,10,10,new Hache(), envi);
+        this.personnage = new Personnage("Lokmen", 100, 10, 10, new Hache(), envi);
 
         // Initialiser le soldat ennemi
-        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage);
-        this.item = new Item("estusFlask",envi);
+        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage, personnage.getX()+300, personnage.getY()+50);
+        this.item = new Item("estusFlask", envi);
+     //   this.vie = new Vie(envi);
 
-        //Initialiser le clavier
+        // Initialiser le clavier
         Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map);
 
         // Initialiser les vues
         this.vueMap = new VueMap(affichageTilePane, map);
         this.vueLink = new VueLink(affichagePane, personnage, affichageTilePane, clavier);
         this.vueEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemie);
-        this.potion = new VueItem(affichagePane,item, affichageTilePane);
+        this.potion = new VueItem(affichagePane, item, affichageTilePane,personnage);
+        this.vueVie = new VueVie(affichageTilePane, personnage, affichagePane);
 
         clavier.setVueLink(vueLink);
 
@@ -83,12 +87,13 @@ public class HelloController implements Initializable {
                     } else if (temps % 5 == 0) {
                         System.out.println("un tour");
                         soldatEnnemie.suivreJoueur2();
+                        // Mise à jour de la vie pour tester
+                        vueVie.setVie(personnage.getPointVie() - 1); // Ex. : Réduire les points de vie pour test
                     }
                     temps++;
                 })
         );
 
         gameLoop.getKeyFrames().add(keyFrame);
-
     }
 }
