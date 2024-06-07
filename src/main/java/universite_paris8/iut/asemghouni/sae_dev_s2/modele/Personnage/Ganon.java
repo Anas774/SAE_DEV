@@ -9,7 +9,7 @@ public class Ganon extends Personnage {
     private Personnage cible;
 
     public Ganon(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
-        super("Ganon", 150, new EpeeDuDieuBestial(), envi);
+        super("Ganon", 30, new EpeeDuDieuBestial(), envi);                          // 15 coeurs
         this.cible = cible;
     }
 }

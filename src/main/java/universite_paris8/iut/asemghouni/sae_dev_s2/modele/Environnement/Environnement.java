@@ -4,6 +4,8 @@
     import javafx.collections.ObservableList;
     import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
     import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
+    import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
+    import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 
     public class Environnement {
 
@@ -38,8 +40,28 @@
             this.listeItemEnvi.add(item);
         }
 
-        public int taille() {
-            return listeItemEnvi.size();
+        public void unTour(Personnage personnage) {
+
+            Item itemRamasable = estRamasable(personnage);
+
+            if (itemRamasable != null) {
+                System.out.println("Item ramassé : " + itemRamasable.getNom());
+                listeItemEnvi.remove(itemRamasable);
+                if (personnage instanceof Link) {
+                    ((Link)personnage).ramasserItem(itemRamasable);
+                }
+            }
+        }
+
+        public Item estRamasable(Personnage personnage) {
+            for (Item item : listeItemEnvi) {
+                if ((personnage.getY() - 20 <= item.getY() && item.getY() <= personnage.getY() + 20) &&
+                        (personnage.getX() - 20 <= item.getX() && item.getX() <= personnage.getX() + 20)) {
+                    return item;
+                }
+            }
+//            System.out.println("Pas d'item à côté");
+            return null;
         }
     }
 

@@ -10,14 +10,13 @@ public class VueVie {
     private IntegerProperty pointVie;
     private Image coeurPlein;
     private Image coeurVide;
-
-    //    private Image coeurMoitie;
+    private Image coeurMoitie;
     private HBox vieBox;
 
     public VueVie(HBox vieBox, IntegerProperty pointVie) {
         this.pointVie = pointVie;
         this.coeurPlein = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_full.png"));
-//        this.coeurMoitie = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/saedev/Vie/heart_half.png"));
+        this.coeurMoitie = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_half.png"));
         this.coeurVide = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_blank.png"));
         this.vieBox = vieBox;
         vieBox.setSpacing(10);
@@ -42,11 +41,15 @@ public class VueVie {
     private void mettreAJourBarreVie() {
 
         int vieActuelle = pointVie.get();
+        int nombreCoeursPlein = vieActuelle / 2;
+        boolean demiCoeur = vieActuelle % 2 == 1;
 
         for (int i = 0; i < vieBox.getChildren().size(); i++) {
             ImageView coeur = (ImageView) vieBox.getChildren().get(i);
-            if (i < vieActuelle) {
+            if (i < nombreCoeursPlein) {
                 coeur.setImage(coeurPlein);
+            } else if (i == nombreCoeursPlein && demiCoeur) {
+                coeur.setImage(coeurMoitie);
             } else {
                 coeur.setImage(coeurVide);
             }

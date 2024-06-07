@@ -2,10 +2,10 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme;
 public class MasterSword extends Arme {
 
     public MasterSword() {
-        super("MasterSword", 10);
+        super("MasterSword", 2);
     }
     @Override
     public String toString() {
-        return "Arme" +super.toString() + "point d'attaque : " + getPointsAttaqueArme();
+        return "Arme : " +super.toString() + " point d'attaque : " + getPointsAttaqueArme();
     }
 }

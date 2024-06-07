@@ -21,7 +21,6 @@ public class Item {
     private int hauteur;
     public static int compteur = 0;
     private String id;
-    private boolean ramasser;
 
     public Item(String nom, Environnement envi) {
         this.nom = nom;
@@ -32,7 +31,15 @@ public class Item {
         this.hauteur = 10;
         compteur++;
         this.envi = envi;
-        this.ramasser = false;
+        faireApparaitreItemAléatoirement();
+    }
+
+    public void setY(int y) {
+        this.y.set(y);
+    }
+
+    public void setX(int x) {
+        this.x.set(x);
     }
 
     public Personnage getPersonnage() {
@@ -59,14 +66,6 @@ public class Item {
         return y;
     }
 
-    public boolean estRamasser() {
-        return ramasser;
-    }
-
-    public boolean setRamasser(boolean b) {
-        return ramasser = b;
-    }
-
     public int getLargeur() {
         return largeur;
     }
@@ -83,13 +82,29 @@ public class Item {
         return envi;
     }
 
-    public void apparitionItem(int x, int y) {
-        if (!envi.getMap().estLimite(x, y) && !envi.getMap().estMur(x, y)) {
-            this.x.set(x);
-            this.y.set(y);
-        } else {
-            System.out.println("Impossible de faire apparaître l'item aux coordonnées (" + x + ", " + y + ")");
-        }
+    private void faireApparaitreItemAléatoirement() {
+
+        int x,y;
+
+        do {
+            x = (int) (Math.random() * this.getEnvi().getMap().getHauteur() * 38);
+            y = (int) (Math.random() * this.getEnvi().getMap().getLargeur() * 38);
+
+        } while (envi.getMap().getMapJeu()[indiceObstacle(x,y)] == 5 && !envi.getMap().estLimite(x,y));
+
+        this.setX(x);
+        this.setY(y);
+
+    }
+
+    private int indiceObstacle(int newX, int newY) {
+
+        int ligne, colonne;
+
+        colonne = newX / 38;
+        ligne = newY / 38;
+
+        return ligne * 15 + colonne;
     }
 
 }

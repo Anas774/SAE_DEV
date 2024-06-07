@@ -4,7 +4,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
-import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueItem;
+//import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueItem;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueLink;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
@@ -19,7 +19,6 @@ public class Clavier implements EventHandler<KeyEvent> {
     private Map map;
     private VueLink vueLink;
     private Item item;
-    private VueItem vueItem;
 
     public Clavier(Personnage personnage, Pane affichagePane, TilePane tilePane, Map map, Item item) {
         this.personnage = personnage;
@@ -49,6 +48,7 @@ public class Clavier implements EventHandler<KeyEvent> {
         int newY = personnage.getY();
 
         switch (event.getCode()) {
+
             case Z -> {
                 newY -= personnage.getVitesse();
                 vueLink.setdirection("up");
@@ -64,9 +64,6 @@ public class Clavier implements EventHandler<KeyEvent> {
             case D -> {
                 newX += personnage.getVitesse();
                 vueLink.setdirection("right");
-            }
-            case J -> {
-              personnage.ramasserItem();
             }
         }
 

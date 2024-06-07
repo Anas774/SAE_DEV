@@ -15,7 +15,6 @@ public class Personnage {
     private String nom;
     private IntegerProperty pointVie;
     private Arme arme;
-    private List<Item> itemPossederParPerso;
     private IntegerProperty x;
     private IntegerProperty y;
     private int vitesse;
@@ -29,7 +28,6 @@ public class Personnage {
         this.nom = nom;
         this.pointVie = new SimpleIntegerProperty(PointVie);
         this.arme = arme;
-        this.itemPossederParPerso = new ArrayList<>();
         this.x = new SimpleIntegerProperty(0);
         this.y = new SimpleIntegerProperty(0);
         this.id = "#" + compteur;
@@ -132,22 +130,6 @@ public class Personnage {
         return false;
     }
 
-    public void ramasserItem() {
-        System.out.println("Dans ramasserItem : Liste des items dans l'environnement " + envi.getListeItemEnvi());
-        for (Item item : envi.getListeItemEnvi()) {
-            if (item.getPersonnage().estRamasable(item)) {
-                System.out.println("Item ramassé : " + item.getNom());
-                this.getEnvi().getListeItemEnvi().remove(item);
-                this.getItems().add(item);
-                System.out.println("Item ramassé : " + item.getNom());
-            }
-        }
-    }
-
-    public List<Item> getItems() {
-        return itemPossederParPerso;
-    }
-
     public void recevoirDegats(int degats) {
 
         int pointVieActuels = this.pointVie.get();
@@ -157,44 +139,65 @@ public class Personnage {
         if (pointVieActuels < 0) {
             pointVieActuels = 0;
         }
+        this.pointVie.set(pointVieActuels);
     }
 
     public int attaquer(Personnage victime) {
 
-        int degatInflige;
-        int pointVie = victime.getPointVie().get();
+        int degatInflige = 0;
+        int pointVie = this.pointVie.get();
 
-        if (this.arme != null) {
-            degatInflige = this.arme.getPointsAttaqueArme();
+        if (peutAttaquerCorpsACorps(victime)) {
+
+            if (this.arme != null) {
+                degatInflige = this.arme.getPointsAttaqueArme();
+            }
+
+            victime.recevoirDegats(degatInflige);
+
         }
-        else {
-            degatInflige = 0;
+        return degatInflige;
+    }
+
+    public boolean peutAttaquerCorpsACorps(Personnage cible) {
+
+        if (this instanceof SoldatEnnemie) {
+            if ((this.getY() - 10 <= cible.getY() && cible.getY() <= this.getY() + 10) &&
+                    (this.getX() - 10 <= cible.getX() && cible.getX() <= this.getX() + 10)) {
+                return true;
+            }
         }
+        return false;
+    }
 
-        int degatReelInflige = degatInflige - pointVie;
+    public boolean peutAttaquerDistance(Personnage cible) {
 
-        if (degatReelInflige > 0) {
-
-            victime.recevoirDegats(degatReelInflige);
+        if (this instanceof SoldatEnnemie) {
+            if ((this.getY() - 100 <= cible.getY() && cible.getY() <= this.getY() + 100) &&
+                    (this.getX() - 100 <= cible.getX() && cible.getX() <= this.getX() + 100)) {
+                return true;
+            }
         }
+        return false;
+    }
 
-        return degatReelInflige;
-
+    public boolean estVivant() {
+        return this.getPointVie().getValue() > 0;
     }
 
     public String toString() {
 
-        return "Personnage {" +
-                "nom='" + nom + '\'' +
-                ", pointVie=" + pointVie +
-                ", arme=" + arme +
-                ", x=" + x.get() +
-                ", y=" + y.get() +
-                ", vitesse=" + vitesse +
-                ", id=" + id +
-                ", envi=" + envi +
-                ", largeur=" + largeur +
-                ", hauteur=" + hauteur +
+        return "Personnage { " +
+                "nom ='" + nom + '\'' +
+                ", pointVie =" + pointVie +
+                ", arme =" + arme +
+                ", x =" + x.get() +
+                ", y =" + y.get() +
+                ", vitesse =" + vitesse +
+                ", id =" + id +
+                ", envi =" + envi +
+                ", largeur =" + largeur +
+                ", hauteur =" + hauteur +
                 " }";
     }
 

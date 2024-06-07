@@ -9,7 +9,7 @@ public class Boss2 extends Personnage {
     private Personnage cible;
 
     public Boss2(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
-        super("Kotake", 115, new Arc(), envi);
+        super("Kotake", 14, new Arc(), envi);                                       // 7 coeurs
         this.cible = cible;
     }
 }

@@ -6,7 +6,7 @@ public class Fleche extends Item {
     private int nombre;
 
     public Fleche(String nom, Environnement envi) {
-        super(nom,envi);
+        super("Fleche",envi);
         this.nombre = 0;
 
     }

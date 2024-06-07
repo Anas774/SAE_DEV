@@ -2,12 +2,11 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme;
 
 public class Epée extends Arme {
     public Epée() {
-        super("Epee", 10);
+        super("Epee", 2);
     }
-
     @Override
     public String toString() {
-        return "Arme" +super.toString() + "point d'attaque : " + getPointsAttaqueArme();
+        return "Arme : " + super.toString() + " point d'attaque : " + getPointsAttaqueArme();
     }
 
 }
