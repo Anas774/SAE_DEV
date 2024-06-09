@@ -31,7 +31,7 @@ public class Clavier implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
 
-        System.out.println("Touche pressée : " + event.getCode());
+        //System.out.println("Touche pressée : " + event.getCode());
 
         int PosTuileX = personnage.getX() / 38;
         int PosTuileY = personnage.getY() / 38;
@@ -69,8 +69,8 @@ public class Clavier implements EventHandler<KeyEvent> {
         else {
             System.out.println("Limite OU Mur !!!");
         }
-        System.out.println("Position du perso : " + personnage.getX() + ", " + personnage.getY());
-        System.out.println(PosTuileX + ", " + PosTuileY);
+        //System.out.println("Position du perso : " + personnage.getX() + ", " + personnage.getY());
+        //System.out.println(PosTuileX + ", " + PosTuileY);
     }
 
 

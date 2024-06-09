@@ -140,73 +140,29 @@ public class Personnage {
         return false;
     }
 
-    //servira pour les attaques
+
+    //pour les attaques avec épee une autre méthode sera faites pour les attaques longues distances !
     public boolean attaque(Personnage cible) {
         // Comparer les coordonnées des deux personnages
         return (this.getX() == cible.getX()) && (this.getY() == cible.getY());
     }
 
+    //demander à la prof si c'est préférable de fusionner les deux fonctions
     public void subirDegats(int degats) {
         this.PointVie -= degats;
         if (this.PointVie < 0) {
-            this.PointVie = getPointVie()-getPointAttaque(); // Assurez-vous que les points de vie ne deviennent pas négatifs
+            this.PointVie=0;
             System.out.println(" dégats : " + degats);
+        }
+    }
+
+    public void meurt(){
+        if(this.PointVie ==0){
+            System.out.println(this.nom + " à succombé !");
         }
     }
 }
 
-
-
-//    public void ajouterItem(Item item) {
-//        this.inventaire.add(item);
-//    }
-
-//    public void recevoirDegats(int degats) {
-//
-//        this.PointVie = this.PointVie - degats;
-//
-//        if (this.PointVie < 0) {
-//            this.PointVie = 0;
-//        }
-//    }
-
-//    public int attaquer(Personnage victime) {
-//
-//        int degatInflige;
-//
-//        if (this.arme != null) {
-//            degatInflige = this.getPointAttaque() + this.arme.getPointsAttaqueArme();
-//        }
-//        else {
-//            degatInflige = this.PointAttaque;
-//        }
-//
-//        int degatReelInflige = degatInflige - victime.getPointDefense();
-//
-//        if (degatReelInflige > 0) {
-//
-//            victime.recevoirDegats(degatReelInflige);
-//        }
-//
-//        return degatReelInflige;
-//
-//    }
-
-//        return "Personnage{" +
-//                "nom='" + nom + '\'' +
-//                ", pointVie=" + pointVie +
-//                ", pointAttaque=" + pointAttaque +
-//                ", pointDefense=" + pointDefense +
-//                ", arme=" + arme +
-//                ", x=" + x.get() +
-//                ", y=" + y.get() +
-//                ", vitesse=" + vitesse +
-//                ", id=" + id +
-//                ", envi=" + envi +
-//                ", largeur=" + largeur +
-//                ", hauteur=" + hauteur +
-//                '}';
-//    }
 
 
 

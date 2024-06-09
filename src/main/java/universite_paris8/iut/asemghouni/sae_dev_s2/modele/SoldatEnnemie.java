@@ -5,7 +5,6 @@ import javafx.scene.layout.TilePane;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueVie;
 
 public class SoldatEnnemie extends Personnage {
-
     private Pane pane;
     private TilePane tilepane = new TilePane();
     private Personnage cible;
@@ -18,6 +17,7 @@ public class SoldatEnnemie extends Personnage {
         this.setY(startY);
         vueVie = new VueVie(tilepane, cible, pane);
     }
+
     public void suivreJoueur2() {
         double joueurX = cible.getX();
         double joueurY = cible.getY();
@@ -40,19 +40,15 @@ public class SoldatEnnemie extends Personnage {
             this.setY((int) (ennemiY + deltaY));
 
             if (attaque(cible)) { // Vérifier si l'ennemi a atteint la cible
-
                 System.out.println(cible.getNom()+" à été attaquée par " + getNom());
                 cible.subirDegats(this.getPointAttaque());
+                System.out.println("dégats : "+ this.getPointAttaque());
                 vueVie.setVie(cible.getPointVie());
                 // Si la vie de la cible est maintenant inférieure à vieBase, vide un cœur
-                if (cible.getPointVie() < vueVie.getVieBase() && attaque(cible)) {
-                    vueVie.setVie(vueVie.getVieBase() - 100);
-
+                if (this.getPointAttaque() >= 10) {
+                    vueVie.viderUnCoeur();
                 }
             }
-        } else {
-            // Gestion des collisions
         }
-    }
-
+     }
 }

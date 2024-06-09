@@ -42,10 +42,10 @@ public class HelloController implements Initializable {
         this.envi = new Environnement();
 
         // Initialiser le personnage principal
-        this.personnage = new Personnage("Lokmen", 100, 10, 10, new Hache(), envi);
+        this.personnage = new Personnage("Link", 100, 10, 10, new Hache(), envi);
 
         // Initialiser le soldat ennemi
-        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 30, 30, null, envi, personnage, personnage.getX()+300, personnage.getY()+50);
+        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 60, 5, 30, null, envi, personnage, personnage.getX()+300, personnage.getY()+50);
         this.item = new Item("estusFlask", envi);
      //   this.vie = new Vie(envi);
 
@@ -85,10 +85,11 @@ public class HelloController implements Initializable {
                         System.out.println("fin");
                         gameLoop.stop();
                     } else if (temps % 5 == 0) {
-                        System.out.println("un tour");
+                        //System.out.println("un tour");
                         soldatEnnemie.suivreJoueur2();
                         // Mise à jour de la vie pour tester
-                        vueVie.setVie(personnage.getPointVie() - 1); // Ex. : Réduire les points de vie pour test
+                        vueVie.setVie(personnage.getPointVie() - 2); // Ex. : Réduire les points de vie pour test
+                        vueVie.updateHealthBar();
                     }
                     temps++;
                 })
