@@ -60,6 +60,7 @@ public class HelloController implements Initializable {
         this.vueVie = new VueVie(affichageTilePane, personnage, affichagePane);
 
         clavier.setVueLink(vueLink);
+        clavier.setCible(soldatEnnemie);
 
         affichagePane.requestFocus();
         affichagePane.addEventHandler(KeyEvent.KEY_PRESSED, clavier);

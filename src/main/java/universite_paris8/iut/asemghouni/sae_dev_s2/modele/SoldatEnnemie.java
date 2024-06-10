@@ -51,4 +51,11 @@ public class SoldatEnnemie extends Personnage {
             }
         }
      }
+
+     public boolean meurt(){
+        if(getPointVie()==0){
+            System.out.println(this.getNom() + " est mort !");
+        }
+         return false;
+     }
 }

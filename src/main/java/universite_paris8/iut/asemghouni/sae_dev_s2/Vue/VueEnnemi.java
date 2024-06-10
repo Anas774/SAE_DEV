@@ -23,6 +23,7 @@ public class VueEnnemi {
 
     public VueEnnemi(Pane affichagePane, TilePane tilePane, SoldatEnnemie soldatEnnemie) {
         creerEnnemi(affichagePane, tilePane, soldatEnnemie);
+        meurt(affichagePane,tilePane,soldatEnnemie);
     }
 
     private void creerEnnemi(Pane affichagePane, TilePane tilePane, SoldatEnnemie soldatEnnemie) {
@@ -38,5 +39,17 @@ public class VueEnnemi {
 
     public Personnage getEnnemi() {
         return ennemi;
+    }
+
+
+    public void meurt(Pane affichagePane, TilePane tilePane, SoldatEnnemie soldatEnnemie) {
+        Image ennemiMort = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/zeldaMort.png").toString());
+        ennemiImageView.translateXProperty().bind(soldatEnnemie.getXProperty());
+        ennemiImageView.translateYProperty().bind(soldatEnnemie.getYProperty());
+        this.ennemiImageView = new ImageView(ennemiMort);
+        if(soldatEnnemie.meurt() ){
+            affichagePane.getChildren().add(ennemiImageView);
+
+        }
     }
 }

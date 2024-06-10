@@ -156,10 +156,11 @@ public class Personnage {
         }
     }
 
-    public void meurt(){
+    public boolean meurt(){
         if(this.PointVie ==0){
             System.out.println(this.nom + " à succombé !");
         }
+        return false;
     }
 }
 

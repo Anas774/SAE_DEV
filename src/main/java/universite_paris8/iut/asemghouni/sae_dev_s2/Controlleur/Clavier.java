@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Clavier implements EventHandler<KeyEvent> {
 
-    private Personnage personnage;
+    private Personnage personnage,cible;
     private Pane affichagePane;
     private TilePane tilePane;
     private Map map;
@@ -27,12 +27,8 @@ public class Clavier implements EventHandler<KeyEvent> {
     public void setVueLink(VueLink vueLink) {
         this.vueLink = vueLink;
     }
-
     @Override
     public void handle(KeyEvent event) {
-
-        //System.out.println("Touche pressée : " + event.getCode());
-
         int PosTuileX = personnage.getX() / 38;
         int PosTuileY = personnage.getY() / 38;
 
@@ -56,24 +52,28 @@ public class Clavier implements EventHandler<KeyEvent> {
                 newX += personnage.getVitesse();
                 vueLink.setdirection("right");
             }
-            case SPACE-> {
-                newX += personnage.getVitesse();
+            case SPACE -> {
                 vueLink.setdirection("attaque");
+                if (cible != null && personnage.attaque(cible)) {
+                    cible.subirDegats(personnage.getPointAttaque());
+                    System.out.println("Attaque réussie ! L'ennemi a maintenant " + cible.getPointVie() + " PV.");
+                    cible.meurt();
+                }
             }
         }
 
         if (!personnage.detectCollision(newX, newY)) {
             personnage.setX(newX);
             personnage.setY(newY);
-        }
-        else {
+        } else {
             System.out.println("Limite OU Mur !!!");
         }
-        //System.out.println("Position du perso : " + personnage.getX() + ", " + personnage.getY());
-        //System.out.println(PosTuileX + ", " + PosTuileY);
     }
 
 
+    public void setCible(Personnage cible) {
+        this.cible = cible;
+    }
 
 
 

@@ -81,6 +81,5 @@ public class VueLink {
         alterner = !alterner;
         modifImage();
 
-
     }
 }
