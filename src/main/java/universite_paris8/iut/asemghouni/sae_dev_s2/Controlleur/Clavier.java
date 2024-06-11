@@ -7,7 +7,7 @@ import javafx.scene.layout.TilePane;
 //import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueItem;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueLink;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Map;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 import java.util.List;
 
@@ -47,36 +47,43 @@ public class Clavier implements EventHandler<KeyEvent> {
         int newX = personnage.getX();
         int newY = personnage.getY();
 
-        switch (event.getCode()) {
+        if (personnage.estVivant()) {
 
-            case Z -> {
-                newY -= personnage.getVitesse();
-                vueLink.setdirection("up");
-            }
-            case S -> {
-                newY += personnage.getVitesse();
-                vueLink.setdirection("down");
-            }
-            case Q -> {
-                newX -= personnage.getVitesse();
-                vueLink.setdirection("left");
-            }
-            case D -> {
-                newX += personnage.getVitesse();
-                vueLink.setdirection("right");
-            }
-        }
+            switch (event.getCode()) {
 
-        if (!personnage.detectCollision(newX, newY)) {
-            personnage.setX(newX);
-            personnage.setY(newY);
+                case Z -> {
+                    newY -= personnage.getVitesse();
+                    vueLink.setdirection("up");
+                }
+                case S -> {
+                    newY += personnage.getVitesse();
+                    vueLink.setdirection("down");
+                }
+                case Q -> {
+                    newX -= personnage.getVitesse();
+                    vueLink.setdirection("left");
+                }
+                case D -> {
+                    newX += personnage.getVitesse();
+                    vueLink.setdirection("right");
+                }
 
-        } else {
-            System.out.println("Limite OU Mur !!!");
+//                case J -> {
+//                    item.relacher();
+//                }
+            }
+
+            if (!personnage.detectCollision(newX, newY)) {
+                personnage.setX(newX);
+                personnage.setY(newY);
+
+            } else {
+                System.out.println("\n" + "Limite OU Mur !!!" + "\n");
+            }
         }
 
         System.out.println("Position du perso en pixels : " + personnage.getX() + " px" + " | " + personnage.getY() + " px");
-        System.out.println("Position du perso en case X : " + PosTuileX + "    | case Y : " + PosTuileY);
+        System.out.println("Position du perso en case X : " + PosTuileX + "    | case Y : " + PosTuileY + "\n");
 
     }
 }

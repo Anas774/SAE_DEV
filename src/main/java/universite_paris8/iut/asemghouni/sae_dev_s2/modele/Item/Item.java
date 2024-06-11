@@ -95,14 +95,4 @@ public class Item {
 
     }
 
-    private int indiceObstacle(int newX, int newY) {
-
-        int ligne, colonne;
-
-        colonne = newX / 38;
-        ligne = newY / 38;
-
-        return ligne * 15 + colonne;
-    }
-
 }

@@ -11,12 +11,13 @@ import java.util.List;
 public class Link extends Personnage {
     private Personnage cible;
     private List<Item> itemPossederParLink;
+    private List<Arme> armePossederParLink;
 
     public Link(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
         super("Link", 20, new MasterSword(), envi);                                 // 10 coeurs
         this.cible = cible;
         this.itemPossederParLink = new ArrayList<>();
-
+        this.armePossederParLink = new ArrayList<>();
     }
 
     public List<Item> getItems() {
@@ -25,6 +26,22 @@ public class Link extends Personnage {
 
     public void ramasserItem(Item item) {
         itemPossederParLink.add(item);
+    }
+
+    public void retirerItem(Item item) {
+        itemPossederParLink.remove(item);
+    }
+
+    public List<Arme> getArmePossederParLink() {
+        return armePossederParLink;
+    }
+
+    public void ramasserArme(Arme arme) {
+        armePossederParLink.add(arme);
+    }
+
+    public void retirerArme(Arme arme) {
+        armePossederParLink.remove(arme);
     }
 
     public void recupererVie(int points) {
@@ -38,6 +55,8 @@ public class Link extends Personnage {
         }
         this.getPointVie().set(pointVieActuelle);
     }
+
+
 
 
 }
