@@ -45,6 +45,20 @@ public class SoldatEnnemie extends Personnage {
             if (!cible.detectCollision((int) ennemiX, (int) ennemiY)) {
                 this.setX((int) (ennemiX + deltaX));
                 this.setY((int) (ennemiY + deltaY));
+
+            } else {
+
+                if (!cible.detectCollision((int) (ennemiX + vitesse), (int) ennemiY)) {
+                    this.setX((int) (ennemiX + vitesse));
+                } else if (!cible.detectCollision((int) (ennemiX - vitesse), (int) ennemiY)) {
+                    this.setX((int) (ennemiX - vitesse));
+                }
+
+                if (!cible.detectCollision((int) ennemiX, (int) (ennemiY + vitesse))) {
+                    this.setY((int) (ennemiY + vitesse));
+                } else if (!cible.detectCollision((int) ennemiX, (int) (ennemiY - vitesse))) {
+                    this.setY((int) (ennemiY - vitesse));
+                }
             }
 
             attaquerSiAportée(cible);
@@ -68,12 +82,15 @@ public class SoldatEnnemie extends Personnage {
     private void faireApparaitreItemAléatoirement() {
 
         int x,y;
+        boolean positionValide = false;
 
         do {
             x = (int) (Math.random() * this.getEnvi().getMap().getHauteur() * 38);
             y = (int) (Math.random() * this.getEnvi().getMap().getLargeur() * 38);
 
-        } while (this.getEnvi().getMap().getMapJeu()[indiceObstacle(x,y)] == 5 && !this.getEnvi().getMap().estLimite(x,y));
+            positionValide = !this.getEnvi().getMap().estMur(x,y) && !this.getEnvi().getMap().estLimite(x,y);
+
+        } while (!positionValide);
 
         this.setX(x);
         this.setY(y);

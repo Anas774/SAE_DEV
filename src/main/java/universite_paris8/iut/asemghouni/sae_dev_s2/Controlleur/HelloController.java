@@ -2,7 +2,6 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.beans.property.IntegerProperty;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,9 +13,9 @@ import javafx.scene.layout.TilePane;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.Observateur.ObservateurItem;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.*;
 import javafx.util.Duration;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.*;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Hache;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Map;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
@@ -24,8 +23,6 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemie;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -92,6 +89,13 @@ public class HelloController implements Initializable {
 
         ListChangeListener<Item> listen = new ObservateurItem(affichagePane);
         envi.getListeItemEnvi().addListener(listen);
+
+        // Observation de la vie de link
+        personnage.pointVieProperty().addListener((obs,old,newValue) -> {
+            if (newValue.intValue() <= 0) {
+                vueLink.supprimerVue(affichagePane);
+            }
+        });
 
         // Démarrer l'animation
         animation();

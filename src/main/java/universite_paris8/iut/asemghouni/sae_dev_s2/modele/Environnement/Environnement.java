@@ -3,7 +3,6 @@
     import javafx.collections.FXCollections;
     import javafx.collections.ObservableList;
     import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
-    import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
     import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
     import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 
@@ -11,26 +10,26 @@
 
         private Map map;
 
-    //    private ObservableList<Personnage> personnage;
+        private ObservableList<Personnage> listePersonnagesEnvi;
         private ObservableList<Item> listeItemEnvi;
 
         public Environnement() {
             this.map = new Map();
             this.listeItemEnvi = FXCollections.observableArrayList();
-    //        this.personnage = FXCollections.observableArrayList();
+            this.listePersonnagesEnvi = FXCollections.observableArrayList();
         }
 
         public Map getMap() {
             return this.map;
         }
 
-    //    public ObservableList<Personnage> getPersonnages() {
-    //        return this.personnage;
-    //    }
+        public ObservableList<Personnage> getPersonnages() {
+            return this.listePersonnagesEnvi;
+        }
 
-    //    public void ajouter(Personnage personnage) {
-    //        this.personnage.add(personnage);
-    //    }
+        public void ajouter(Personnage personnage) {
+            this.listePersonnagesEnvi.add(personnage);
+        }
 
         public ObservableList<Item> getListeItemEnvi(){
             return this.listeItemEnvi;
@@ -45,12 +44,17 @@
             Item itemRamasable = estRamasable(personnage);
 
             if (itemRamasable != null) {
-                System.out.println("Item ramassé : " + itemRamasable.getNom());
+                System.out.println("Item ramassé : " + itemRamasable.getNom() + "\n");
                 listeItemEnvi.remove(itemRamasable);
-                if (personnage instanceof Link) {
-                    ((Link)personnage).ramasserItem(itemRamasable);
-                }
             }
+
+            Personnage persoMort = estMort();
+
+            if (persoMort != null) {
+                System.out.println("Le personnage est mort : " + persoMort.getNom());
+                listePersonnagesEnvi.remove(persoMort);
+            }
+
         }
 
         public Item estRamasable(Personnage personnage) {
@@ -60,7 +64,18 @@
                     return item;
                 }
             }
-            System.out.println("Pas d'item à côté");
+//            System.out.println("Pas d'item à côté");
+            return null;
+        }
+
+        public Personnage estMort() {
+            for (Personnage perso : listePersonnagesEnvi) {
+                System.out.println(listePersonnagesEnvi.size());
+                if (!perso.estVivant()) {
+                    return perso;
+                }
+            }
+//            System.out.println("Pas de mort !");
             return null;
         }
     }

@@ -72,7 +72,9 @@ public class VueLink {
         direction.set(newDirection);
         alterner = !alterner;
         modifImage();
+    }
 
-
+    public void supprimerVue(Pane affichagePane) {
+        affichagePane.getChildren().remove(linkImageView);
     }
 }

@@ -1,4 +1,4 @@
-package universite_paris8.iut.asemghouni.sae_dev_s2.modele;
+package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement;
 
 import java.util.ArrayList;
 import java.util.List;

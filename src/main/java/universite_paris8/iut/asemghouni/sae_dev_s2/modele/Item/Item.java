@@ -2,19 +2,15 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.scene.image.ImageView;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Item {
     private Personnage personnage;
     private String nom;
     private IntegerProperty x;
     private IntegerProperty y;
+
     protected Environnement envi;
     private int largeur;
     private int hauteur;
@@ -84,12 +80,15 @@ public class Item {
     private void faireApparaitreItemAléatoirement() {
 
         int x,y;
+        boolean positionValide = false;
 
         do {
             x = (int) (Math.random() * this.getEnvi().getMap().getHauteur() * 38);
             y = (int) (Math.random() * this.getEnvi().getMap().getLargeur() * 38);
 
-        } while (envi.getMap().getMapJeu()[indiceObstacle(x,y)] == 5 && !envi.getMap().estLimite(x,y));
+            positionValide = !envi.getMap().estMur(x,y) && !envi.getMap().estLimite(x,y);
+
+        } while (!positionValide);
 
         this.setX(x);
         this.setY(y);

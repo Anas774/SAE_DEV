@@ -3,7 +3,7 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.Vue;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Map;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Map;
 
 public class VueMap {
     private static final int TAILLE_TUILE = 38;
