@@ -116,6 +116,16 @@ public class Personnage {
 
     }
 
+    public boolean detectCollision(int newX, int newY) {
+        List<int[]> coins = this.getCoins(newX, newY);
+        for (int[] coin : coins) {
+            if (envi.getMap().estMur(coin[0], coin[1]) || envi.getMap().estLimite(coin[0], coin[1])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int getLargeur() {
         return largeur;
     }

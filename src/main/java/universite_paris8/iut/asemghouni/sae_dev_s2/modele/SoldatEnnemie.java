@@ -15,7 +15,6 @@ public class SoldatEnnemie extends Personnage {
     public void suivreJoueur2() {
 
         if (detecterEnnemi(cible)) {
-
             double joueurX = cible.getX();
             double joueurY = cible.getY();
             double ennemiX = this.getX();
@@ -25,16 +24,32 @@ public class SoldatEnnemie extends Personnage {
             double deltaY = joueurY - ennemiY;
 
             double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-            double vitesse = 4;
+            double vitesse = 6;
 
             if (longueur != 0) {
+
                 deltaX = (deltaX / longueur) * vitesse;
                 deltaY = (deltaY / longueur) * vitesse;
             }
 
-            this.setX((int) (ennemiX + deltaX));
-            this.setY((int) (ennemiY + deltaY));
+            if (!cible.detectCollision((int) ennemiX, (int) ennemiY)) {
+                this.setX((int) (ennemiX + deltaX));
+                this.setY((int) (ennemiY + deltaY));
 
+            } else {
+
+                if (!cible.detectCollision((int) (ennemiX + vitesse), (int) ennemiY)) {
+                    this.setX((int) (ennemiX + vitesse));
+                } else if (!cible.detectCollision((int) (ennemiX - vitesse), (int) ennemiY)) {
+                    this.setX((int) (ennemiX - vitesse));
+                }
+
+                if (!cible.detectCollision((int) ennemiX, (int) (ennemiY + vitesse))) {
+                    this.setY((int) (ennemiY + vitesse));
+                } else if (!cible.detectCollision((int) ennemiX, (int) (ennemiY - vitesse))) {
+                    this.setY((int) (ennemiY - vitesse));
+                }
+            }
         }
     }
 
