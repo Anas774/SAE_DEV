@@ -5,6 +5,7 @@
     import javafx.collections.ObservableList;
     import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
     import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
+    import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
     import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
     import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 
@@ -68,10 +69,12 @@
             Item itemRamasable = estRamasable(personnage);
 
             if (itemRamasable != null) {
-                System.out.println("Item ramassé : " + itemRamasable.getNom() + "\n");
-                listeItemEnvi.remove(itemRamasable);
-                ((Link) personnage).getItems().add(itemRamasable);
-                ((Link) personnage).effetPotion();
+                if (itemRamasable instanceof Potion) {
+                    System.out.println("Item ramassé : " + itemRamasable.getNom() + "\n");
+                    listeItemEnvi.remove(itemRamasable);
+                    ((Link) personnage).getItems().add(itemRamasable);
+                    ((Link) personnage).effetPotion();
+                }
             }
 
 

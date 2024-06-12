@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cd5d92f-75ae-4add-9e36-e643949c0d61" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Environnement/Environnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Environnement/Environnement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Link.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Link.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Personnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Personnage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Bombe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +15,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Class" />
         <option value="Class" />
       </list>
     </option>
@@ -84,7 +83,7 @@
       <module name="SAE_DEV_S2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="universite_paris8.iut.asemghouni.sae_dev_s2.*" />
+          <option name="PATTERN" value="universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,7 +121,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/CréationInteractionInventaire" />
+                        <option value="origin/ApparitionControleArme" />
                       </list>
                     </value>
                   </entry>

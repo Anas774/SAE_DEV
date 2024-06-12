@@ -19,6 +19,7 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Epée;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Hache;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Map;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Bombe;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
@@ -134,6 +135,13 @@ public class HelloController implements Initializable {
                                 envi.getListeItemEnvi().add(new Potion("popo", envi));
                             }
                         }
+
+                        if (temps % 800 == 0) {
+                            for (int i = 0; i < 1; i++) {
+                                envi.getListeItemEnvi().add(new Bombe("Bombe", envi));
+                            }
+                        }
+
                         if (temps % 700 == 0) {
                             for (int i = 0; i < 1; i++) {
                                 envi.getListeArmesEnvi().add(new Epée());
