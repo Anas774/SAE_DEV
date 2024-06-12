@@ -22,6 +22,11 @@ public class Arme {
         this.envi = new Environnement();
         comteur++;
         this.PointAttaque = PointAttaque;
+        faireApparaitreArmeAléatoirement();
+    }
+
+    public String getNom() {
+        return nom;
     }
     public int getPointsAttaqueArme() {
         return this.PointAttaque;
@@ -63,12 +68,22 @@ public class Arme {
         return envi;
     }
 
-    public void apparitionArme(int x, int y) {
-        if (!envi.getMap().estLimite(x, y) && !envi.getMap().estMur(x, y)) {
-            this.x.set(x);
-            this.y.set(y);
-        } else {
-            System.out.println("Impossible de faire apparaître l'arme aux coordonnées (" + x + ", " + y + ")");
-        }
+
+    private void faireApparaitreArmeAléatoirement() {
+
+        int x,y;
+        boolean positionValide = false;
+
+        do {
+            x = (int) (Math.random() * this.getEnvi().getMap().getHauteur() * 38);
+            y = (int) (Math.random() * this.getEnvi().getMap().getLargeur() * 38);
+
+            positionValide = !envi.getMap().estMur(x,y) && !envi.getMap().estLimite(x,y);
+
+        } while (!positionValide);
+
+        this.setX(x);
+        this.setY(y);
+
     }
 }

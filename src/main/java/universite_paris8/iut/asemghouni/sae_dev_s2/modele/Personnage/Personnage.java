@@ -45,6 +45,9 @@ public class Personnage {
     public IntegerProperty getPointVie() {
         return this.pointVie;
     }
+    public int getVieMax() {
+        return 20;
+    }
 
     public void setPointVie(int pointVie) {
         this.pointVie.set(pointVie);

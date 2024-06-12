@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.text.Font?>
+
 <BorderPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.HelloController">
    <center>
       <Pane fx:id="affichagePane" onMouseClicked="#mouseClicked" prefHeight="570.0" prefWidth="570.0">
@@ -25,4 +26,27 @@
          <HBox fx:id="vieBox" alignment="TOP_CENTER" prefHeight="20.0" prefWidth="20.0" />
       </HBox>
    </top>
+   <bottom>
+      <HBox fx:id="inventaireBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <Pane fx:id="case1" prefHeight="80.0" prefWidth="80.0" style="-fx-border-color: black;">
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <HBox.margin>
+               <Insets bottom="5.0" />
+            </HBox.margin></Pane>
+         <Pane fx:id="case2" prefHeight="80.0" prefWidth="80.0" style="-fx-border-color: black;">
+            <HBox.margin>
+               <Insets bottom="5.0" />
+            </HBox.margin></Pane>
+         <Pane fx:id="case3" prefHeight="80.0" prefWidth="80.0" style="-fx-border-color: black;">
+            <HBox.margin>
+               <Insets bottom="5.0" />
+            </HBox.margin></Pane>
+         <Pane fx:id="case4" prefHeight="80.0" prefWidth="80.0" style="-fx-border-color: black;">
+            <HBox.margin>
+               <Insets bottom="5.0" />
+            </HBox.margin></Pane>
+      </HBox>
+   </bottom>
 </BorderPane>
