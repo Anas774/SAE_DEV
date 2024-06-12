@@ -27,7 +27,7 @@
       </HBox>
    </top>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <HBox fx:id="inventaireBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
          <Pane fx:id="case1" prefHeight="80.0" prefWidth="80.0" style="-fx-border-color: black;">
             <opaqueInsets>
                <Insets />

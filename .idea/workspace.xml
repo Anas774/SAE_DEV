@@ -5,27 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cd5d92f-75ae-4add-9e36-e643949c0d61" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Observateur/ObservateurArme.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arme/Arme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arme/Arme.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Environnement/Environnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Environnement/Environnement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueArme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueArme.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Link.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Link.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arme/Arme.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arme/Arme.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Environnement/Environnement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Environnement/Environnement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Item/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Item/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Map.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Link.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Link.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Personnage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Personnage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/SoldatEnnemie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/SoldatEnnemie.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,15 +65,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/etudiants/info/asemghouni/IdeaProjects/SAE_DEV/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/home/etudiants/info/asemghouni/IdeaProjects/SAE_DEV/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image" />
@@ -137,7 +129,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/ApparitionItem" />
+                        <option value="origin/CréationInteractionInventaire" />
                       </list>
                     </value>
                   </entry>

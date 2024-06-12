@@ -22,15 +22,17 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Map;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemie;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
 
-    private Personnage personnage;
+    private Link personnage;
 
     private VueLink vueLink;
     private VueJoueur vueJoueur;
@@ -70,7 +72,7 @@ public class HelloController implements Initializable {
         this.map = new Map();
 
         // Initialiser le personnage principal
-        this.personnage = new Personnage("Link", 20, new Hache(), envi);
+        this.personnage = new Link("Link", 20, new Hache(), envi, personnage);
 
         // Initialiser le soldat ennemi
         this.soldatEnnemie = new SoldatEnnemie("Ennemi", 8, new Hache(), envi, personnage);

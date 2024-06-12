@@ -6,21 +6,24 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 //import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueItem;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueLink;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Epée;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Map;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 import java.util.List;
 
 public class Clavier implements EventHandler<KeyEvent> {
 
-    private Personnage personnage;
+    private Link personnage;
     private Pane affichagePane;
     private TilePane tilePane;
     private Map map;
     private VueLink vueLink;
     private Item item;
 
-    public Clavier(Personnage personnage, Pane affichagePane, TilePane tilePane, Map map, Item item) {
+    public Clavier(Link personnage, Pane affichagePane, TilePane tilePane, Map map, Item item) {
         this.personnage = personnage;
         this.affichagePane = affichagePane;
         this.tilePane = tilePane;
@@ -68,9 +71,6 @@ public class Clavier implements EventHandler<KeyEvent> {
                     vueLink.setdirection("right");
                 }
 
-//                case J -> {
-//                    item.relacher();
-//                }
             }
 
             if (!personnage.detectCollision(newX, newY)) {

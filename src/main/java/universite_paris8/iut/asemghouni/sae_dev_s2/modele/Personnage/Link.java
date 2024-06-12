@@ -1,5 +1,7 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.MasterSword;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
@@ -10,17 +12,17 @@ import java.util.List;
 
 public class Link extends Personnage {
     private Personnage cible;
-    private List<Item> itemPossederParLink;
-    private List<Arme> armePossederParLink;
+    private ObservableList<Item> itemPossederParLink;
+    private ObservableList<Arme> armePossederParLink;
 
     public Link(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
         super("Link", 20, new MasterSword(), envi);                                 // 10 coeurs
         this.cible = cible;
-        this.itemPossederParLink = new ArrayList<>();
-        this.armePossederParLink = new ArrayList<>();
+        this.itemPossederParLink = FXCollections.observableArrayList();
+        this.armePossederParLink = FXCollections.observableArrayList();
     }
 
-    public List<Item> getItems() {
+    public ObservableList<Item> getItems() {
         return itemPossederParLink;
     }
 
@@ -32,7 +34,7 @@ public class Link extends Personnage {
         itemPossederParLink.remove(item);
     }
 
-    public List<Arme> getArmePossederParLink() {
+    public ObservableList<Arme> getArmePossederParLink() {
         return armePossederParLink;
     }
 
