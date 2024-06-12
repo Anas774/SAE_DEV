@@ -58,7 +58,15 @@ public class Link extends Personnage {
         this.getPointVie().set(pointVieActuelle);
     }
 
+    public void effetPotion() {
 
+        if (this.getPointVie().get() < this.getVieMax()) {
+            this.recupererVie(2);
+        }
+        else {
+            System.out.println("Link a déja toutes sa vie" + "\n");
+        }
+    }
 
 
 }

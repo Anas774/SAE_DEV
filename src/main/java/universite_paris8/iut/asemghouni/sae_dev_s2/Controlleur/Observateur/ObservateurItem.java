@@ -32,9 +32,9 @@ public class ObservateurItem implements ListChangeListener<Item> {
                     if (item instanceof Potion) {
                         creeItem(affichage, item);
                     }
-                    if (item instanceof Fleche) {
-                        creeItem(affichage, item);
-                    }
+//                    if (item instanceof Fleche) {
+//                        creeItem(affichage, item);
+//                    }
                 }
 
             } else if (change.wasRemoved()) {

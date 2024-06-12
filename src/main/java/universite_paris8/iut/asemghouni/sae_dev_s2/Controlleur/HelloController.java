@@ -131,7 +131,7 @@ public class HelloController implements Initializable {
 
                         if (temps % 500 == 0) {
                             for (int i = 0; i < 1; i++) {
-                                envi.getListeItemEnvi().add(new Potion("popo", envi));;
+                                envi.getListeItemEnvi().add(new Potion("popo", envi));
                             }
                         }
                         if (temps % 700 == 0) {

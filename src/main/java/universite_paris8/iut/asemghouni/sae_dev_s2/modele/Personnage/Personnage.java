@@ -54,6 +54,10 @@ public class Personnage {
         return this.pointVie;
     }
 
+    public int getVieMax() {
+        return 20;
+    }
+
     public Arme getArme() {
         return arme;
     }

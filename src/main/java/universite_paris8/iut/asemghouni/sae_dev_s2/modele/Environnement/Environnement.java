@@ -70,12 +70,11 @@
             if (itemRamasable != null) {
                 System.out.println("Item ramassé : " + itemRamasable.getNom() + "\n");
                 listeItemEnvi.remove(itemRamasable);
-                for (Personnage perso : listePersonnagesEnvi) {
-                    if (perso instanceof Link) {
-                        ((Link) perso).getItems().add(itemRamasable);
-                    }
-                }
+                ((Link) personnage).getItems().add(itemRamasable);
+                ((Link) personnage).effetPotion();
             }
+
+
 
             Arme armeRamasable = estRamasableArme(personnage);
 
