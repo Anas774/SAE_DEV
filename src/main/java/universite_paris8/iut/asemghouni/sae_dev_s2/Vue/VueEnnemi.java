@@ -6,7 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.Clavier;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemie;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemi;
 
 public class VueEnnemi {
     private Personnage ennemi;
@@ -14,11 +14,11 @@ public class VueEnnemi {
     private Image linkUp;
     private Clavier clavier;
 
-    public VueEnnemi(Pane affichagePane, TilePane tilePane, SoldatEnnemie soldatEnnemie) {
+    public VueEnnemi(Pane affichagePane, TilePane tilePane, SoldatEnnemi soldatEnnemie) {
         creerEnnemi(affichagePane, tilePane, soldatEnnemie);
     }
 
-    private void creerEnnemi(Pane affichagePane, TilePane tilePane, SoldatEnnemie soldatEnnemie) {
+    private void creerEnnemi(Pane affichagePane, TilePane tilePane, SoldatEnnemi soldatEnnemie) {
         Image ennemi = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/Link/ennemi.png").toString());
         this.ennemiImageView = new ImageView(ennemi);
         ennemiImageView.setFitWidth(25);
@@ -31,5 +31,9 @@ public class VueEnnemi {
 
     public Personnage getEnnemi() {
         return ennemi;
+    }
+
+    public void supprimerVue(Pane affichagePane) {
+        affichagePane.getChildren().remove(ennemiImageView);
     }
 }

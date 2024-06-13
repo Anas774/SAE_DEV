@@ -63,7 +63,6 @@ public class Environnement {
         this.listeArmesEnvi.remove(arme);
     }
 
-
     public void unTour(Personnage personnage) {
 
         Item itemRamasable = estRamasable(personnage);

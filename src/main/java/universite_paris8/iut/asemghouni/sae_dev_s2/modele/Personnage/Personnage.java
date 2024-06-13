@@ -4,7 +4,6 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 
 
 import java.util.ArrayList;
@@ -156,18 +155,33 @@ public class Personnage {
 
     public boolean peutAttaquerCorpsACorps(Personnage cible) {
 
-        if (this instanceof SoldatEnnemie) {
-            if ((this.getY() - 10 <= cible.getY() && cible.getY() <= this.getY() + 10) &&
-                    (this.getX() - 10 <= cible.getX() && cible.getX() <= this.getX() + 10)) {
-                return true;
+        if (cible != null) {
+
+            if (this instanceof SoldatEnnemi) {
+                if ((this.getY() - 10 <= cible.getY() && cible.getY() <= this.getY() + 10) &&
+                        (this.getX() - 10 <= cible.getX() && cible.getX() <= this.getX() + 10)) {
+                    return true;
+                }
+            }
+            else if (this instanceof Link) {
+                if ((this.getY() - 10 <= cible.getY() && cible.getY() <= this.getY() + 10) &&
+                        (this.getX() - 10 <= cible.getX() && cible.getX() <= this.getX() + 10)) {
+                    return true;
+                }
             }
         }
         return false;
     }
 
+    public void attaquerSiAportéeCorpsACorps(Personnage cible) {
+        if (peutAttaquerCorpsACorps(cible)) {
+            attaquer(cible);
+        }
+    }
+
     public boolean peutAttaquerDistance(Personnage cible) {
 
-        if (this instanceof SoldatEnnemie) {
+        if (this instanceof SoldatEnnemi) {
             if ((this.getY() - 100 <= cible.getY() && cible.getY() <= this.getY() + 100) &&
                     (this.getX() - 100 <= cible.getX() && cible.getX() <= this.getX() + 100)) {
                 return true;
@@ -178,6 +192,31 @@ public class Personnage {
 
     public boolean estVivant() {
         return this.getPointVie().getValue() > 0;
+    }
+
+    public boolean detecterEnnemi(Personnage personnage) {
+        if ((this.getY() - 200 <= personnage.getY() && personnage.getY() <= this.getY() + 200) && this.getX() - 200 <= personnage.getX() && personnage.getX() <= this.getX() + 200) {
+            return true;
+        }
+        return false;
+    }
+
+    public void faireApparaitreItemAléatoirement() {
+
+        int x,y;
+        boolean positionValide = false;
+
+        do {
+            x = (int) (Math.random() * this.getEnvi().getMap().getHauteur() * 38);
+            y = (int) (Math.random() * this.getEnvi().getMap().getLargeur() * 38);
+
+            positionValide = !this.getEnvi().getMap().estMur(x,y) && !this.getEnvi().getMap().estLimite(x,y);
+
+        } while (!positionValide);
+
+        this.setX(x);
+        this.setY(y);
+
     }
 
     public String toString() {

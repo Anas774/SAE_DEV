@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
-public class VueVie {
+public class VueVieLink {
 
     private IntegerProperty pointVie;
     private Image coeurPlein;
@@ -13,7 +13,7 @@ public class VueVie {
     private Image coeurMoitie;
     private HBox vieBox;
 
-    public VueVie(HBox vieBox, IntegerProperty pointVie) {
+    public VueVieLink(HBox vieBox, IntegerProperty pointVie) {
         this.pointVie = pointVie;
         this.coeurPlein = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_full.png"));
         this.coeurMoitie = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_half.png"));

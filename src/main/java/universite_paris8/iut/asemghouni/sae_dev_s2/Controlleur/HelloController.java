@@ -5,7 +5,6 @@ import javafx.animation.Timeline;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -18,50 +17,53 @@ import javafx.util.Duration;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Epée;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Hache;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.MasterSword;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Map;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemie;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemi;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
 
-    private Link personnage;
 
+    // Attribut Personnage
+    private Link link;
+    private SoldatEnnemi soldatEnnemi;
+
+    // Attribut VuePersonnage
     private VueLink vueLink;
-    private VueJoueur vueJoueur;
+    private VueEnnemi vueSoldatEnnemi;
 
+    // Attribut concernant gameloop
     private Timeline gameLoop;
     private int temps;
 
+    // Attribut Environnement et Map
     private Map map;
-    private VueMap vueMap;
-
-    private VueEnnemi vueEnnemi;
-    private SoldatEnnemie soldatEnnemie;
-
     private Environnement envi;
 
+    // Attribut concernant VueMap
+    private VueMap vueMap;
+
+    // Attribut Pane et tilepane
     @FXML
     private Pane affichagePane;
     @FXML
     private TilePane affichageTilePane;
 
+    // Attribut Item
     private Item item;
 
-    private VueVie vueVie;
-
+    // Attribut concernant la vie
     @FXML
     private HBox vieBox;
-
-    @FXML
-    private HBox inventaireBox;
+    private VueVieLink vueVieLink;
+    private VueVieEnnemi vueVieSoldatEnnemi;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -72,13 +74,13 @@ public class HelloController implements Initializable {
         this.map = new Map();
 
         // Initialiser le personnage principal
-        this.personnage = new Link("Link", 20, new Hache(), envi, personnage);
+        this.link = new Link("Link", 20, new MasterSword(), envi, link);
 
         // Initialiser le soldat ennemi
-        this.soldatEnnemie = new SoldatEnnemie("Ennemi", 8, new Hache(), envi, personnage);
+        this.soldatEnnemi = new SoldatEnnemi("Ennemi", 10, new Hache(), envi, link);
 
         // Initialiser le clavier
-        Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map, item);
+        Clavier clavier = new Clavier(link, affichagePane, affichageTilePane, map, item);
 
         ListChangeListener<Item> listen = new ObservateurItem(affichagePane);
         envi.getListeItemEnvi().addListener(listen);
@@ -88,9 +90,10 @@ public class HelloController implements Initializable {
 
         // Initialiser les vues
         this.vueMap = new VueMap(affichageTilePane, map);
-        this.vueLink = new VueLink(affichagePane, personnage, affichageTilePane, clavier);
-        this.vueEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemie);
-        this.vueVie = new VueVie(vieBox,personnage.pointVieProperty());
+        this.vueLink = new VueLink(affichagePane, link, affichageTilePane, clavier);
+        this.vueSoldatEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemi);
+        this.vueVieLink = new VueVieLink(vieBox, link.pointVieProperty());
+        this.vueVieSoldatEnnemi = new VueVieEnnemi(soldatEnnemi.pointVieProperty(), soldatEnnemi,affichagePane);
 
         clavier.setVueLink(vueLink);
 
@@ -98,9 +101,16 @@ public class HelloController implements Initializable {
         affichagePane.addEventHandler(KeyEvent.KEY_PRESSED, clavier);
 
         // Observation de la vie de link
-        personnage.pointVieProperty().addListener((obs,old,newValue) -> {
+        link.pointVieProperty().addListener((obs, old, newValue) -> {
             if (newValue.intValue() <= 0) {
                 vueLink.supprimerVue(affichagePane);
+            }
+        });
+
+        // Observation de la vie du soldatEnnemi
+        soldatEnnemi.pointVieProperty().addListener((obs, old, newValue) -> {
+            if (newValue.intValue() <= 0) {
+                vueSoldatEnnemi.supprimerVue(affichagePane);
             }
         });
 
@@ -113,6 +123,7 @@ public class HelloController implements Initializable {
     @FXML
     public void mouseClicked(MouseEvent mouseEvent) {
         affichagePane.requestFocus();
+
     }
 
     private void animation() {
@@ -127,7 +138,8 @@ public class HelloController implements Initializable {
                         gameLoop.stop();
                     } else if (temps % 5 == 0) {
 //                        System.out.println("un tour");
-                        soldatEnnemie.suivreJoueur2();
+                        soldatEnnemi.suivreJoueur2();
+                        link.linkPeutAttaquer();
 
                         if (temps % 500 == 0) {
                             for (int i = 0; i < 1; i++) {
@@ -140,7 +152,7 @@ public class HelloController implements Initializable {
                             }
                         }
                     }
-                    envi.unTour(personnage);
+                    envi.unTour(link);
                     temps++;
 
                 })

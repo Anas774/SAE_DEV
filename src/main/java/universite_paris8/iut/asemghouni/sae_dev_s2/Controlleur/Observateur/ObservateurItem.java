@@ -40,8 +40,6 @@ public class ObservateurItem implements ListChangeListener<Item> {
             } else if (change.wasRemoved()) {
                 for (Item item : change.getRemoved()) {
                     this.affichage.getChildren().remove(affichage.lookup("#" + item.getId()));
-//                    this.affichage.getChildren().remove(affichage.lookup(item.getId()));
-
                 }
             }
         }

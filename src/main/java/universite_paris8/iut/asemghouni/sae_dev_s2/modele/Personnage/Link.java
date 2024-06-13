@@ -3,12 +3,8 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.MasterSword;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Link extends Personnage {
     private Personnage cible;
@@ -16,7 +12,7 @@ public class Link extends Personnage {
     private ObservableList<Arme> armePossederParLink;
 
     public Link(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
-        super("Link", 20, new MasterSword(), envi);                                 // 10 coeurs
+        super("Link", 20, arme, envi);                                              // 10 coeurs
         this.cible = cible;
         this.itemPossederParLink = FXCollections.observableArrayList();
         this.armePossederParLink = FXCollections.observableArrayList();
@@ -64,8 +60,12 @@ public class Link extends Personnage {
             this.recupererVie(2);
         }
         else {
-            System.out.println("Link a déja toutes sa vie");
+            System.out.println("Link a déja toutes sa vie" + "\n");
         }
+    }
+
+    public void linkPeutAttaquer() {
+        attaquerSiAportéeCorpsACorps(cible);
     }
 
 }

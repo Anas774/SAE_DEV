@@ -1,25 +1,17 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.util.Duration;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class SoldatEnnemie extends Personnage {
+public class SoldatEnnemi extends Personnage {
 
     private Personnage cible;
-    private SoldatEnnemie soldatEnnemie;
+    private SoldatEnnemi soldatEnnemie;
 
-    public SoldatEnnemie(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
-        super("SoldatEnnemie", 10, arme, envi);                                              // 5 coeurs
+    public SoldatEnnemi(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
+        super("SoldatEnnemie", 100, arme, envi);                                              // 5 coeurs
         this.cible = cible;
-        faireApparaitreItemAléatoirement();
-
+        this.faireApparaitreItemAléatoirement();
     }
 
     public void suivreJoueur2() {
@@ -61,51 +53,20 @@ public class SoldatEnnemie extends Personnage {
                 }
             }
 
-            attaquerSiAportée(cible);
+            attaquerSiAportéeCorpsACorps(cible);
 
         }
     }
 
-    private boolean detecterEnnemi(Personnage personnage) {
-        if ((this.getY() - 200 <= personnage.getY() && personnage.getY() <= this.getY() + 200) && this.getX() - 200 <= personnage.getX() && personnage.getX() <= this.getX() + 200) {
-            return true;
-        }
-        return false;
-    }
-
-    private void attaquerSiAportée(Personnage cible) {
-        if (peutAttaquerCorpsACorps(cible)) {
-            attaquer(cible);
-        }
-    }
-
-    private void faireApparaitreItemAléatoirement() {
-
-        int x,y;
-        boolean positionValide = false;
-
-        do {
-            x = (int) (Math.random() * this.getEnvi().getMap().getHauteur() * 38);
-            y = (int) (Math.random() * this.getEnvi().getMap().getLargeur() * 38);
-
-            positionValide = !this.getEnvi().getMap().estMur(x,y) && !this.getEnvi().getMap().estLimite(x,y);
-
-        } while (!positionValide);
-
-        this.setX(x);
-        this.setY(y);
-
-    }
-
-    private int indiceObstacle(int newX, int newY) {
-
-        int ligne, colonne;
-
-        colonne = newX / 38;
-        ligne = newY / 38;
-
-        return ligne * 15 + colonne;
-    }
+//    private int indiceObstacle(int newX, int newY) {
+//
+//        int ligne, colonne;
+//
+//        colonne = newX / 38;
+//        ligne = newY / 38;
+//
+//        return ligne * 15 + colonne;
+//    }
 
 //    public void suivreJoueur() {
 //
