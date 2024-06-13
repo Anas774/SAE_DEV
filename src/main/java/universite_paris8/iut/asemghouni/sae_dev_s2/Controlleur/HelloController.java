@@ -56,6 +56,9 @@ public class HelloController implements Initializable {
     @FXML
     private HBox vieBox;
 
+    private VueVieEnnemi vueVieEnnemi;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         affichageTilePane.setPrefTileHeight(38);
@@ -87,6 +90,11 @@ public class HelloController implements Initializable {
         this.vueLink = new VueLink(affichagePane, personnage, affichageTilePane, clavier);
         this.vueEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemie);
         this.vueVie = new VueVie(vieBox,personnage.pointVieProperty());
+
+        // Initialiser la vue de la barre de vie pour le soldat ennemi
+        HBox healthBox = new HBox();
+        affichagePane.getChildren().add(healthBox);
+        this.vueVieEnnemi = new VueVieEnnemi(healthBox, soldatEnnemie.pointVieProperty(), soldatEnnemie);
 
         clavier.setVueLink(vueLink);
 

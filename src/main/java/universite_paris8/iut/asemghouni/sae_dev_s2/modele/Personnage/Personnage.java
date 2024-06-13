@@ -161,6 +161,25 @@ public class Personnage {
         return itemPossederParPerso;
     }
 
+
+    public void faireApparaitreItemAléatoirement() {
+
+        int x,y;
+        boolean positionValide = false;
+
+        do {
+            x = (int) (Math.random() * this.getEnvi().getMap().getHauteur() * 38);
+            y = (int) (Math.random() * this.getEnvi().getMap().getLargeur() * 38);
+
+            positionValide = !this.getEnvi().getMap().estMur(x,y) && !this.getEnvi().getMap().estLimite(x,y);
+
+        } while (!positionValide);
+
+        this.setX(x);
+        this.setY(y);
+
+    }
+
     //    public void recevoirDegats(int degats) {
 //
 //        this.PointVie = this.PointVie - degats;

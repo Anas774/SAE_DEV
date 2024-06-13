@@ -6,11 +6,12 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environn
 public class SoldatEnnemie extends Personnage {
 
     private Personnage cible;
-    private SoldatEnnemie soldatEnnemie;
 
     public SoldatEnnemie(String nom, int PointVie, int PointAttaque, int PointDefense, Arme arme, Environnement envi, Personnage cible) {
         super(nom, 60, 30, 30, arme, envi);
         this.cible = cible;
+        this.faireApparaitreItemAléatoirement();
+
     }
 
     public void suivreJoueur2() {
