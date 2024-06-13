@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47f063ed-894f-4ba4-899a-990e87620d43" name="Changes" comment="">
+    <list default="true" id="47f063ed-894f-4ba4-899a-990e87620d43" name="Changes" comment="combat entre link et l'ennemi (les deux sinflige des dégats et meurt)">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_fxml.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Personnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Personnage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arme/Hache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Arme/Hache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Link.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Link.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueLink.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Environnement/Environnement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Environnement/Environnement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Personnage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/Personnage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +37,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="ApparitionItem" />
+        <entry key="$PROJECT_DIR$" value="attaque" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,33 +49,47 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
   <component name="ProjectId" id="2gV0qLayOVOMIDxBjRmlcvhG23u" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/etudiants/info/asemghouni/IdeaProjects/SAE_DEV/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "scrollingMap",
+    "last_opened_file_path": "/home/etudiants/info/asemghouni/IdeaProjects/SAE_DEV/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="universite_paris8.iut.asemghouni.sae_dev_s2.Vue" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/image" />
       <recent name="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie" />
@@ -73,8 +98,11 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="universite_paris8.iut.asemghouni.sae_dev_s2.HelloApplication" />
       <module name="SAE_DEV_S2" />
@@ -88,11 +116,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="universite_paris8.iut.asemghouni.sae_dev_s2.modele.Main" />
+      <module name="SAE_DEV_S2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="universite_paris8.iut.asemghouni.sae_dev_s2.modele.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration name="json-20210307-javadoc.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/json-20210307-javadoc.jar" />
+      <method v="2">
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration name="json-20210307-sources.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/json-20210307-sources.jar" />
+      <method v="2">
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
-        <item itemvalue="Application.HelloApplication" />
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JAR Application.json-20210307-sources.jar" />
+        <item itemvalue="JAR Application.json-20210307-javadoc.jar" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.json-20210307-sources.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -104,10 +160,46 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715767632636</updated>
+      <workItem from="1718183030977" duration="18502000" />
     </task>
+    <task id="LOCAL-00001" summary="combat entre link et l'ennemi (les deux sinflige des dégats et meurt)">
+      <option name="closed" value="true" />
+      <created>1718186893080</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718186893080</updated>
+    </task>
+    <task id="LOCAL-00002" summary="combat entre link et l'ennemi (les deux sinflige des dégats et meurt)">
+      <option name="closed" value="true" />
+      <created>1718189125119</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718189125119</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -129,20 +221,20 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="User">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="*" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="combat entre link et l'ennemi (les deux sinflige des dégats et meurt)" />
+    <option name="LAST_COMMIT_MESSAGE" value="combat entre link et l'ennemi (les deux sinflige des dégats et meurt)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/SoldatEnnemie.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -177,6 +177,40 @@ public class Personnage {
         return this.getPointVie().getValue() > 0;
     }
 
+
+    public void moveUp() {
+        int newY = getY() - vitesse;
+        if (!detectCollision(getX(), newY)) {
+            setY(newY);
+            System.out.println("Moved Up: (" + getX() + ", " + getY() + ")");
+        }
+    }
+
+    public void moveDown() {
+        int newY = getY() + vitesse;
+        if (!detectCollision(getX(), newY)) {
+            setY(newY);
+            System.out.println("Moved Down: (" + getX() + ", " + getY() + ")");
+        }
+    }
+
+    public void moveLeft() {
+        int newX = getX() - vitesse;
+        if (!detectCollision(newX, getY())) {
+            setX(newX);
+            System.out.println("Moved Left: (" + getX() + ", " + getY() + ")");
+        }
+    }
+
+    public void moveRight() {
+        int newX = getX() + vitesse;
+        if (!detectCollision(newX, getY())) {
+            setX(newX);
+            System.out.println("Moved Right: (" + getX() + ", " + getY() + ")");
+        }
+    }
+
+
     public String toString() {
 
         return "Personnage { " +

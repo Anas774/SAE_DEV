@@ -72,7 +72,9 @@ public class VueLink {
         direction.set(newDirection);
         alterner = !alterner;
         modifImage();
+    }
 
-
+    public void update(Personnage personnage) {
+        modifImage();
     }
 }

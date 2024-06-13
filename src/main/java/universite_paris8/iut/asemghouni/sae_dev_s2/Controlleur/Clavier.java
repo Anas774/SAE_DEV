@@ -78,6 +78,9 @@ public class Clavier implements EventHandler<KeyEvent> {
         System.out.println("Position du perso en pixels : " + personnage.getX() + " px" + " | " + personnage.getY() + " px");
         System.out.println("Position du perso en case X : " + PosTuileX + "    | case Y : " + PosTuileY);
 
+        //maj de la vue
+        vueLink.update(personnage);
     }
+
 }
 
