@@ -17,11 +17,12 @@ public class VueVieEnnemi {
     private HBox healthBox;
     private SoldatEnnemie soldatEnnemie;
 
-    public VueVieEnnemi(HBox healthBox, IntegerProperty pointVie, SoldatEnnemie soldatEnnemie) {
+    public VueVieEnnemi(IntegerProperty pointVie, SoldatEnnemie soldatEnnemie, Pane affichagePane) {
         this.pointVie = pointVie;
         this.coeurPlein = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_full.png"));
         this.coeurVide = new Image(getClass().getResourceAsStream("/universite_paris8/iut/asemghouni/sae_dev_s2/imageVie/heart_blank.png"));
-        this.healthBox = healthBox;
+        this.healthBox = new HBox();
+        affichagePane.getChildren().add(healthBox);
         this.soldatEnnemie = soldatEnnemie;
         healthBox.setSpacing(2);
         initialiserBarreVie();

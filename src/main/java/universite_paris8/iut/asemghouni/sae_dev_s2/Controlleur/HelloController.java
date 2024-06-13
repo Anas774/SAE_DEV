@@ -90,11 +90,7 @@ public class HelloController implements Initializable {
         this.vueLink = new VueLink(affichagePane, personnage, affichageTilePane, clavier);
         this.vueEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemie);
         this.vueVie = new VueVie(vieBox,personnage.pointVieProperty());
-
-        // Initialiser la vue de la barre de vie pour le soldat ennemi
-        HBox healthBox = new HBox();
-        affichagePane.getChildren().add(healthBox);
-        this.vueVieEnnemi = new VueVieEnnemi(healthBox, soldatEnnemie.pointVieProperty(), soldatEnnemie);
+        this.vueVieEnnemi = new VueVieEnnemi(soldatEnnemie.pointVieProperty(), soldatEnnemie,affichagePane);
 
         clavier.setVueLink(vueLink);
 
