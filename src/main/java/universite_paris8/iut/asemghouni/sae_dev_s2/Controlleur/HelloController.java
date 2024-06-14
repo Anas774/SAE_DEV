@@ -63,7 +63,6 @@ public class HelloController implements Initializable {
     @FXML
     private HBox vieBox;
     private VueVieLink vueVieLink;
-    private VueVieEnnemi vueVieSoldatEnnemi;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -93,7 +92,6 @@ public class HelloController implements Initializable {
         this.vueLink = new VueLink(affichagePane, link, affichageTilePane, clavier);
         this.vueSoldatEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemi);
         this.vueVieLink = new VueVieLink(vieBox, link.pointVieProperty());
-        this.vueVieSoldatEnnemi = new VueVieEnnemi(soldatEnnemi.pointVieProperty(), soldatEnnemi,affichagePane);
 
         clavier.setVueLink(vueLink);
 
@@ -139,7 +137,6 @@ public class HelloController implements Initializable {
                     } else if (temps % 5 == 0) {
 //                        System.out.println("un tour");
                         soldatEnnemi.suivreJoueur2();
-                        link.linkPeutAttaquer();
 
                         if (temps % 500 == 0) {
                             for (int i = 0; i < 1; i++) {

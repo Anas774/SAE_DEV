@@ -16,45 +16,48 @@ public class SoldatEnnemi extends Personnage {
 
     public void suivreJoueur2() {
 
-        if (detecterEnnemi(cible)) {
+        if (this.estVivant()) {
 
-            double joueurX = cible.getX();
-            double joueurY = cible.getY();
-            double ennemiX = this.getX();
-            double ennemiY = this.getY();
+            if (detecterEnnemi(cible)) {
 
-            double deltaX = joueurX - ennemiX;
-            double deltaY = joueurY - ennemiY;
+                double joueurX = cible.getX();
+                double joueurY = cible.getY();
+                double ennemiX = this.getX();
+                double ennemiY = this.getY();
 
-            double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-            double vitesse = 8;
+                double deltaX = joueurX - ennemiX;
+                double deltaY = joueurY - ennemiY;
 
-            if (longueur != 0) {
-                deltaX = (deltaX / longueur) * vitesse;
-                deltaY = (deltaY / longueur) * vitesse;
-            }
+                double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                double vitesse = 8;
 
-            if (!cible.detectCollision((int) ennemiX, (int) ennemiY)) {
-                this.setX((int) (ennemiX + deltaX));
-                this.setY((int) (ennemiY + deltaY));
-
-            } else {
-
-                if (!cible.detectCollision((int) (ennemiX + vitesse), (int) ennemiY)) {
-                    this.setX((int) (ennemiX + vitesse));
-                } else if (!cible.detectCollision((int) (ennemiX - vitesse), (int) ennemiY)) {
-                    this.setX((int) (ennemiX - vitesse));
+                if (longueur != 0) {
+                    deltaX = (deltaX / longueur) * vitesse;
+                    deltaY = (deltaY / longueur) * vitesse;
                 }
 
-                if (!cible.detectCollision((int) ennemiX, (int) (ennemiY + vitesse))) {
-                    this.setY((int) (ennemiY + vitesse));
-                } else if (!cible.detectCollision((int) ennemiX, (int) (ennemiY - vitesse))) {
-                    this.setY((int) (ennemiY - vitesse));
+                if (!cible.detectCollision((int) ennemiX, (int) ennemiY)) {
+                    this.setX((int) (ennemiX + deltaX));
+                    this.setY((int) (ennemiY + deltaY));
+
+                } else {
+
+                    if (!cible.detectCollision((int) (ennemiX + vitesse), (int) ennemiY)) {
+                        this.setX((int) (ennemiX + vitesse));
+                    } else if (!cible.detectCollision((int) (ennemiX - vitesse), (int) ennemiY)) {
+                        this.setX((int) (ennemiX - vitesse));
+                    }
+
+                    if (!cible.detectCollision((int) ennemiX, (int) (ennemiY + vitesse))) {
+                        this.setY((int) (ennemiY + vitesse));
+                    } else if (!cible.detectCollision((int) ennemiX, (int) (ennemiY - vitesse))) {
+                        this.setY((int) (ennemiY - vitesse));
+                    }
                 }
+
+                attaquerSiAportéeCorpsACorps(cible);
+
             }
-
-            attaquerSiAportéeCorpsACorps(cible);
-
         }
     }
 

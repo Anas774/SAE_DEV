@@ -63,9 +63,4 @@ public class Link extends Personnage {
             System.out.println("Link a déja toutes sa vie" + "\n");
         }
     }
-
-    public void linkPeutAttaquer() {
-        attaquerSiAportéeCorpsACorps(cible);
-    }
-
 }

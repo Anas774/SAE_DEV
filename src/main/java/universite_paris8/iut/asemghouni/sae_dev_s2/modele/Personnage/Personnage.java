@@ -134,61 +134,52 @@ public class Personnage {
             pointVieActuels = 0;
         }
         this.pointVie.set(pointVieActuels);
+        System.out.println(this.nom + " reçoit " + degats + " dégâts. PV restants : " + this.pointVie.get() + "\n");
     }
 
     public int attaquer(Personnage victime) {
 
         int degatInflige = 0;
-        int pointVie = this.pointVie.get();
 
-        if (peutAttaquerCorpsACorps(victime)) {
+        if (VerifpeutAttaquerCorpsACorps(victime)) {
 
             if (this.arme != null) {
                 degatInflige = this.arme.getPointsAttaqueArme();
             }
-
             victime.recevoirDegats(degatInflige);
+            System.out.println(this.nom + " attaque " + victime.getNom() + " et inflige " + degatInflige + " dégâts." + "\n");
 
         }
         return degatInflige;
     }
 
-    public boolean peutAttaquerCorpsACorps(Personnage cible) {
-
+    public boolean VerifpeutAttaquerCorpsACorps(Personnage cible) {
         if (cible != null) {
-
-            if (this instanceof SoldatEnnemi) {
-                if ((this.getY() - 10 <= cible.getY() && cible.getY() <= this.getY() + 10) &&
-                        (this.getX() - 10 <= cible.getX() && cible.getX() <= this.getX() + 10)) {
-                    return true;
-                }
-            }
-            else if (this instanceof Link) {
-                if ((this.getY() - 10 <= cible.getY() && cible.getY() <= this.getY() + 10) &&
-                        (this.getX() - 10 <= cible.getX() && cible.getX() <= this.getX() + 10)) {
-                    return true;
-                }
+            if ((this.getY() - 10 <= cible.getY() && cible.getY() <= this.getY() + 10) &&
+                    (this.getX() - 10 <= cible.getX() && cible.getX() <= this.getX() + 10)) {
+                return true;
             }
         }
         return false;
     }
 
     public void attaquerSiAportéeCorpsACorps(Personnage cible) {
-        if (peutAttaquerCorpsACorps(cible)) {
+        if (VerifpeutAttaquerCorpsACorps(cible)) {
+            System.out.println(this.nom + " attaque " + cible.getNom() + " à portée de corps à corps." + "\n");
             attaquer(cible);
         }
     }
 
-    public boolean peutAttaquerDistance(Personnage cible) {
-
-        if (this instanceof SoldatEnnemi) {
-            if ((this.getY() - 100 <= cible.getY() && cible.getY() <= this.getY() + 100) &&
-                    (this.getX() - 100 <= cible.getX() && cible.getX() <= this.getX() + 100)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean peutAttaquerDistance(Personnage cible) {
+//
+//        if (this instanceof SoldatEnnemi) {
+//            if ((this.getY() - 100 <= cible.getY() && cible.getY() <= this.getY() + 100) &&
+//                    (this.getX() - 100 <= cible.getX() && cible.getX() <= this.getX() + 100)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
     public boolean estVivant() {
         return this.getPointVie().getValue() > 0;
@@ -234,7 +225,6 @@ public class Personnage {
                 ", hauteur =" + hauteur +
                 " }";
     }
-
 }
 
 
