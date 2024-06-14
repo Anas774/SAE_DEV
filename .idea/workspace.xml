@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47f063ed-894f-4ba4-899a-990e87620d43" name="Changes" comment="combat entre link et l'ennemi (les deux sinflige des dégats et meurt)">
+    <list default="true" id="47f063ed-894f-4ba4-899a-990e87620d43" name="Changes" comment="map final (début)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/SoldatEnnemie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/SoldatEnnemie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/Clavier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Controlleur/HelloController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/HelloApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/MapSAE.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/Vue/VueMap.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/SoldatEnnemie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/universite_paris8/iut/asemghouni/sae_dev_s2/modele/Personnage/SoldatEnnemie.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +31,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="ApparitionLink" />
-        <entry key="$PROJECT_DIR$" value="scrollingMap" />
+        <entry key="$PROJECT_DIR$" value="systemeJeu" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -130,7 +127,7 @@
         <item itemvalue="JAR Application.json-20210307-sources.jar" />
         <item itemvalue="JAR Application.json-20210307-javadoc.jar" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JAR Application.json-20210307-sources.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -142,8 +139,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715767632636</updated>
-      <workItem from="1718306147878" duration="6610000" />
+      <workItem from="1718306147878" duration="12517000" />
     </task>
+    <task id="LOCAL-00001" summary="map final (début)">
+      <option name="closed" value="true" />
+      <created>1718369629581</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718369629581</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +192,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="map final (début)" />
+    <option name="LAST_COMMIT_MESSAGE" value="map final (début)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

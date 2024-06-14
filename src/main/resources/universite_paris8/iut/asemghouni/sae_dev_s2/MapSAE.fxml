@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.HelloController">
    <center>
-      <Pane fx:id="affichagePane" onMouseClicked="#mouseClicked" prefHeight="1140.0" prefWidth="1900.0" maxHeight="Infinity" maxWidth="Infinity" >
+      <Pane fx:id="affichagePane" onMouseClicked="#mouseClicked" prefHeight="1140.0" prefWidth="1900.0" >
 
       <TilePane fx:id="affichageTilePane" alignment="CENTER" prefColumns="15" prefHeight="1140.0" prefRows="15" prefTileHeight="38.0" prefTileWidth="38.0" prefWidth="1900.0" />
       </Pane>
