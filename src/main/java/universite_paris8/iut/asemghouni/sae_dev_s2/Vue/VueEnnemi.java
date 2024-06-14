@@ -7,6 +7,7 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.Clavier;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemi;
 
@@ -15,9 +16,11 @@ public class VueEnnemi {
     private ImageView ennemiImageView;
     private Rectangle premiereCouche;
     private Rectangle deuxiemeCouche;
+    private Link link;
 
-    public VueEnnemi(Pane affichagePane, TilePane tilePane, SoldatEnnemi soldatEnnemi) {
+    public VueEnnemi(Pane affichagePane, TilePane tilePane, SoldatEnnemi soldatEnnemi, Link link) {
         this.soldatEnnemi = soldatEnnemi;
+        this.link = link;
         creerEnnemi(affichagePane, tilePane, soldatEnnemi);
         creerBarreVie(affichagePane, soldatEnnemi);
     }
@@ -34,9 +37,7 @@ public class VueEnnemi {
 
         // Ajouter l'événement onMouseClicked pour infliger des dégâts
         ennemiImageView.setOnMouseClicked(event -> {
-
-            // Infliger des dégâts à l'ennemi quand il est cliqué
-            soldatEnnemi.recevoirDegats(10);
+            link.infligerDegats(soldatEnnemi, 30);
             mettreAJourCouleurBarreDeVie();
         });
     }

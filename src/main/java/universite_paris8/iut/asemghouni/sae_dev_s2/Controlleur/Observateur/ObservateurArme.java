@@ -7,9 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Epée;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Fleche;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
 
 import java.util.ArrayList;
 

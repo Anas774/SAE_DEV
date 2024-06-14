@@ -24,12 +24,10 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environn
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemi;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
-
 
     // Attribut Personnage
     private Link link;
@@ -63,6 +61,13 @@ public class HelloController implements Initializable {
     @FXML
     private HBox vieBox;
     private VueVieLink vueVieLink;
+    @FXML
+    private HBox inventaireBox;
+
+    // Attribut concernant les observateur
+    private ObservateurItem observateurItem;
+    private ObservateurArme observateurArme;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -81,22 +86,24 @@ public class HelloController implements Initializable {
         // Initialiser le clavier
         Clavier clavier = new Clavier(link, affichagePane, affichageTilePane, map, item);
 
-        ListChangeListener<Item> listen = new ObservateurItem(affichagePane);
-        envi.getListeItemEnvi().addListener(listen);
-
-        ListChangeListener<Arme> listen2 = new ObservateurArme(affichagePane);
-        envi.getListeArmesEnvi().addListener(listen2);
-
         // Initialiser les vues
         this.vueMap = new VueMap(affichageTilePane, map);
         this.vueLink = new VueLink(affichagePane, link, affichageTilePane, clavier);
-        this.vueSoldatEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemi);
+        this.vueSoldatEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemi, link);
         this.vueVieLink = new VueVieLink(vieBox, link.pointVieProperty());
 
         clavier.setVueLink(vueLink);
 
         affichagePane.requestFocus();
         affichagePane.addEventHandler(KeyEvent.KEY_PRESSED, clavier);
+
+        // Observateur des items
+        observateurItem = new ObservateurItem(affichagePane);
+        envi.getListeItemEnvi().addListener(observateurItem);
+
+        // Observateur des armes
+        observateurArme = new ObservateurArme(affichagePane);
+        envi.getListeArmesEnvi().addListener(observateurArme);
 
         // Observation de la vie de link
         link.pointVieProperty().addListener((obs, old, newValue) -> {
@@ -134,18 +141,16 @@ public class HelloController implements Initializable {
                     if (temps == 10000) {
                         System.out.println("fin");
                         gameLoop.stop();
-                    } else if (temps % 5 == 0) {
-//                        System.out.println("un tour");
+                    }
+                    if (temps == 2) {
+                        envi.getListeArmesEnvi().add(new Epée());
+                    }
+                    else if (temps % 5 == 0) {
                         soldatEnnemi.suivreJoueur2();
 
                         if (temps % 500 == 0) {
                             for (int i = 0; i < 1; i++) {
                                 envi.getListeItemEnvi().add(new Potion("popo", envi));;
-                            }
-                        }
-                        if (temps % 700 == 0) {
-                            for (int i = 0; i < 1; i++) {
-                                envi.getListeArmesEnvi().add(new Epée());
                             }
                         }
                     }

@@ -30,7 +30,7 @@ public class Personnage {
         this.x = new SimpleIntegerProperty(0);
         this.y = new SimpleIntegerProperty(0);
         this.id = "#" + compteur;
-        this.vitesse = 10;
+        this.vitesse = 8;
         this.largeur = 25;
         this.hauteur = 25;
         compteur++;
@@ -141,27 +141,40 @@ public class Personnage {
 
         int degatInflige = 0;
 
-        if (VerifpeutAttaquerCorpsACorps(victime)) {
-
-            if (this.arme != null) {
-                degatInflige = this.arme.getPointsAttaqueArme();
+        if (this instanceof Link) {
+            ((Link) this).infligerDegats(victime, degatInflige);
+        } else {
+            if (VerifpeutAttaquerCorpsACorps(victime)) {
+                if (this.arme != null) {
+                    degatInflige = this.arme.getPointsAttaqueArme();
+                }
+                victime.recevoirDegats(degatInflige);
+                System.out.println(this.nom + " attaque " + victime.getNom() + " et inflige " + degatInflige + " dégâts." + "\n");
             }
-            victime.recevoirDegats(degatInflige);
-            System.out.println(this.nom + " attaque " + victime.getNom() + " et inflige " + degatInflige + " dégâts." + "\n");
-
         }
         return degatInflige;
     }
 
     public boolean VerifpeutAttaquerCorpsACorps(Personnage cible) {
         if (cible != null) {
-            if ((this.getY() - 10 <= cible.getY() && cible.getY() <= this.getY() + 10) &&
-                    (this.getX() - 10 <= cible.getX() && cible.getX() <= this.getX() + 10)) {
+            if ((this.getY() - 50 <= cible.getY() && cible.getY() <= this.getY() + 50) &&
+                    (this.getX() - 50 <= cible.getX() && cible.getX() <= this.getX() + 50)) {
                 return true;
             }
         }
         return false;
     }
+
+//    public boolean VerifpeutAttaquerCorpsACorpsEnnemie(Personnage cible) {
+//        if (cible != null) {
+//            if ((this.getY() - 30 <= cible.getY() && cible.getY() <= this.getY() + 30) &&
+//                    (this.getX() - 30 <= cible.getX() && cible.getX() <= this.getX() + 30)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+
 
     public void attaquerSiAportéeCorpsACorps(Personnage cible) {
         if (VerifpeutAttaquerCorpsACorps(cible)) {

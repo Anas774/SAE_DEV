@@ -8,7 +8,7 @@ public class Boss extends Personnage {
 
     private Personnage cible;
     public Boss(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
-        super("Bogo", 14, new Epée(),envi);                                         // 7 coeurs
+        super("Bogo", 110, new Epée(),envi);
         this.cible = cible;
     }
 }

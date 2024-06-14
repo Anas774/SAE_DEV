@@ -2,7 +2,7 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme;
 
 public class Hache extends Arme {
     public Hache() {
-        super("Hache", 2);
+        super("Hache", 1);
     }
     @Override
     public String toString() {

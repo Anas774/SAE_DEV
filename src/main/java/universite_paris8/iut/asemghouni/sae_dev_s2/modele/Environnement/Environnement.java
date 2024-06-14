@@ -67,32 +67,31 @@ public class Environnement {
 
         Item itemRamasable = estRamasable(personnage);
 
-        if (itemRamasable != null) {
-            if (itemRamasable instanceof Potion) {
-                System.out.println("Item ramassé : " + itemRamasable.getNom() + "\n");
-                listeItemEnvi.remove(itemRamasable);
-                ((Link) personnage).effetPotion();
-            }
-        }
-
-        Arme armeRamasable = estRamasableArme(personnage);
-
-        if (armeRamasable != null) {
-            System.out.println("Armes ramassé : " + armeRamasable.getNom() + "\n");
-            listeArmesEnvi.remove(armeRamasable);
-            for (Personnage perso : listePersonnagesEnvi) {
-                if (perso instanceof Link) {
-                    ((Link) perso).getArmePossederParLink().add(armeRamasable);
+            if (itemRamasable != null) {
+                if (itemRamasable instanceof Potion) {
+                    System.out.println("Item ramassé : " + itemRamasable.getNom() + "\n");
+                    listeItemEnvi.remove(itemRamasable);
+                    ((Link) personnage).ramasserItem(itemRamasable);
                 }
             }
-        }
 
-        Personnage persoMort = estMort();
+            Arme armeRamasable = estRamasableArme(personnage);
 
-        if (persoMort != null) {
-            System.out.println("Le personnage est mort : " + persoMort.getNom());
-            listePersonnagesEnvi.remove(persoMort);
-        }
+            if (armeRamasable != null) {
+                System.out.println("Armes ramassé : " + armeRamasable.getNom() + "\n");
+                listeArmesEnvi.remove(armeRamasable);
+                    if (personnage instanceof Link) {
+                        ((Link) personnage).ramasserArme(armeRamasable);
+                    }
+            }
+
+
+            Personnage persoMort = estMort();
+
+            if (persoMort != null) {
+                System.out.println("Le personnage est mort : " + persoMort.getNom());
+                listePersonnagesEnvi.remove(persoMort);
+            }
 
     }
 
@@ -103,28 +102,26 @@ public class Environnement {
                 return item;
             }
         }
-//            System.out.println("Pas d'item à côté");
         return null;
     }
 
-    public Arme estRamasableArme(Personnage personnage) {
+    public Arme estRamasableArme (Personnage personnage){
         for (Arme arme : listeArmesEnvi) {
             if ((personnage.getY() - 20 <= arme.getY() && arme.getY() <= personnage.getY() + 20) &&
                     (personnage.getX() - 20 <= arme.getX() && arme.getX() <= personnage.getX() + 20)) {
                 return arme;
             }
         }
-//            System.out.println("Pas d'armes a coté ");
         return null;
     }
 
-    public Personnage estMort() {
+    public Personnage estMort () {
         for (Personnage perso : listePersonnagesEnvi) {
             if (!perso.estVivant()) {
                 return perso;
             }
         }
-//            System.out.println("Pas de mort !");
         return null;
     }
+
 }

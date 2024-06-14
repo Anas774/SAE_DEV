@@ -2,7 +2,7 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme;
 public class MasterSword extends Arme {
 
     public MasterSword() {
-        super("MasterSword", 2);
+        super("MasterSword", 30);
     }
     @Override
     public String toString() {

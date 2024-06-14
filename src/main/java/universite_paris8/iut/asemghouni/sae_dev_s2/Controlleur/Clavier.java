@@ -42,7 +42,7 @@ public class Clavier implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
 
-        System.out.println("Touche pressée : " + event.getCode());
+        System.out.println("Touche pressée : " + event.getCode() + "\n");
 
         int PosTuileX = personnage.getX() / 38;
         int PosTuileY = personnage.getY() / 38;

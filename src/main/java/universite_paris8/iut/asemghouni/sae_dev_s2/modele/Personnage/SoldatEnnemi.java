@@ -9,7 +9,7 @@ public class SoldatEnnemi extends Personnage {
     private SoldatEnnemi soldatEnnemie;
 
     public SoldatEnnemi(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
-        super("SoldatEnnemie", 100, arme, envi);                                              // 5 coeurs
+        super("SoldatEnnemie", 100, arme, envi);
         this.cible = cible;
         this.faireApparaitreItemAléatoirement();
     }
@@ -29,7 +29,7 @@ public class SoldatEnnemi extends Personnage {
                 double deltaY = joueurY - ennemiY;
 
                 double longueur = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                double vitesse = 8;
+                double vitesse = 5;
 
                 if (longueur != 0) {
                     deltaX = (deltaX / longueur) * vitesse;
