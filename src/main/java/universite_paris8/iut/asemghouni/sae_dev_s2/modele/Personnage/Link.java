@@ -80,7 +80,7 @@ public class Link extends Personnage {
 
     public boolean possedeEpee() {
         for (Arme arme : armePossederParLink) {
-            if (arme instanceof Epée) {
+            if (arme instanceof MasterSword) {
                 return true;
             }
         }

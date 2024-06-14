@@ -1,12 +1,11 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.Observateur;
 
 import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Epée;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.MasterSword;
 
 import java.util.ArrayList;
 
@@ -27,8 +26,8 @@ public class ObservateurArme implements ListChangeListener<Arme> {
             if (change.wasAdded()) {
 
                 for (Arme arme : change.getAddedSubList()) {
-                    if (arme instanceof Epée) {
-                        creeEpee(affichage, arme);
+                    if (arme instanceof MasterSword) {
+                        creeMasterSword(affichage, arme);
                     }
                 }
 
@@ -40,7 +39,7 @@ public class ObservateurArme implements ListChangeListener<Arme> {
         }
     }
 
-    private void creeEpee(Pane affichagePane, Arme arme) {
+    private void creeMasterSword(Pane affichagePane, Arme arme) {
         Image item1 = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/image/sword_normal.png").toString());
         ImageView armeImageview = new ImageView(item1);
         armeImageview.setFitWidth(18);
