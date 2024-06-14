@@ -81,7 +81,6 @@ public class SoldatEnnemie extends Personnage {
     }
 
     private int indiceObstacle(int newX, int newY) {
-
         int ligne, colonne;
 
         colonne = newX / 38;
@@ -89,37 +88,4 @@ public class SoldatEnnemie extends Personnage {
 
         return ligne * 15 + colonne;
     }
-
-//    public void suivreJoueur() {
-//
-//        double joueurX = cible.getX();
-//        double joueurY = cible.getY();
-//        double ennemiX = this.getX();
-//        double ennemiY = this.getY();
-//
-//        double deltaX = joueurX - ennemiX;
-//        double deltaY = joueurY - ennemiY;
-//
-//        double vitesse = 5;
-//
-//        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-//
-//            if (deltaX > 0) {
-//                this.setX((int) (ennemiX + vitesse));
-//            } else {
-//                this.setX((int) (ennemiX - vitesse));
-//            }
-//
-//        } else {
-//
-//            if (deltaY > 0) {
-//                this.setY((int) (ennemiY + vitesse));
-//            } else {
-//                this.setY((int) (ennemiY - vitesse));
-//            }
-//
-//        }
-//
-//    }
-
 }
