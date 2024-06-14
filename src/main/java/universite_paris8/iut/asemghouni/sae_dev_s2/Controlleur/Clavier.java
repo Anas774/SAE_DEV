@@ -42,7 +42,7 @@ public class Clavier implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
 
-        System.out.println("Touche pressée : " + event.getCode());
+        System.out.println("Touche pressée : " + event.getCode() + "\n");
 
         int PosTuileX = personnage.getX() / 38;
         int PosTuileY = personnage.getY() / 38;
@@ -82,8 +82,8 @@ public class Clavier implements EventHandler<KeyEvent> {
             }
         }
 
-        System.out.println("Position du perso en pixels : " + personnage.getX() + " px" + " | " + personnage.getY() + " px");
-        System.out.println("Position du perso en case X : " + PosTuileX + "    | case Y : " + PosTuileY + "\n");
+//        System.out.println("Position du perso en pixels : " + personnage.getX() + " px" + " | " + personnage.getY() + " px");
+//        System.out.println("Position du perso en case X : " + PosTuileX + "    | case Y : " + PosTuileY + "\n");
 
     }
 }

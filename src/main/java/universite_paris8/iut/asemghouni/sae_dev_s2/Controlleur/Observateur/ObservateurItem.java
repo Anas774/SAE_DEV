@@ -3,7 +3,6 @@ import javafx.collections.ListChangeListener;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Bombe;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
 //import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueItem;
@@ -32,9 +31,6 @@ public class ObservateurItem implements ListChangeListener<Item> {
                     if (item instanceof Potion) {
                         creeItemPotion(affichage, item);
                     }
-                    if (item instanceof Bombe) {
-                        creerItemBombe(affichage, item);
-                    }
                 }
 
             } else if (change.wasRemoved()) {
@@ -57,17 +53,5 @@ public class ObservateurItem implements ListChangeListener<Item> {
         itemImageview.translateYProperty().bind(item.getYProperty());
         affichagePane.getChildren().add(itemImageview);
     }
-
-    private void creerItemBombe(Pane affichagePane, Item item) {
-        Image item2 = new Image(getClass().getResource("").toString());
-        ImageView itemImageview = new ImageView(item2);
-        itemImageview.setFitWidth(15);
-        itemImageview.setFitHeight(15);
-        itemImageview.setId(item.getId());
-        itemImageview.translateXProperty().bind(item.getXProperty());
-        itemImageview.translateYProperty().bind(item.getYProperty());
-        affichagePane.getChildren().add(itemImageview);
-    }
-
 
 }

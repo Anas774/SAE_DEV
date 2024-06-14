@@ -9,7 +9,7 @@ public class Potion extends Item {
 
     public Potion(String nom, Environnement envi) {
         super("PotionDeVie",envi);
-        this.valeurRecuperationVie = 1;
+        this.valeurRecuperationVie = 2;
     }
 
     public void utiliser(Link link) {

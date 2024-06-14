@@ -72,24 +72,20 @@
                 if (itemRamasable instanceof Potion) {
                     System.out.println("Item ramassé : " + itemRamasable.getNom() + "\n");
                     listeItemEnvi.remove(itemRamasable);
-                    ((Link) personnage).getItems().add(itemRamasable);
-                    ((Link) personnage).effetPotion();
+                    ((Link) personnage).ramasserItem(itemRamasable);
                 }
             }
-
-
 
             Arme armeRamasable = estRamasableArme(personnage);
 
             if (armeRamasable != null) {
                 System.out.println("Armes ramassé : " + armeRamasable.getNom() + "\n");
                 listeArmesEnvi.remove(armeRamasable);
-                for (Personnage perso : listePersonnagesEnvi) {
-                    if (perso instanceof Link) {
-                        ((Link) perso).getArmePossederParLink().add(armeRamasable);
+                    if (personnage instanceof Link) {
+                        ((Link) personnage).ramasserArme(armeRamasable);
                     }
-                }
             }
+
 
             Personnage persoMort = estMort();
 
@@ -107,7 +103,6 @@
                     return item;
                 }
             }
-//            System.out.println("Pas d'item à côté");
             return null;
         }
 
@@ -118,7 +113,6 @@
                     return arme;
                 }
             }
-//            System.out.println("Pas d'armes a coté ");
             return null;
         }
 
@@ -128,7 +122,6 @@
                     return perso;
                 }
             }
-//            System.out.println("Pas de mort !");
             return null;
         }
     }

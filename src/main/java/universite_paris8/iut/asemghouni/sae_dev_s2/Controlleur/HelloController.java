@@ -5,7 +5,6 @@ import javafx.animation.Timeline;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -19,16 +18,13 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Epée;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Hache;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Map;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Bombe;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.SoldatEnnemie;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -64,6 +60,9 @@ public class HelloController implements Initializable {
     @FXML
     private HBox inventaireBox;
 
+    private ObservateurItem observateurItem;
+    private ObservateurArme observateurArme;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         affichageTilePane.setPrefTileHeight(38);
@@ -81,12 +80,6 @@ public class HelloController implements Initializable {
         // Initialiser le clavier
         Clavier clavier = new Clavier(personnage, affichagePane, affichageTilePane, map, item);
 
-        ListChangeListener<Item> listen = new ObservateurItem(affichagePane);
-        envi.getListeItemEnvi().addListener(listen);
-
-        ListChangeListener<Arme> listen2 = new ObservateurArme(affichagePane);
-        envi.getListeArmesEnvi().addListener(listen2);
-
         // Initialiser les vues
         this.vueMap = new VueMap(affichageTilePane, map);
         this.vueLink = new VueLink(affichagePane, personnage, affichageTilePane, clavier);
@@ -98,12 +91,21 @@ public class HelloController implements Initializable {
         affichagePane.requestFocus();
         affichagePane.addEventHandler(KeyEvent.KEY_PRESSED, clavier);
 
+        // Observateur des items
+        observateurItem = new ObservateurItem(affichagePane);
+        envi.getListeItemEnvi().addListener(observateurItem);
+
+        // Observateur des armes
+        observateurArme = new ObservateurArme(affichagePane);
+        envi.getListeArmesEnvi().addListener(observateurArme);
+
         // Observation de la vie de link
         personnage.pointVieProperty().addListener((obs,old,newValue) -> {
             if (newValue.intValue() <= 0) {
                 vueLink.supprimerVue(affichagePane);
             }
         });
+
 
         // Démarrer l'animation
         animation();
@@ -133,12 +135,6 @@ public class HelloController implements Initializable {
                         if (temps % 500 == 0) {
                             for (int i = 0; i < 1; i++) {
                                 envi.getListeItemEnvi().add(new Potion("popo", envi));
-                            }
-                        }
-
-                        if (temps % 800 == 0) {
-                            for (int i = 0; i < 1; i++) {
-                                envi.getListeItemEnvi().add(new Bombe("Bombe", envi));
                             }
                         }
 

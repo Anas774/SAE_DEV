@@ -26,27 +26,4 @@
          <HBox fx:id="vieBox" alignment="TOP_CENTER" prefHeight="20.0" prefWidth="20.0" />
       </HBox>
    </top>
-   <bottom>
-      <HBox fx:id="inventaireBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
-         <Pane fx:id="case1" prefHeight="80.0" prefWidth="80.0" style="-fx-border-color: black;">
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-            <HBox.margin>
-               <Insets bottom="5.0" />
-            </HBox.margin></Pane>
-         <Pane fx:id="case2" prefHeight="80.0" prefWidth="80.0" style="-fx-border-color: black;">
-            <HBox.margin>
-               <Insets bottom="5.0" />
-            </HBox.margin></Pane>
-         <Pane fx:id="case3" prefHeight="80.0" prefWidth="80.0" style="-fx-border-color: black;">
-            <HBox.margin>
-               <Insets bottom="5.0" />
-            </HBox.margin></Pane>
-         <Pane fx:id="case4" prefHeight="80.0" prefWidth="80.0" style="-fx-border-color: black;">
-            <HBox.margin>
-               <Insets bottom="5.0" />
-            </HBox.margin></Pane>
-      </HBox>
-   </bottom>
 </BorderPane>
