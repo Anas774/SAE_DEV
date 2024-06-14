@@ -2,7 +2,7 @@ package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme;
 
 public class BatonMagique extends Arme {
     public BatonMagique() {
-        super("BatonMagique", 4);
+        super("BatonMagique", 4);               // 2 coeurs
     }
 
     @Override

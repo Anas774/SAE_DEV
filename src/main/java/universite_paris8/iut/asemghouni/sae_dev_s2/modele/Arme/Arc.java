@@ -4,7 +4,7 @@ public class Arc extends Arme {
 
     public Arc() {
         super("Arc", 1);
-    }
+    }               // demi-coeurs
 
     @Override
     public String toString() {

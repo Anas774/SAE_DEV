@@ -145,7 +145,7 @@ public class HelloController implements Initializable {
                     if (temps == 2) {
                         envi.getListeArmesEnvi().add(new Epée());
                     }
-                    else if (temps % 5 == 0) {
+                    else if (temps % 10 == 0) {
                         soldatEnnemi.suivreJoueur2();
 
                         if (temps % 500 == 0) {
