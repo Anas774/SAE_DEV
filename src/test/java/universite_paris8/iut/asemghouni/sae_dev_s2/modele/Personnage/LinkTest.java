@@ -1,9 +1,8 @@
-package universite_paris8.iut.asemghouni.sae_dev_s2;
+package universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage;
 
 import javafx.application.Platform;
-//import javafx.embed.swing.JFXPanel;
 import org.junit.jupiter.api.BeforeEach;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.MasterSword;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.PotionInvincible;
@@ -12,19 +11,12 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/*
-    J'ai fais les test mais je n'ai pas réussi a lancé car je n'arrivais au cause du import en commentaire en haut qui ne marche pas, j'ai cherchais mais je n'ai pas trouvé
- */
-
-class ZeldaTest {
+class LinkTest {
     private Link link;
     private Environnement envi;
 
     @BeforeEach
     void setUp() {
-//        new JFXPanel(); // Initialiser le toolkit JavaFX
-        Platform.runLater(() -> {
-        });
         envi = new Environnement();
         link = new Link("Link", 20, new MasterSword(), envi, null);
     }
