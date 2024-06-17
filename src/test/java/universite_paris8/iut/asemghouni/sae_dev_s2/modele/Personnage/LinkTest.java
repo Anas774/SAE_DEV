@@ -15,6 +15,10 @@ class LinkTest {
     private Link link;
     private Environnement envi;
 
+     /*
+        Les tests bug a cause d'un souci d'exportation de librairies et je n'ai pas réussi a résoudre le problème
+     */
+
     @BeforeEach
     void setUp() {
         envi = new Environnement();
