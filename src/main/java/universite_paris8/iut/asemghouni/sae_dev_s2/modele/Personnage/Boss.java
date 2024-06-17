@@ -9,12 +9,12 @@ public class Boss extends Personnage {
     private Personnage cible;
 
     public Boss(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
-        super("Bogo", 110, new Epée(),envi);
+        super("Bogo", 160, new Epée(),envi);
         this.cible = cible;
-        faireApparaitreItemAléatoirement();
+        faireApparaitrePersoAleatoirement();
     }
 
-    public void suivreJoueur2Boss() {
+    public void suivreJoueurBoss() {
         if (this.estVivant() && detecterEnnemi(cible)) {
             seDeplacerVersCibleBoss();
             attaquerCibleSiAPorteeBoss();

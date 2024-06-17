@@ -26,7 +26,7 @@ public class Item {
         this.hauteur = 10;
         compteur++;
         this.envi = envi;
-        faireApparaitreItemAléatoirement();
+        faireApparaitreItemAleatoirement();
     }
 
     public void setY(int y) {
@@ -77,22 +77,25 @@ public class Item {
         return envi;
     }
 
-    private void faireApparaitreItemAléatoirement() {
+    public void faireApparaitreItemAleatoirement() {
 
-        int x,y;
-        boolean positionValide = false;
+        int x, y;
+        boolean positionValide;
+
+        int largeurMap = this.getEnvi().getMap().getLargeur();
+        int hauteurMap = this.getEnvi().getMap().getHauteur();
+        int tailleTuile = 38;
 
         do {
-            x = (int) (Math.random() * this.getEnvi().getMap().getHauteur() * 38);
-            y = (int) (Math.random() * this.getEnvi().getMap().getLargeur() * 38);
+            x = (int) (Math.random() * largeurMap) * tailleTuile;
+            y = (int) (Math.random() * hauteurMap) * tailleTuile;
 
-            positionValide = !envi.getMap().estMur(x,y) && !envi.getMap().estLimite(x,y);
+            positionValide = !this.getEnvi().getMap().estMur(x, y) && !this.getEnvi().getMap().estLimite(x, y);
 
         } while (!positionValide);
 
         this.setX(x);
         this.setY(y);
-
     }
 
 }

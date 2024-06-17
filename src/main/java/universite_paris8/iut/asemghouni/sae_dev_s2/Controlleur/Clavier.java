@@ -42,48 +42,52 @@ public class Clavier implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
 
-        System.out.println("Touche pressée : " + event.getCode() + "\n");
-
-        int PosTuileX = personnage.getX() / 38;
-        int PosTuileY = personnage.getY() / 38;
-
-        int newX = personnage.getX();
-        int newY = personnage.getY();
-
         if (personnage.estVivant()) {
 
-            switch (event.getCode()) {
+            System.out.println("Touche pressée : " + event.getCode() + "\n");
 
-                case Z -> {
-                    newY -= personnage.getVitesse();
-                    vueLink.setdirection("up");
-                }
-                case S -> {
-                    newY += personnage.getVitesse();
-                    vueLink.setdirection("down");
-                }
-                case Q -> {
-                    newX -= personnage.getVitesse();
-                    vueLink.setdirection("left");
-                }
-                case D -> {
-                    newX += personnage.getVitesse();
-                    vueLink.setdirection("right");
+            int PosTuileX = personnage.getX() / 38;
+            int PosTuileY = personnage.getY() / 38;
+
+            int newX = personnage.getX();
+            int newY = personnage.getY();
+
+            if (personnage.estVivant()) {
+
+                switch (event.getCode()) {
+
+                    case Z -> {
+                        newY -= personnage.getVitesse();
+                        vueLink.setdirection("up");
+                    }
+                    case S -> {
+                        newY += personnage.getVitesse();
+                        vueLink.setdirection("down");
+                    }
+                    case Q -> {
+                        newX -= personnage.getVitesse();
+                        vueLink.setdirection("left");
+                    }
+                    case D -> {
+                        newX += personnage.getVitesse();
+                        vueLink.setdirection("right");
+                    }
                 }
 
+                if (!personnage.detectCollision(newX, newY)) {
+                    personnage.setX(newX);
+                    personnage.setY(newY);
+
+                } else {
+                    System.out.println("\n" + "Limite OU Mur !!!" + "\n");
+                }
             }
 
-            if (!personnage.detectCollision(newX, newY)) {
-                personnage.setX(newX);
-                personnage.setY(newY);
+            System.out.println("Position du perso en pixels : " + personnage.getX() + " px" + " | " + personnage.getY() + " px");
+            System.out.println("Position du perso en case X : " + PosTuileX + "    | case Y : " + PosTuileY + "\n");
 
-            } else {
-                System.out.println("\n" + "Limite OU Mur !!!" + "\n");
-            }
         }
 
-        System.out.println("Position du perso en pixels : " + personnage.getX() + " px" + " | " + personnage.getY() + " px");
-        System.out.println("Position du perso en case X : " + PosTuileX + "    | case Y : " + PosTuileY + "\n");
-
     }
+
 }

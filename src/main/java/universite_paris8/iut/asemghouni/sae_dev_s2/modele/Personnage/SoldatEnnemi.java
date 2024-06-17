@@ -11,17 +11,17 @@ public class SoldatEnnemi extends Personnage {
     public SoldatEnnemi(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
         super("SoldatEnnemie", 100, arme, envi);
         this.cible = cible;
-        this.faireApparaitreItemAléatoirement();
+        this.faireApparaitrePersoAleatoirement();
     }
 
-    public void suivreJoueur2() {
+    public void suivreJoueurSoldatEnnemi() {
         if (this.estVivant() && detecterEnnemi(cible)) {
-            seDeplacerVersCible();
+            seDeplacerVersCibleSoldatEnnemi();
             attaquerCibleSiAPortee();
         }
     }
 
-    public void seDeplacerVersCible() {
+    public void seDeplacerVersCibleSoldatEnnemi() {
         double joueurX = cible.getX();
         double joueurY = cible.getY();
         double ennemiX = this.getX();

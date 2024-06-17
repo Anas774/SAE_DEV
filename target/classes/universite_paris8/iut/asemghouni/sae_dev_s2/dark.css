@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Triforce';
+    src: url('universite_paris8/iut/asemghouni/saedev/Police/Triforce.ttf');
+}
+
+
+.Label {
+    -fx-font-family: "Triforce" ;
+}
+
+.button{
+    -fx-font-family: "Triforce";
+}

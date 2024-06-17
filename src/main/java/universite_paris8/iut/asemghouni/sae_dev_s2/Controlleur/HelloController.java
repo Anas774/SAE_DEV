@@ -1,8 +1,6 @@
 package universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur;
 
 import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
@@ -10,14 +8,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
+import javafx.util.Duration;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.Observateur.ObservateurArme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.Observateur.ObservateurItem;
 import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.*;
-import javafx.util.Duration;
+import javafx.animation.Timeline;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.*;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Map;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
-import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Environnement.Environnement;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.PotionInvincible;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.*;
 
@@ -26,145 +26,207 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
 
-    // Attribut Personnage
+    // Attribut concernant Link
     private Link link;
-    private SoldatEnnemi soldatEnnemi;
-    private Boss boss;
-    private Boss2 boss2;
-    private Ganon ganon;
-
-    // Attribut VuePersonnage
     private VueLink vueLink;
-    private VueEnnemi vueSoldatEnnemi;
-    private VueBoss vueBoss;
-    private VueBoss2 vueBoss2;
-    private VueGanon vueGanon;
 
-    // Attribut concernant gameloop
+    // Attribut Item
+    private Item item;
+
+    // Attribut concernant Gameloop
     private Timeline gameLoop;
     private int temps;
 
-    // Attribut Environnement et Map
+    // Attribut concernant l'envi et la map
     private Map map;
     private Environnement envi;
-
-    // Attribut concernant VueMap
     private VueMap vueMap;
 
-    // Attribut Pane et tilepane
+    // Attribut concernant l'affichage
     @FXML
     private Pane affichagePane;
     @FXML
     private TilePane affichageTilePane;
 
-    // Attribut Item
-    private Item item;
-
-    // Attribut concernant la vie
+    // Attribut concernant la vie de link
     @FXML
     private HBox vieBox;
     private VueVieLink vueVieLink;
-    @FXML
-    private HBox inventaireBox;
 
-    // Attribut concernant les observateur
+    // Attribut Observateur
     private ObservateurItem observateurItem;
     private ObservateurArme observateurArme;
 
+    // Compteur
+    private int ennemisTues = 0;
+    private int phaseBoss = 0;
+
+    // Attribut boolean
+    private boolean BossEnVie = false;
+    private boolean Boss2EnVie = false;
+    private boolean GanonEnVie = false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         affichageTilePane.setPrefTileHeight(38);
         affichageTilePane.setPrefTileWidth(38);
 
+        // Initialise l'environnement et la map
         this.envi = new Environnement();
         this.map = new Map();
 
-        // Initialiser le personnage principal
+        // Initialise Link
         this.link = new Link("Link", 20, new MasterSword(), envi, link);
 
-        // Initialiser le soldat ennemi
-        this.soldatEnnemi = new SoldatEnnemi("Ennemi", 10, new Hache(), envi, link);
-
-        // Initialiser le boss
-        this.boss = new Boss("Bogo",110, new Epée(),envi,link);
-
-        // Initialiser le boss2
-        this.boss2 = new Boss2("Kotake",115, new Arc(), envi, link);
-
-        //Initialiser ganon
-        this.ganon = new Ganon("Ganon",120, new EpeeDuDieuBestial(),envi, link);
-
-        // Initialiser le clavier
+        // Initialise le clavier
         Clavier clavier = new Clavier(link, affichagePane, affichageTilePane, map, item);
 
-        // Initialiser les vues
+        // Initialise les vues
         this.vueMap = new VueMap(affichageTilePane, map);
         this.vueLink = new VueLink(affichagePane, link, affichageTilePane, clavier);
-        this.vueSoldatEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemi, link);
         this.vueVieLink = new VueVieLink(vieBox, link.pointVieProperty());
-        this.vueBoss = new VueBoss(affichagePane,affichageTilePane,boss,link);
-        this.vueBoss2 = new VueBoss2(affichagePane, affichageTilePane, boss2, link);
-        this.vueGanon = new VueGanon(affichagePane,affichageTilePane,ganon,link);
 
         clavier.setVueLink(vueLink);
 
         affichagePane.requestFocus();
         affichagePane.addEventHandler(KeyEvent.KEY_PRESSED, clavier);
 
-        // Observateur des items
+        // Observateur Item
         observateurItem = new ObservateurItem(affichagePane);
         envi.getListeItemEnvi().addListener(observateurItem);
 
-        // Observateur des armes
+        // Observateur Arme
         observateurArme = new ObservateurArme(affichagePane);
         envi.getListeArmesEnvi().addListener(observateurArme);
 
-        // Observation de la vie de link
+        // Pour observer la vie de link
         link.pointVieProperty().addListener((obs, old, newValue) -> {
             if (newValue.intValue() <= 0) {
                 vueLink.supprimerVue(affichagePane);
+                System.out.println("Game Over! Link a été vaincu." + "\n");
+                gameLoop.stop();
             }
         });
 
-        // Observation de la vie du soldatEnnemi
-        soldatEnnemi.pointVieProperty().addListener((obs, old, newValue) -> {
-            if (newValue.intValue() <= 0) {
-                vueSoldatEnnemi.supprimerVue(affichagePane);
-            }
-        });
-
-        // Observation de la vie du boss
-        boss.pointVieProperty().addListener((obs, old, newValue) -> {
-            if (newValue.intValue() <= 0) {
-                vueBoss.supprimerVue(affichagePane);
-            }
-        });
-
-        // Observation de la vie du boss2
-        boss2.pointVieProperty().addListener((obs, old, newValue) -> {
-            if (newValue.intValue() <= 0) {
-                vueBoss2.supprimerVue(affichagePane);
-            }
-        });
-
-        // Observation de la vie du ganon
-        ganon.pointVieProperty().addListener((obs, old, newValue) -> {
-            if (newValue.intValue() <= 0) {
-                vueGanon.supprimerVue(affichagePane);
-            }
-        });
-
-        // Démarrer l'animation
         animation();
         gameLoop.play();
-
     }
 
     @FXML
     public void mouseClicked(MouseEvent mouseEvent) {
         affichagePane.requestFocus();
+    }
 
+    private void spawnEnnemi() {
+
+        // Initialise soldatEnnemi
+        SoldatEnnemi soldatEnnemi = new SoldatEnnemi("SoldatEnnemi", 100, new Hache(), envi, link);
+
+        // Initialise VueSoldatEnnemi
+        VueEnnemi vueSoldatEnnemi = new VueEnnemi(affichagePane, affichageTilePane, soldatEnnemi, link);
+
+        envi.ajouterPersonnage(soldatEnnemi);
+
+        // Pour observer la vie du soldatEnnemi
+        soldatEnnemi.pointVieProperty().addListener((obs, old, newValue) -> {
+            if (newValue.intValue() <= 0) {
+                vueSoldatEnnemi.supprimerVue(affichagePane);
+                ennemisTues++;
+                System.out.println("SoldatEnnemi tué !" + "\n" + "Total SoldatEnnemis tués : " + ennemisTues + "\n");
+                verifierPhase();
+            }
+        });
+    }
+
+    private void spawnBoss() {
+        if (!BossEnVie) {
+
+            // Initialise boss
+            Boss boss = new Boss("Bogo", 160, new Epée(), envi, link);
+
+            // Initialise VueBoss
+            VueBoss vueBoss = new VueBoss(affichagePane, affichageTilePane, boss, link);
+
+            envi.ajouterPersonnage(boss);
+
+            BossEnVie = true;
+
+            // Pour observer la vie du boss
+            boss.pointVieProperty().addListener((obs, old, newValue) -> {
+                if (newValue.intValue() <= 0) {
+                    vueBoss.supprimerVue(affichagePane);
+                    phaseBoss++;
+                    BossEnVie = false;
+                    System.out.println("Boss Bogo vaincu. Passage à la phase : " + phaseBoss);
+                    verifierPhase();
+                }
+            });
+        }
+    }
+
+    private void spawnBoss2() {
+        if (!Boss2EnVie) {
+
+            // Initialise boss2
+            Boss2 boss2 = new Boss2("Kotake", 180, new Epée(), envi, link);
+
+            // Initialise VueBoss2
+            VueBoss2 vueBoss2 = new VueBoss2(affichagePane, affichageTilePane, boss2, link);
+
+            envi.ajouterPersonnage(boss2);
+
+            Boss2EnVie = true;
+
+            // Pour observer la vie du boss2
+            boss2.pointVieProperty().addListener((obs, old, newValue) -> {
+                if (newValue.intValue() <= 0) {
+                    vueBoss2.supprimerVue(affichagePane);
+                    phaseBoss++;
+                    Boss2EnVie = false;
+                    System.out.println("Boss Kotake vaincu. Passage à la phase : " + phaseBoss);
+                    verifierPhase();
+                }
+            });
+        }
+    }
+
+    private void spawnGanon() {
+        if (!GanonEnVie) {
+
+            // Initialise ganon
+            Ganon ganon = new Ganon("Ganon", 200, new EpeeDuDieuBestial(), envi, link);
+
+            // Initialise VueGanon
+            VueGanon vueGanon = new VueGanon(affichagePane, affichageTilePane, ganon, link);
+
+            envi.ajouterPersonnage(ganon);
+
+            GanonEnVie = true;
+
+            // Pour observer la vie de ganon
+            ganon.pointVieProperty().addListener((obs, old, newValue) -> {
+                if (newValue.intValue() <= 0) {
+                    vueGanon.supprimerVue(affichagePane);
+                    System.out.println("Link a gagné !" + "\n");
+                    GanonEnVie = false;
+                    gameLoop.stop();
+
+                }
+            });
+        }
+    }
+
+    private void verifierPhase() {
+        if (ennemisTues >= 1) {
+            if (!BossEnVie && phaseBoss == 0) {
+                spawnBoss();
+            } else if (!Boss2EnVie && phaseBoss == 1) {
+                spawnBoss2();
+            } else if (!GanonEnVie && phaseBoss == 2) {
+                spawnGanon();
+            }
+        }
     }
 
     private void animation() {
@@ -178,35 +240,37 @@ public class HelloController implements Initializable {
                         System.out.println("fin");
                         gameLoop.stop();
                     }
-                    if (temps == 2) {
+                    if (temps == 1) {
                         envi.getListeArmesEnvi().add(new MasterSword());
                     }
-                    else if (temps % 10 == 0) {
+                    if (temps % 200 == 0) {
+                        for (int i = 0; i < 1; i++) {
+                            envi.getListeItemEnvi().add(new Potion("popo", envi));
+                        }
+                    }
+                    if (temps % 1500 == 0) {
+                        for (int i = 0; i < 1; i++) {
+                            envi.getListeItemEnvi().add(new PotionInvincible("PotionInvincible", envi));
+                        }
+                    }
+                    if (temps == 1) {
+                        for (int i = 0; i < 1; i++) {
+                            spawnEnnemi();
+                        }
+                    }
+                    if (temps % 13 == 0) {
                         for (Personnage p : envi.getPersonnages()) {
                             if (p instanceof SoldatEnnemi) {
-                                ((SoldatEnnemi) p).suivreJoueur2();
-                            }
-                            if (p instanceof Boss) {
-                                ((Boss) p).suivreJoueur2Boss();
-                            }
-                            if (p instanceof Boss2) {
+                                ((SoldatEnnemi) p).suivreJoueurSoldatEnnemi();
+                            } else if (p instanceof Boss) {
+                                ((Boss) p).suivreJoueurBoss();
+                            } else if (p instanceof Boss2) {
                                 ((Boss2) p).suivreJoueur2Boss2();
-                            }
-                            if (p instanceof Ganon) {
+                            } else if (p instanceof Ganon) {
                                 ((Ganon) p).suivreJoueur2Ganon();
                             }
                         }
-
-                        if (temps % 500 == 0) {
-                            for (int i = 0; i < 1; i++) {
-                                envi.getListeItemEnvi().add(new Potion("popo", envi));
-                            }
-                        }
                     }
-
-                    // Logique de vérification des ennemis tués et d'apparition des boss
-                    verifierEnnemisTuesEtApparitionBoss();
-
                     envi.unTour(link);
                     temps++;
                 })
@@ -214,58 +278,4 @@ public class HelloController implements Initializable {
 
         gameLoop.getKeyFrames().add(keyFrame);
     }
-
-    private int ennemisTues = 0;
-    private int phaseBoss = 0;
-
-    private void verifierEnnemisTuesEtApparitionBoss() {
-        long ennemisRestants = envi.getPersonnages().stream().filter(p -> p instanceof SoldatEnnemi && !p.estVivant()).count();
-
-        if (ennemisRestants >= 5) {
-            ennemisTues += ennemisRestants;
-            if (ennemisTues >= 5) {
-                ennemisTues = 0;
-                phaseBoss++;
-                spawnBoss();
-            }
-        }
-    }
-
-    private void spawnBoss() {
-        switch (phaseBoss) {
-            case 1:
-                boss = new Boss("Bogo", 110, new Epée(), envi, link);
-                vueBoss = new VueBoss(affichagePane, affichageTilePane, boss, link);
-                envi.ajouterPersonnage(boss);
-                boss.pointVieProperty().addListener((obs, old, newValue) -> {
-                    if (newValue.intValue() <= 0) {
-                        vueBoss.supprimerVue(affichagePane);
-                    }
-                });
-                break;
-            case 2:
-                boss2 = new Boss2("Kotake", 115, new Arc(), envi, link);
-                vueBoss2 = new VueBoss2(affichagePane, affichageTilePane, boss2, link);
-                envi.ajouterPersonnage(boss2);
-                boss2.pointVieProperty().addListener((obs, old, newValue) -> {
-                    if (newValue.intValue() <= 0) {
-                        vueBoss2.supprimerVue(affichagePane);
-                    }
-                });
-                break;
-            case 3:
-                ganon = new Ganon("Ganon", 120, new EpeeDuDieuBestial(), envi, link);
-                vueGanon = new VueGanon(affichagePane, affichageTilePane, ganon, link);
-                envi.ajouterPersonnage(ganon);
-                ganon.pointVieProperty().addListener((obs, old, newValue) -> {
-                    if (newValue.intValue() <= 0) {
-                        vueGanon.supprimerVue(affichagePane);
-                        System.out.println("Link a gagné !");
-                        gameLoop.stop();
-                    }
-                });
-                break;
-        }
-    }
-
 }

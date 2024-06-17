@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="667.0" prefWidth="845.0" stylesheets="@dark.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="universite_paris8.iut.asemghouni.sae_dev_s2.Controlleur.ControlleurMenu">
+
+    <ImageView fitHeight="670" fitWidth="1021.0">
+        <Image url="@Menu/lpc_home_cup.gif" />
+    </ImageView>
+
+    <Label alignment="TOP_LEFT" layoutX="324.0" layoutY="182.0" prefHeight="53.0" prefWidth="374.0" styleClass="Label" stylesheets="@dark.css" text="The Legend Of Zelda" textAlignment="CENTER" textFill="WHITE">
+        <font>
+            <Font size="35.0" />
+        </font>
+    </Label>
+
+    <VBox fx:id="contenueBoutons" alignment="CENTER" layoutX="50.0" layoutY="352.0" prefWidth="836.0" spacing="15" stylesheets="@dark.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+        <Button onAction="#gererBoutonJouer" prefHeight="45.0" prefWidth="500.0" text="JOUER">
+            <font>
+                <Font size="25.0" />
+            </font></Button>
+        <Button onAction="#gererBoutonRegles" prefHeight="45.0" prefWidth="500.0" text="HISTOIRE">
+            <font>
+                <Font size="25.0" />
+            </font></Button>
+        <Button onAction="#gererBoutonCommandes" prefHeight="45.0" prefWidth="500.0" text="COMMANDES">
+            <font>
+                <Font size="25.0" />
+            </font></Button>
+        <Button onAction="#gererBoutonCredits" prefHeight="45.0" prefWidth="500.0" text="CREDITS">
+            <font>
+                <Font size="25.0" />
+            </font></Button>
+    </VBox>
+
+    <Button fx:id="boutonQuitter" minHeight="50" minWidth="200" onAction="#gererBoutonQuitter" prefHeight="58.0" prefWidth="200.0" text="QUITTER" textAlignment="CENTER" AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="50">
+        <font>
+            <Font size="30.0" />
+        </font>
+    </Button>
+
+    <VBox fx:id="contenuRegles" alignment="CENTER" layoutX="50.0" layoutY="352.0" spacing="15" styleClass="ContenuVBox" visible="false" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+        <Label styleClass="Label" text="Scénario">
+            <font>
+                <Font size="43.0"/>
+            </font>
+        </Label>
+        <TextFlow textAlignment="CENTER" styleClass="Label">
+            <Text text="Vous êtes Link, chevalier d'Hyrule," style="-fx-font-size: 25px;"/>
+            <Text text=" vous devez combattre vos ennemis" style="-fx-font-size: 25px;"/>
+            <Text text=" et aller au bout de cette quête pour" style="-fx-font-size: 25px;"/>
+            <Text text=" pouvoir libérer le monde d'Hyrule" style="-fx-font-size: 25px;"/>
+            <Text text=" de cette malédiction envoyée par" style="-fx-font-size: 25px;"/>
+            <Text text=" le boss Ganon." style="-fx-font-size: 25px;"/>
+        </TextFlow>
+        <Button onAction="#retourAuMenu" prefHeight="45.0" prefWidth="250.0" text="Retour" >
+            <font>
+                <Font size="25.0"/>
+            </font>
+        </Button>
+    </VBox>
+
+    <VBox fx:id="contenuCredits" alignment="CENTER" layoutX="50.0" layoutY="352.0" spacing="15" styleClass="ContenuVBox" visible="false" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+        <Label styleClass="Label" text="Crédits">
+            <font>
+                <Font size="43.0"/>
+            </font>
+        </Label>
+        <TextFlow textAlignment="CENTER" styleClass="Label">
+            <Text text=" Ce jeu a été créé par 4 étudiants de l'IUT de Montreuil dans le cadre d'une SAE." style="-fx-font-size: 25px;"/>
+            <Text text=" Leurs noms sont:" style="-fx-font-size: 25px;"/>
+            <Text text=" Anas Semghouni," style="-fx-font-size: 25px;"/>
+            <Text text=" Sorana Ndiaye," style="-fx-font-size: 25px;"/>
+            <Text text=" Abdel Khenenou," style="-fx-font-size: 25px;"/>
+            <Text text=" et Gabriel Bertin." style="-fx-font-size: 25px;"/>
+        </TextFlow>
+        <Button onAction="#retourAuMenu" prefHeight="45.0" prefWidth="250.0" text="Retour">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Button>
+    </VBox>
+
+    <VBox fx:id="contenuCommandes" alignment="CENTER" layoutX="50.0" layoutY="352.0" spacing="15" styleClass="ContenuVBox" visible="false" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+        <Label styleClass="Label" text="Règles du jeu">
+            <font>
+                <Font size="43.0"/>
+            </font>
+        </Label>
+        <TextFlow textAlignment="CENTER" styleClass="Label">
+            <Text text=" Z : pour avancer," style="-fx-font-size: 25px;"/>
+            <Text text=" S : pour reculer," style="-fx-font-size: 25px;"/>
+            <Text text=" Q : pour aller à gauche," style="-fx-font-size: 25px;"/>
+            <Text text=" D : pour aller à droite," style="-fx-font-size: 25px;"/>
+            <Text text=" Clic droit souris sur l'ennemi : pour attaquer " style="-fx-font-size: 25px;"/>
+        </TextFlow>
+        <Button onAction="#retourAuMenu" prefHeight="45.0" prefWidth="250.0" text="Retour" >
+            <font>
+                <Font size="25.0"/>
+            </font>
+        </Button>
+    </VBox>
+
+
+    <VBox fx:id="contenuQuitter" alignment="CENTER" layoutX="50.0" layoutY="352.0" spacing="15" styleClass="ContenuVBox" visible="false" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+        <Label styleClass="Label" text="Voulez-vous vraiment quitter ?">
+            <font>
+                <Font size="43.0"/>
+            </font>
+        </Label>
+        <Button onAction="#confirmerQuitter" prefHeight="45.0" prefWidth="250.0" text="Oui">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Button>
+        <Button onAction="#annulerQuitter" prefHeight="45.0" prefWidth="250.0" text="Non">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Button>
+    </VBox>
+    <Label id="titre" layoutX="305.0" layoutY="235.0" styleClass="Label" text="La Malediction d'Hyrule" textFill="WHITE">
+        <font>
+            <Font size="43.0" />
+        </font>
+    </Label>
+</AnchorPane>

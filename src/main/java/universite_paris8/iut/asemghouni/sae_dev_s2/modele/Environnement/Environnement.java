@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.Arme;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.PotionInvincible;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Link;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Personnage.Personnage;
 
@@ -67,31 +68,41 @@ public class Environnement {
 
         Item itemRamasable = estRamasable(personnage);
 
-            if (itemRamasable != null) {
-                if (itemRamasable instanceof Potion) {
+        if (itemRamasable != null) {
+            if (itemRamasable instanceof Potion) {
+                if (personnage.getPointVie().get() < personnage.getVieMax()) {
                     System.out.println("Item ramassé : " + itemRamasable.getNom() + "\n");
                     listeItemEnvi.remove(itemRamasable);
-                    ((Link) personnage).ramasserItem(itemRamasable);
+                    ((Link) personnage).getItems().add(itemRamasable);
+                    ((Link) personnage).effetPotion();
+                } else {
+                    System.out.println("Link a déjà toute sa vie et ne peut pas ramasser de potion de vie.");
                 }
+            } else if (itemRamasable instanceof PotionInvincible) {
+                System.out.println("Item ramassé : " + itemRamasable.getNom() + "\n");
+                listeItemEnvi.remove(itemRamasable);
+                ((PotionInvincible) itemRamasable).utiliser((Link) personnage);
             }
 
-            Arme armeRamasable = estRamasableArme(personnage);
+        }
 
-            if (armeRamasable != null) {
-                System.out.println("Armes ramassé : " + armeRamasable.getNom() + "\n");
-                listeArmesEnvi.remove(armeRamasable);
-                    if (personnage instanceof Link) {
-                        ((Link) personnage).ramasserArme(armeRamasable);
-                    }
+        Arme armeRamasable = estRamasableArme(personnage);
+
+        if (armeRamasable != null) {
+            System.out.println("Armes ramassé : " + armeRamasable.getNom() + "\n");
+            listeArmesEnvi.remove(armeRamasable);
+            if (personnage instanceof Link) {
+                ((Link) personnage).ramasserArme(armeRamasable);
             }
+        }
 
 
-            Personnage persoMort = estMort();
+        Personnage persoMort = estMort();
 
-            if (persoMort != null) {
-                System.out.println("Le personnage est mort : " + persoMort.getNom());
-                listePersonnagesEnvi.remove(persoMort);
-            }
+        if (persoMort != null) {
+            System.out.println("Le personnage est mort : " + persoMort.getNom());
+            listePersonnagesEnvi.remove(persoMort);
+        }
 
     }
 

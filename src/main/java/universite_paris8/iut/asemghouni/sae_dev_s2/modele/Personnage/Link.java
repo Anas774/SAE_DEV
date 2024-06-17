@@ -9,65 +9,26 @@ import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Arme.MasterSword;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class Link extends Personnage {
     private Personnage cible;
     private ObservableList<Item> itemPossederParLink;
     private ObservableList<Arme> armePossederParLink;
     private boolean aDesArmes = false;
-    private boolean aDesItems = false;
+    private boolean invincible = false;
 
     public Link(String nom, int PointVie, Arme arme,  Environnement envi, Personnage cible) {
         super("Link", 20, new MasterSword(), envi);                                 // 10 coeurs
         this.cible = cible;
         this.itemPossederParLink = FXCollections.observableArrayList();
         this.armePossederParLink = FXCollections.observableArrayList();
-
     }
     public ObservableList<Item> getItems() {
         return itemPossederParLink;
     }
-
-    public void ramasserItem(Item item) {
-        if (item instanceof Potion) {
-            if (this.getPointVie().get() < this.getVieMax()) {
-                ((Potion) item).utiliser(this);
-                System.out.println("Potion utilisée et retiré de l'inventaire." + "\n");
-            } else {
-                System.out.println("Link a déjà toute sa vie. Il ne peut pas consommer la potion." + "\n");
-            }
-        } else {
-            itemPossederParLink.add(item);
-            aDesItems = true;
-            afficherItems();
-        }
-    }
-
-    public void retirerItem(Item item) {
-        itemPossederParLink.remove(item);
-        if (itemPossederParLink.isEmpty()) {
-            aDesItems = false;
-        }
-        afficherItems();
-    }
-
-    public void afficherItems() {
-        System.out.println("Items dans l'inventaire :");
-        for (Item item : itemPossederParLink) {
-            System.out.println("- " + item.getNom());
-        }
-    }
-
-
-    public boolean possedeItem(Item item) {
-        for (Item i : itemPossederParLink) {
-            if (i.getNom().equals(i.getNom())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
 
     public boolean possedeArme(Arme arme) {
         for (Arme a : armePossederParLink) {
@@ -86,8 +47,6 @@ public class Link extends Personnage {
         }
         return false;
     }
-
-
     public void ramasserArme(Arme arme) {
         if (!possedeArme(arme)) {
             armePossederParLink.add(arme);
@@ -116,21 +75,11 @@ public class Link extends Personnage {
     public void infligerDegats(Personnage cible, int degats) {
         if (possedeEpee() && VerifpeutAttaquerCorpsACorps(cible)) {
             cible.recevoirDegats(degats);
-            System.out.println("Link a infligé " + degats + " points de dégâts.");
+            System.out.println("Link a infligé " + degats + " points de dégâts." + "\n");
         } else {
-            System.out.println("Link doit ramasser une épée avant de pouvoir infliger des dégâts.");
+            System.out.println("Link doit ramasser une épée avant de pouvoir infliger des dégâts." + "\n");
         }
     }
-
-//    private boolean VerifpeutAttaquerCorpsACorpsEnnemie(Personnage cible) {
-//        if (cible != null) {
-//            if ((this.getY() - 30 <= cible.getY() && cible.getY() <= this.getY() + 30) &&
-//                    (this.getX() - 30 <= cible.getX() && cible.getX() <= this.getX() + 30)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 
     public void recupererVie(int points) {
 
@@ -142,6 +91,46 @@ public class Link extends Personnage {
             pointVieActuelle = 20;
         }
         this.getPointVie().set(pointVieActuelle);
+    }
+
+    public void effetPotion() {
+        if (this.getPointVie().get() < this.getVieMax()) {
+            this.recupererVie(4);
+            System.out.println("Link utilise une potion de vie et récupère 2 points de vie.");
+        } else {
+            System.out.println("Link a déjà toute sa vie.");
+        }
+    }
+
+    public void effetPotionInvincible() {
+        this.invincible = true;
+        System.out.println("Link utilise une potion d'invincibilité et ne peut pas recevoir de dégâts pendant 15 secondes." + "\n");
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                invincible = false;
+                System.out.println("L'effet de la potion d'invincibilité s'est terminé. Link peut à nouveau recevoir des dégâts." + "\n");
+            }
+        }, 15000);
+    }
+
+    public boolean estInvincible() {
+        return invincible;
+    }
+
+    public void setInvincible(boolean invincible) {
+        this.invincible = invincible;
+    }
+
+    @Override
+    public void recevoirDegats(int degats) {
+        if (!invincible) {
+            super.recevoirDegats(degats);
+        } else {
+            System.out.println("Link est invincible et ne reçoit pas de dégâts." + "\n");
+        }
     }
 }
 

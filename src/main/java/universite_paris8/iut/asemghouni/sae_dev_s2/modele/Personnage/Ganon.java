@@ -9,9 +9,9 @@ public class Ganon extends Personnage {
     private Personnage cible;
 
     public Ganon(String nom, int PointVie, Arme arme, Environnement envi, Personnage cible) {
-        super("Ganon", 120, new EpeeDuDieuBestial(), envi);
+        super("Ganon", 200, new EpeeDuDieuBestial(), envi);
         this.cible = cible;
-        faireApparaitreItemAléatoirement();
+        faireApparaitrePersoAleatoirement();
     }
 
     public void suivreJoueur2Ganon() {

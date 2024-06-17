@@ -5,6 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Item;
 import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.Potion;
+import universite_paris8.iut.asemghouni.sae_dev_s2.modele.Item.PotionInvincible;
 //import universite_paris8.iut.asemghouni.sae_dev_s2.Vue.VueItem;
 
 
@@ -29,7 +30,10 @@ public class ObservateurItem implements ListChangeListener<Item> {
 
                 for (Item item : change.getAddedSubList()) {
                     if (item instanceof Potion) {
-                        creeItemPotion(affichage, item);
+                        creeItemPotionVie(affichage, item);
+                    }
+                    if (item instanceof PotionInvincible) {
+                        creeItemPotionInvincible(affichage,item);
                     }
                 }
             } else if (change.wasRemoved()) {
@@ -40,7 +44,7 @@ public class ObservateurItem implements ListChangeListener<Item> {
         }
     }
 
-    private void creeItemPotion(Pane affichagePane, Item item) {
+    private void creeItemPotionVie(Pane affichagePane, Item item) {
         Image item1 = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/image/potion_bleu.png").toString());
         ImageView itemImageview = new ImageView(item1);
         itemImageview.setFitWidth(15);
@@ -49,6 +53,17 @@ public class ObservateurItem implements ListChangeListener<Item> {
         itemImageview.translateXProperty().bind(item.getXProperty());
         itemImageview.translateYProperty().bind(item.getYProperty());
         affichagePane.getChildren().add(itemImageview);
+    }
+
+    private void creeItemPotionInvincible(Pane affichagePane, Item item) {
+        Image item2 = new Image(getClass().getResource("/universite_paris8/iut/asemghouni/sae_dev_s2/image/PotionInvincible.png").toString());
+        ImageView item2Imageview = new ImageView(item2);
+        item2Imageview.setFitWidth(18);
+        item2Imageview.setFitHeight(18);
+        item2Imageview.setId(item.getId());
+        item2Imageview.translateXProperty().bind(item.getXProperty());
+        item2Imageview.translateYProperty().bind(item.getYProperty());
+        affichagePane.getChildren().add(item2Imageview);
     }
 
 }
