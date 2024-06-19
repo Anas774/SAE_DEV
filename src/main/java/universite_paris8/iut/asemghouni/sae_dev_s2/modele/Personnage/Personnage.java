@@ -27,7 +27,7 @@ public class Personnage {
         this.nom = nom;
         this.pointVie = new SimpleIntegerProperty(PointVie);
         this.arme = arme;
-        this.x = new SimpleIntegerProperty(0);
+        this.x = new SimpleIntegerProperty(288);
         this.y = new SimpleIntegerProperty(0);
         this.id = "#" + compteur;
         this.vitesse = 8;

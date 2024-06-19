@@ -218,7 +218,7 @@ public class HelloController implements Initializable {
     }
 
     private void verifierPhase() {
-        if (ennemisTues >= 1) {
+        if (ennemisTues >= 5) {
             if (!BossEnVie && phaseBoss == 0) {
                 spawnBoss();
             } else if (!Boss2EnVie && phaseBoss == 1) {
@@ -254,7 +254,7 @@ public class HelloController implements Initializable {
                         }
                     }
                     if (temps == 1) {
-                        for (int i = 0; i < 1; i++) {
+                        for (int i = 0; i < 5; i++) {
                             spawnEnnemi();
                         }
                     }

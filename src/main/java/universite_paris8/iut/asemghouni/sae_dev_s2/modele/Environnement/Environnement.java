@@ -116,7 +116,7 @@ public class Environnement {
         return null;
     }
 
-    public Arme estRamasableArme (Personnage personnage){
+    public Arme estRamasableArme(Personnage personnage){
         for (Arme arme : listeArmesEnvi) {
             if ((personnage.getY() - 20 <= arme.getY() && arme.getY() <= personnage.getY() + 20) &&
                     (personnage.getX() - 20 <= arme.getX() && arme.getX() <= personnage.getX() + 20)) {
@@ -126,7 +126,7 @@ public class Environnement {
         return null;
     }
 
-    public Personnage estMort () {
+    public Personnage estMort() {
         for (Personnage perso : listePersonnagesEnvi) {
             if (!perso.estVivant()) {
                 return perso;
